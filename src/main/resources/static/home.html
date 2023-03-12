@@ -1,104 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
         <link rel="stylesheet" href="css/home.css" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="prueba.js"></script>
+    </head>
 
-    <body class="p-3 m-0 border-0 bd-example">
-        <header> 
-            <nav>
-                <ul>
+    <header> 
+        <nav>
+            <ul>
 
-                    <img src="images/1.png" alt="Logo" class="logo">
+                <img src="images/1.png" alt="Logo" class="logo">
 
-                    <li class="navOpcion">
-                        <a href="home.html" class="navLink menuLink">Home</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="VentaMotos.html" class="navLink menuLink">Venta de Motos</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="review.html" class="navLink menuLink">Review</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="login.html" class="navLink menuLink">Login</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <br />
-       
+                <li class="navOpcion">
+                    <a href="home.html" class="navLink menuLink">Home</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="review.html" class="navLink menuLink">Review</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="login.html" class="navLink menuLink">Login</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1800">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <a href="VentadeCarros.html">
-                    <img src="images/ventacarros.jpg" class="d-block w-10" alt="..." />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>VENTA DE AUTOS</h5>
-
+    <body>
+        <div class="contenedor">
+            <div class="item1"></div>
+            <div class="item2"></div>
+            <div class="item3"></div>
+            <div class="item4"></div>
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/1.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <a href="VentadeCarros.html"><h3 id="venta-autos">Venta de autos</h3></a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <a href="VentadeMotos.html"><h3 id="venta-motos">Venta de motos</h3></a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/3.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <a href="review.html"><h3 id="review">Review</h3></a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/4.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <a href="comentarios.html"><h3 id="comentarios">Comentarios</h3></a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/5.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <a href="NoticiasNuevas.html"><h3 id="noticias">Nuevas noticias</h3></a>
+                        </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                   <a href="VentadeMotos.html">
-                    <img src="images/motos.jpeg" class="d-block w-20" alt="..." />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>VENTA DE MOTOS</h5>
-
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <a href="review.html">
-                    <img src="images/comentarios.jpg" class="d-block w-30" alt="..." />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>REVIEW</h5>
-
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <a href="comentarios.html">
-                    <img src="images/Nuevasnoticias.jpeg" class="d-block w-40" alt="..." />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>COMENTARIOS</h5>
-
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <a href="NoticiasNuevas.html">
-                    <img src="images/review.jpg" class="d-block w-50" alt="..." />
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>NUEVAS NOTICIAS</h5>
-
-                    </div>
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
             </div>
         </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+        <script>
+            $('#carouselExampleCaptions').on('slide.bs.carousel', function () {
+                $(this).find('.active').removeClass('active');
+            });
+        </script>
+
     </body>
-</head>
 </html>
