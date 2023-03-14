@@ -1,46 +1,91 @@
 body {
-  background-image: url(../images/fondo.jpg); 
-  background-size: auto;
- }
+    background-image: url(../images/fondo.jpg);
+    background-size: auto;
+}
 
 
 nav {
-  background-color: #333;
-  height: 70px;
+    background-color: #333;
+    height: 70px;
 }
 
 nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
- justify-content: left;
-  align-items: center;
-  height: 100%;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
 }
 
 nav li {
-  margin: 0 50px;
+    margin: 14px;
 }
 
 nav a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
 nav a:hover {
-  color: #00b4db;
+    color: #00b4db;
 }
 
 .logo {
-  height: 70px; 
-  margin-right: 200px; 
+    height: 70px;
+}
  
- }
+
+/* Estilos para el título de las noticias */
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0 0 1em 0;
+}
+
+/* Estilos para los artículos de noticias */
+article {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffffffa1;
+}
 
 
- 
- 
- 
+/* Estilos para la imagen de las noticias */
+article img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+/* Estilos para el título de cada noticia */
+article h3 {
+  font-size: 1.5em;
+  margin: 0 0 0.5em 0;
+}
+
+/* Estilos para el párrafo de cada noticia */
+article p {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0 1em 0;
+}
+
+/* Estilos para el enlace "Leer más" de cada noticia */
+article a {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: #0077FF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+/* Estilos para el enlace "Leer más" al pasar el cursor por encima */
+article a:hover {
+  background-color: #0055CC;
+}
