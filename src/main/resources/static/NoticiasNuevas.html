@@ -1,74 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="css/NoticiasNuevas.css" />
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
 
-    <body class="p-3 m-0 border-0 bd-example">
-        <header> 
-            <nav>
-                <ul>
+    <header> 
+        <nav>
+            <ul>
 
-                    <img src="images/1.png" alt="Logo" class="logo">
+                <img src="images/1.png" alt="Logo" class="logo">
 
-                    <li class="navOpcion">
-                        <a href="home.html" class="navLink menuLink">Home</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="review.html" class="navLink menuLink">Review</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="login.html" class="navLink menuLink">Login</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <br />
-        <main>
-            <section>
-                <h2>Informacion de Contacto</h2>
-                <p>Correo Electronico: crautosoporte@gmail.com</p>
-                <p>Telefono: (506) 1234-5678</p>
-            </section>
-            <section>
-                <h2>Formulario</h2>
-                <form action="#">
-                    <label>ultimas novedades de las motocicletas:</label>
-                    <input type="text" required>
-                    <br><br>
-                    <label>Cambios de este nuevo modelo:</label>
-                    <input type="text" required>
-                    <br><br>
-                    <label>Te gustan los nuevos cambios:</label>
-                    <input type="text" required>
-                    <br><br>
-                    <label>Que podemos mejorar cuentanos:</label>
-                    <textarea rows="7" required></textarea>
-                    <br><br>
-                    <button class="button">Enviar</button>
-                    <a href="home.html">Volver</a>
-                </form>
-            </section>
-        </main>
-    </body>
+                <li class="navOpcion">
+                    <a href="home.html" class="navLink menuLink">Home</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="review.html" class="navLink menuLink">Review</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="login.html" class="navLink menuLink">Login</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+
+        <section id="noticias-principales">
+            <h2>Noticias Principales</h2>
+            <article>
+                <img src="img/noticia1.jpg" alt="Noticia 1">
+                <h3>Título de la noticia 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac justo a velit rutrum dignissim sed vitae nisl.</p>
+                <a href="#">Leer más</a>
+            </article>
+
+            <article>
+                <img src="img/noticia2.jpg" alt="Noticia 2">
+                <h3>Título de la noticia 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac justo a velit rutrum dignissim sed vitae nisl.</p>
+                <a href="#">Leer más</a>
+            </article>
+
+            <article>
+                <img src="img/noticia3.jpg" alt="Noticia 3">
+                <h3>Título de la noticia 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac justo a velit rutrum dignissim sed vitae nisl.</p>
+                <a href="#">Leer más</a>
+            </article>
+        </section>
+
+        <section id="noticias-secundarias">
+            <h2>Otras noticias</h2>
+            <article>
+                <h3>Título de la noticia 4</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac justo a velit rutrum dignissim sed vitae nisl.</p>
+                <a href="#">Leer más</a>
+            </article>
+
+            <article>
+                <h3>Título de la noticia 5</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac justo a velit rutrum dignissim sed vitae nisl.</p>
+                <a href="#">Leer más</a>
+            </article>
+
+            <article>
+                <h3>Título de la noticia 6</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac justo a velit rutrum dignissim sed vitae nisl.</p>
+                <a href="#">Leer más</a>
+            </article>
+        </section>
+
+
+    </footer>
+</body>
 </html>
+

@@ -14,7 +14,6 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
- justify-content: left;
   align-items: center;
   height: 100%;
   justify-content: flex-start;
@@ -22,7 +21,7 @@ nav ul {
 }
 
 nav li {
-  margin: 0 50px;
+  margin: 14px;
 }
 
 nav a {
@@ -36,6 +35,43 @@ nav a:hover {
 
 .logo {
   height: 70px; 
-  margin-right: 200px; 
- 
  }
+
+ 
+ .container {
+    display: flex;
+    margin: 50px auto;
+    background-color: #403c3c94;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.image-box {
+  flex-basis: 45%;
+  padding-right: 10px;
+  display: flex;
+  justify-content: flex-end
+}
+
+.image-box img {
+  display: block;
+  max-width: 60%;
+  height: auto;
+  
+}
+
+.text-box {
+  flex-basis: 50%;
+  color: white;
+}
+
+.text-box h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.text-box p {
+  font-size: 18px;
+  line-height: 1.5;
+}
