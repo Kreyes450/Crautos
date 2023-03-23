@@ -29,13 +29,16 @@ public class CarroController {
     @Autowired
     private IPaisService paisService;
      */
-    @GetMapping("/persona")
+    /*@GetMapping("/persona")*/
+    @GetMapping("/ventadecarros")
     /*Model nos ayuda con el metodo addAttribute la informacion al frontend*/
     public String index(Model model) {
         List<Carro> listacarros = carroService.getAllCarro();
         model.addAttribute("titulo", "Tabla Carros");
         model.addAttribute("carros", listacarros);
-        return "personas";
+        /*
+        return "personas";*/
+        return "ventadecarros";
     }
 
     @GetMapping("/personaN")

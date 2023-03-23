@@ -55,8 +55,9 @@
 
 <th:block th:each="carro : ${carros}">
     <tr>
-        <!-- <td class="caja caja1"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div> -->
-        <td class="caja caja1"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div>
+        <!-- <td th:text="#{Precio:}">:</td> -->
+  <!-- <td class="caja caja1"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div> -->
+        <div class="caja caja1"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div>
         <td>                        <a th:href="@{/editPersona/{id}(id=${carro.getCarro_ID})}">Edit</a>                    </td>
         <td>                        <a th:href="@{/delete/{id}(id=${carro.getCarro_ID})}">Delete</a>                    </td>
 
