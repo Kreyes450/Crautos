@@ -20,7 +20,7 @@
                 <a href="home.html" class="navLink menuLink">Home</a>
             </li>
             <li class="navOpcion">
-                <a href="templates/ventadecarros" class="navLink menuLink">Venta de Carros</a>
+                <a href="@templates/ventadecarros" class="navLink menuLink">Venta de Carros</a>
             </li>
             <li class="navOpcion">
                 <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
@@ -52,18 +52,18 @@
     <!-- esto es un loop th:each corro esto -->
     <!-- Prueba para llenar cosas,  -->
     <!-- usar bootstrap para ver si lleno esto solo en las cosas -->
-
+<div class="container">
 <th:block th:each="carro : ${carros}">
     <tr>
         <!-- <td th:text="#{Precio:}">:</td> -->
   <!-- <td class="caja caja1"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div> -->
-        <div class="caja caja1"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div>
+        <div class="caja cajan"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div>
         <td>                        <a th:href="@{/editPersona/{id}(id=${carro.getCarro_ID})}">Edit</a>                    </td>
         <td>                        <a th:href="@{/delete/{id}(id=${carro.getCarro_ID})}">Delete</a>                    </td>
 
     </tr>
 </th:block>
-
+  </div>
 
 </tbody>
 
