@@ -4,10 +4,10 @@
  */
 package CRAUTOS.service;
 
-import com.tienda.entity.Persona;
+import CRAUTOS.entity.Carro;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.tienda.repository.personarepository;
+import CRAUTOS.repository.carrorepository;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,28 +15,28 @@ import org.springframework.stereotype.Service;
  * @author roleongu
  */
 @Service
-public class PersonaService implements IPersonaService {
+public class CarroService implements ICarroService {
     @Autowired
-    private personarepository personaRepository;
+    private carrorepository carroRepository;
 
     @Override
-    public List<Persona> getAllPersona() {
-        return(List<Persona>)personaRepository.findAll();
+    public List<Carro> getAllCarro() {
+        return(List<Carro>)carroRepository.findAll();
     }
 
     @Override
-    public Persona getPersonaById(long id) {
-        return personaRepository.findById(id).orElse(null);
+    public Carro getCarroById(long id) {
+        return carroRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void savePersona(Persona persona) {
-       personaRepository.save(persona);
+    public void saveCarro(Carro carro) {
+       carroRepository.save(carro);
     }
 
     @Override
     public void delete(long id) {
-        personaRepository.deleteById(id);
+        carroRepository.deleteById(id);
        
     }
     

@@ -9,7 +9,7 @@ package CRAUTOS.repository;
  * @author roleongu
  */
 
-import com.tienda.entity.Persona;
+import CRAUTOS.entity.Carro;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 /**
@@ -21,6 +21,6 @@ import org.springframework.stereotype.Repository;
 
 /*<Nombre,Apellido1,Apellido2,Telefono,Email,Long>*/
 
-public interface personarepository extends CrudRepository<Persona,Long>{
+public interface carrorepository extends CrudRepository<Carro,Long>{
     
 }

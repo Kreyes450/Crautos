@@ -4,7 +4,7 @@
  */
 package CRAUTOS.service;
 
-import com.tienda.entity.Persona;
+import CRAUTOS.entity.Carro;
 import java.util.List;
 import org.springframework.stereotype.Service;
 @Service
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
  *
  * @author roleongu
  */
-public interface IPersonaService {
-    public List<Persona> getAllPersona();
-    public Persona getPersonaById (long id);
-    public void savePersona(Persona persona);
+public interface ICarroService {
+    public List<Carro> getAllCarro();
+    public Carro getCarroById (long id);
+    public void saveCarro(Carro carro);
     public void delete (long id);
 }
