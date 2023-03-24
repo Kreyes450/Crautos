@@ -39,6 +39,11 @@ public class CarroService implements ICarroService {
         carroRepository.deleteById(id);
        
     }
+
+    @Override
+    public List<Carro> getAllCarros() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }
