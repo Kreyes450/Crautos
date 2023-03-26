@@ -4,15 +4,16 @@
  */
 package CRAUTOS.service;
 
-import CRAUTOS.entity.Noticias;
+import CRAUTOS.entity.Usuarios;
 import java.util.List;
 
-public interface INoticiasService {
-    public List<Noticias> getAllNoticias();
+public interface IUsuariosService {
 
-    public Noticias getNoticiaById(long id);
+    public List<Usuarios> getAllUsuarios();
 
-    public void saveNoticia(Noticias noticias);
+    public Usuarios getUsuarioById(long id);
+
+    public void saveUsuario(Usuarios usuarios);
 
     public void delete(long id);
 }
