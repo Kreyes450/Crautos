@@ -4,7 +4,9 @@
  */
 package CRAUTOS.controller;
 
+import CRAUTOS.entity.Tipo_Usuario;
 import CRAUTOS.entity.Usuarios;
+import CRAUTOS.service.ITipo_UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,9 @@ public class UsuariosController {
     @Autowired
     private IUsuariosService usuariosService;
     
+    @Autowired
+    private ITipo_UsuarioService tipo_usuariosService;
+    
     @GetMapping("/usuarios") // aca definimos el endpoint para el html persona. Se triggerea ese mapping 
     //el restful api ejecuta todo mediante requests.
     public String index(Model model) { //el model permite pasarle al frontend la info mediante el addAttribute
@@ -33,33 +38,33 @@ public class UsuariosController {
 
     @GetMapping("/usuarioN")
     public String crearCuenta(Model model) {
-        //List<Pais> listaPaises = paisService.listCountry();
+        List<Tipo_Usuario> listaTipo_Usuario = tipo_usuariosService.listTipo_Usuario();
         model.addAttribute("usuarios", new Usuarios());
-        //model.addAttribute("paises", listaPaises);
+        model.addAttribute("tipo_usuario", listaTipo_Usuario);
         return "crearCuenta";
         //importante revisar los endpoints para ver que todo este correcto. 
     }
 
-    @GetMapping("delete/{id}")
+    @GetMapping("delete/{iduser}")
     public String eliminarUsuario(@PathVariable("id") Long idUsuario) {
         usuariosService.delete(idUsuario);
         return "redirect:/crearCuenta";
         //redireccionar al home o crear cuenta...?
     }
 
-    @PostMapping("/save")
+    @PostMapping("/saveUser")
     public String guardarUsuario(@ModelAttribute Usuarios usuario) {
         usuariosService.saveUsuario(usuario);
-        return "redirect:/crearCuenta";
+        return "redirect:/usuarios";
         //hay que redireccionar al login. 
     }
 
-    @GetMapping("editNoticia/{id}")
+    @GetMapping("editUsuario/{iduser}")
     public String editarUsuario(@PathVariable("id") Long idUsuario, Model model) {
         Usuarios usuario = usuariosService.getUsuarioById(idUsuario);
-        //List<Pais> listaPaises = paisService.listCountry();
+        List<Tipo_Usuario> listaTipo_Usuario = tipo_usuariosService.listTipo_Usuario();
         model.addAttribute("noticias", usuario);
-        //model.addAttribute("paises", listaPaises);
-        return "editarUsuario";
+        model.addAttribute("tipo_usuario", listaTipo_Usuario);
+        return "crearCuenta";
     }
 }

@@ -25,20 +25,11 @@ public class Usuarios implements Serializable {
     private int edad;
     private int telefono;
     private String correo_electronico;
-    private long moto_id;
-    private long carro_id;
-    //en caso de error cambiar los moto_id y carro_id a int.
 
-//    @ManyToOne
-//    @JoinColumn(name = "motos")
-//    private Motos moto;
-//                                  tengo que descomentar una vez este todo el codigo de moto y carro!!!
-//                                  tambien hacerle getter y setter a esos objetos!!!
-//    @ManyToOne
-//    @JoinColumn(name = "carros")
-//    private Carros carro;
-    
-    
+    @ManyToOne
+    @JoinColumn(name = "tipo_usuario")
+    private Tipo_Usuario tipo_usuario;
+        
     public long getUsuario_id() {
         return usuario_id;
     }
@@ -86,20 +77,12 @@ public class Usuarios implements Serializable {
     public void setCorreo_electronico(String correo_electronico) {
         this.correo_electronico = correo_electronico;
     }
-
-    public long getMoto_id() {
-        return moto_id;
+    
+    public Tipo_Usuario getTipo_usuario() {
+        return tipo_usuario;
     }
 
-    public void setMoto_id(long moto_id) {
-        this.moto_id = moto_id;
-    }
-
-    public long getCarro_id() {
-        return carro_id;
-    }
-
-    public void setCarro_id(long carro_id) {
-        this.carro_id = carro_id;
+    public void setTipo_usuario(Tipo_Usuario tipo_usuario) {
+        this.tipo_usuario = tipo_usuario;
     }
 }
