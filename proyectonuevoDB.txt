@@ -1,0 +1,533 @@
+CREATE DATABASE crautos;
+
+USE crautos;
+
+
+CREATE TABLE `tipo_usuario`
+  (
+     `tipo_usuario_id`        INT(100) NOT NULL,
+     `tipo`            VARCHAR(50) NOT NULL,
+     PRIMARY KEY(tipo_usuario_id)
+  );
+  
+  
+INSERT INTO `tipo_usuario`
+VALUES      (1,
+             'Empleado');
+			 
+			 
+INSERT INTO `tipo_usuario`
+VALUES      (2,
+             'Usuario');
+  
+
+CREATE TABLE `usuario`
+  (
+     `usuario_id`        INT(100) NOT NULL,
+     `nombre`            VARCHAR(50) NOT NULL,
+     `apellido`          VARCHAR(50) NOT NULL,
+     `edad`              VARCHAR(11) NOT NULL,
+     `telefono`          INT(50) NOT NULL,
+     `correo_eletronico` VARCHAR(60) NOT NULL,
+	 `tipo_usuario`          INT(100) NOT NULL,
+     PRIMARY KEY(usuario_id, tipo_usuario),
+	 KEY `fk_usuarios_tipo_usuario_idx` (`tipo_usuario`),  
+     CONSTRAINT `fk_usuarios_tipo_usuario_idx` FOREIGN KEY (`tipo_usuario`) REFERENCES `tipo_usuario` (`tipo_usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  );
+
+INSERT INTO `usuario`
+VALUES      (1,
+             'Carlos',
+             'Gonzales',
+             '21',
+             '86556430',
+             'CarlosGonzales@hotmail.com',
+             1);
+
+INSERT INTO `usuario`
+VALUES      (2,
+             'Daniel',
+             'Chaves',
+             '22',
+             '88245693',
+             'Daniel@hotmail.com',
+             1;
+
+INSERT INTO `usuario`
+VALUES      (3,
+             'Ronald',
+             'Gomez',
+             '20',
+             '22365648',
+             'Ronald@hotmail.com',
+             2);
+
+INSERT INTO `usuario`
+VALUES      (4,
+             'Mathias',
+             'Guzman',
+             '34',
+             '87256933',
+             'Matiasguzman@hotmail.com',
+             2);
+
+INSERT INTO `usuario`
+VALUES      (5,
+             'Roy',
+             'Chavarria',
+             '45',
+             '78569836',
+             'Roy@hotmail.com',
+             2);
+
+INSERT INTO `usuario`
+VALUES      (6,
+             'Alex',
+             'Marin',
+             '20',
+             '89632654',
+             'Alex@hotmail.com',
+             2);
+
+INSERT INTO `usuario`
+VALUES      (7,
+             'Mauricio',
+             'Elizondo',
+             '23',
+             '60364525',
+             'Mauricio@hotmail.com',
+             2);
+
+INSERT INTO `usuario`
+VALUES      (8,
+             'Josue',
+             'Espinoza',
+             '26',
+             '60364525',
+             'Josue@hotmail.com',
+             2);
+
+INSERT INTO `usuario`
+VALUES      (9,
+             'Martin',
+             'Castaño',
+             '28',
+             '70265896',
+             'Martin@hotmail.com',
+             2);
+
+INSERT INTO `usuario`
+VALUES      (10,
+             'Kevin',
+             'Umaña',
+             '27',
+             '65236458',
+             'Kevin@hotmail.com',
+             2);
+
+INSERT INTO `usuario`
+VALUES      (11,
+             'Salin',
+             'Gutierrez',
+             '22',
+             '88576430',
+             'Salin@hotmail.com',
+             2;
+			 
+
+CREATE TABLE `dinero`
+  (
+     `dinero_id`        INT(100) NOT NULL,
+	 `dinero_usuario_id`        INT(100) NOT NULL,
+     `dinero`    INT(100) NOT NULL,
+     PRIMARY KEY(dinero_id, dinero_usuario_id),
+	 KEY `fk_dinero_usuarios_idx` (`dinero_usuario_id`),  
+     CONSTRAINT `fk_dinero_usuarios_idx` FOREIGN KEY (`dinero_usuario_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  );
+
+CREATE TABLE `motos`
+  (
+     `moto_id`     INT(100) NOT NULL auto_increment,
+     `modelo`      VARCHAR(11) NOT NULL,
+     `cilindraje`  INT(50) NOT NULL,
+     `color`       VARCHAR(30) NOT NULL,
+     `tipo`        VARCHAR(25) NOT NULL,
+     `transmision` VARCHAR(40) NOT NULL,
+     `costo`       INT(50) NOT NULL,
+	 `usuario_moto_id` int(11) NOT NULL, 
+     PRIMARY KEY(moto_id,`usuario_moto_id`)
+	 KEY `fk_motos_usuarios_idx` (`usuario_moto_id`),  
+     CONSTRAINT `fk_motos_usuarios_idx` FOREIGN KEY (`usuario_moto_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  )
+engine=innodb
+auto_increment=100
+DEFAULT charset=utf8;
+
+INSERT INTO `motos`
+VALUES     (1,
+            'BMW',
+            500,
+            'verde',
+            'gas',
+            'manual',
+            18000, 3),
+            (2,
+             'Yamaha',
+             250,
+             'rojo',
+             'gasolina',
+             'manual',
+             150001, 4),
+            (3,
+             'Honda',
+             400,
+             'naraja',
+             'gas',
+             'automatico',
+             20000, 5),
+            (4,
+             'Freedom',
+             150,
+             'azul',
+             'electrica',
+             'manual',
+             10000, 6),
+            (5,
+             'Kawazaki',
+             1200,
+             'morado',
+             'bio',
+             'automatico',
+             25000, 7),
+            (6,
+             'KTM',
+             1050,
+             'rosado',
+             'gasolina',
+             'manual',
+             12000, 8);
+
+CREATE TABLE `carros`
+  (
+     `carro_id`              INT(100) NOT NULL auto_increment,
+     `modelo`                VARCHAR(30) NOT NULL,
+     `cilindraje`            INT(50) NOT NULL,
+     `tipo`                  VARCHAR(30) NOT NULL,
+     `costo`                 INT(50) NOT NULL,
+     `color`                 VARCHAR(30) NOT NULL,
+     `sistema_de_frenos`     VARCHAR(25) NOT NULL,
+     `cantidad_puertas`      VARCHAR(25) NOT NULL,
+     `transmision`           VARCHAR(25) NOT NULL,
+     `categoria`             VARCHAR(25) NOT NULL,
+     `cantidad_de_pasajeros` VARCHAR(25) NOT NULL,
+	 `usuario_carro_id` int(11) NOT NULL,
+          PRIMARY KEY(carro_id,`usuario_carro_id`)
+	 KEY `fk_carros_usuarios_idx` (`usuario_carro_id`),  
+     CONSTRAINT `fk_carros_usuarios_idx` FOREIGN KEY (`usuario_carro_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  )
+engine=innodb
+auto_increment=100
+DEFAULT charset=utf8;
+
+INSERT INTO `carros`
+VALUES     (1,
+            'Bmw',
+            1800,
+            'gas',
+            67000,
+            'morado',
+            'automatico',
+            'puertas 2',
+            'manual',
+            'particular',
+            '2 pasajeros', 9),
+            (2,
+             'Toyota',
+             2500,
+             'gasolina',
+             56000,
+             'azul',
+             'manual',
+             'puertas 2',
+             'manual',
+             'todoterreno',
+             '4 pasajeros', 10),
+            (3,
+             'Honda',
+             1200,
+             'gas',
+             45000,
+             'rojo',
+             'manual',
+             'puertas 3',
+             'manual',
+             'particular',
+             '4 pasajeros', 11),
+            (4,
+             'Nissan',
+             3500,
+             'electrica',
+             30000,
+             'naranja',
+             'manual',
+             'puertas 4',
+             'automatico',
+             'coupe',
+             '4 pasajeros', 3),
+            (5,
+             'Suzuki',
+             1500,
+             'bio',
+             25000,
+             'blanco',
+             'manual',
+             'puertas 4',
+             'manual',
+             'sedan',
+             '4 pasajeros', 4),
+            (6,
+             'Ford',
+             6000,
+             'gasolina',
+             80000,
+             'verde',
+             'manual',
+             'puertas 2',
+             'automatico',
+             'particular',
+             '2 pasajeros', 5),
+            (7,
+             'Renauld',
+             4500,
+             'gas',
+             32000,
+             'negro',
+             'automatico',
+             'puertas 6',
+             'manual',
+             'sedan',
+             '4 pasajeros', 6),
+            (8,
+             'Prius',
+             2000,
+             'electrica',
+             16000,
+             'plateado',
+             'automatico',
+             'puertas 4',
+             'automatico',
+             'particular',
+             '2 pasajeros', 7),
+            (9,
+             'LanRober',
+             3000,
+             'gas',
+             19000,
+             'rojovino',
+             'manual',
+             'puertas 2',
+             'automatico',
+             'sedan',
+             '4 pasajeros', 8),
+            (10,
+             'Volvo',
+             2300,
+             'bio',
+             28000,
+             'crema',
+             'manual',
+             'puertas 4',
+             'manual',
+             'coupe',
+             '3 pasajeros', 9),
+            (11,
+             'Subaru',
+             3000,
+             'gasolina',
+             45000,
+             'celeste',
+             'manual',
+             'puertas 4',
+             'manual',
+             'coupe',
+             '5 pasajeros', 10),
+            (12,
+             'Citroën',
+             1700,
+             'solar',
+             15000,
+             'negromate',
+             'manual',
+             'puertas 2',
+             'automatico',
+             'convertible',
+             '8 pasajeros', 11),
+            (13,
+             'Volkswagen',
+             2600,
+             'electrica',
+             30000,
+             'rosado',
+             'manual',
+             'puertas 2',
+             'manual',
+             'particular',
+             '6 pasajeros', 3),
+            (14,
+             'Byd',
+             2000,
+             'gas',
+             23000,
+             'amarillo',
+             'manual',
+             'puertas 4',
+             'automatico',
+             'sedan',
+             '4 pasajeros', 4),
+            (15,
+             'hyundai',
+             1200,
+             'gasolina',
+             20000,
+             'gris',
+             'manual',
+             'puertas 4',
+             'manual',
+             'convertible',
+             '3 pasajeros', 5);
+
+CREATE TABLE `comentarios`
+  (
+     `comentarios_id`    INT(100) NOT NULL auto_increment,
+     `fecha_comentario`  DATE NOT NULL,
+     `nombre_comentario` VARCHAR(30) NOT NULL,
+     `cuerpo_comentario` VARCHAR(250) NOT NULL,
+      `usuario_comentarios_id` int(11) NOT NULL,
+          PRIMARY KEY(carro_id,`usuario_comentarios_id`)
+	 KEY `fk_comentarios_usuarios_idx` (`usuario_comentarios_id`),  
+     CONSTRAINT `fk_comentarios_usuarios_idx` FOREIGN KEY (`usuario_comentarios_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  )
+engine=innodb
+auto_increment=100
+DEFAULT charset=utf8;
+
+INSERT INTO `comentarios`
+VALUES      (1,
+             '2023-05-12',
+             'Pagina',
+             'La pagina es facil de usar', 3),
+            (2,
+             '2022-05-12',
+             'Compra',
+             'Hice una compra y estoy satisfecho', 4),
+            (3,
+             '2023-06-22',
+             'Recomendacion',
+             'Recomiendo el uso de la pagina', 5),
+            (4,
+             '2023-08-25',
+             'Soporte',
+             'El servicio al cliente es excelente', 6),
+            (5,
+             '2023-05-19',
+             'Precios',
+             'Los precios de las motos estan muy elevados', 7);
+
+CREATE TABLE `review`
+  (
+     `review_id`        INT(100) NOT NULL auto_increment,
+     `tipo_review`      VARCHAR(50) NOT NULL,
+     `fecha_review`     DATE NOT NULL,
+     `nombre_de_review` VARCHAR(50) NOT NULL,
+     `usuario_review_id` int(11) NOT NULL,
+          PRIMARY KEY(carro_id,`usuario_review_id`)
+	 KEY `fk_review_usuarios_idx` (`usuario_review_id`),  
+     CONSTRAINT `fk_review_usuarios_idx` FOREIGN KEY (`usuario_review_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  )
+engine=innodb
+auto_increment=100
+DEFAULT charset=utf8;
+
+INSERT INTO `review`
+VALUES     (1,
+            'performance',
+            '2023-05-12',
+            'velocidad', 8),
+            (2,
+             'fuerza',
+             '2023-08-02',
+             'caballos de fuerza', 9),
+            (3,
+             'tecnologia',
+             '2023-12-22',
+             'carroceria', 10),
+            (4,
+             'ahorro',
+             '2023-05-05',
+             'tanque de gasolina', 11),
+            (5,
+             'frenos',
+             '2023-02-11',
+             'agarre en la calle', 3),
+            (6,
+             'luces',
+             '2023-01-20',
+             'luces y faros', 4),
+            (7,
+             'seguridad',
+             '2023-05-12',
+             'productos', 5),
+            (8,
+             'resistencia',
+             '2023-05-16',
+             'durabilidad', 6),
+            (9,
+             'tecnologia',
+             '2023-04-24',
+             'inteligencia artificial', 7),
+            (10,
+             'agarre',
+             '2023-06-19',
+             'traccion 4x4', 8);
+
+CREATE TABLE `noticias`
+  (
+     `noticia_id`     INT(100) NOT NULL auto_increment,
+     `fecha_noticia`  DATE NOT NULL,
+     `nombre_noticia` VARCHAR(30) NOT NULL,
+     `cuerpo_noticia` VARCHAR(250) NOT NULL,
+     `usuario_noticias_id` int(11) NOT NULL,
+          PRIMARY KEY(carro_id,`usuario_noticias_id`)
+	 KEY `fk_noticias_usuarios_idx` (`usuario_noticias_id`),  
+     CONSTRAINT `fk_noticias_usuarios_idx` FOREIGN KEY (`usuario_noticias_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  )
+engine=innodb
+auto_increment=100
+DEFAULT charset=utf8;
+
+INSERT INTO `noticias`
+VALUES     (1,
+            '2023-05-12',
+            'resistencia',
+            'los nuevos vehiculos incluyen mejores materiales', 1),
+            (2,
+             '2023-06-13',
+             'motor',
+'las motos mas nuevas tienen menor cilindraje pero dan mejor rendimiento', 1),
+            (3,
+             '2023-07-14',
+             'carroceria',
+             'se esta implementando una nueva aleacion para las carrocerias', 2),
+            (4,
+             '2023-08-15',
+             'productos',
+             'proximamente se estara vendiendo mercaderia de crautos', 2),
+            (5,
+             '2023-09-16',
+             'general',
+             'la aplicacion estara en mantenimiento durante esta fecha', 1),
+            (6,
+             '2023-10-17',
+             'vehiculos',
+             'nuevos vehiculos todos los dias', 2);
+
