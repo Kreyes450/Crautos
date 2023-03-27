@@ -25,11 +25,12 @@ public class CarroController {
     @Autowired
     private ICarroService carroService;
 
+
     /*
     @Autowired
     private IPaisService paisService;
      */
-    /*@GetMapping("/persona")*/
+ /*@GetMapping("/persona")*/
     @GetMapping("/ventadecarros")
     /*Model nos ayuda con el metodo addAttribute la informacion al frontend*/
     public String index(Model model) {
@@ -40,6 +41,7 @@ public class CarroController {
         return "personas";*/
         return "ventadecarros";
     }
+
 
     @GetMapping("/personaN")
 
