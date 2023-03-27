@@ -4,19 +4,26 @@
  */
 package CRAUTOS.service;
 
-import CRAUTOS.entity.Carro;
+
+import CRAUTOS.entity.Review;
 import java.util.List;
 import org.springframework.stereotype.Service;
 @Service
 /**
  *
- * @author roleongu
+ * @author reyes
  */
-public interface ICarroService {
-    public List<Carro> getAllCarro();
-    public Carro getCarroById (long id);
-    public void saveCarro(Carro carro);
-    public void delete (long id);
 
-    public List<Carro> getAllCarros();
+
+public interface IReviewService {
+
+    public List<Review> getAllReview();
+
+    public Review getReviewById(long id);
+
+    public void saveReview(Review review);
+
+    public void deleteReview(long id);
+
+    public List<Review> getAllReviews();
 }
