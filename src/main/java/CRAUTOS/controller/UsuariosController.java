@@ -46,7 +46,7 @@ public class UsuariosController {
     }
 
     @GetMapping("delete/{iduser}")
-    public String eliminarUsuario(@PathVariable("id") Long idUsuario) {
+    public String eliminarUsuario(@PathVariable("iduser") Long idUsuario) {
         usuariosService.delete(idUsuario);
         return "redirect:/crearCuenta";
         //redireccionar al home o crear cuenta...?
@@ -60,7 +60,7 @@ public class UsuariosController {
     }
 
     @GetMapping("editUsuario/{iduser}")
-    public String editarUsuario(@PathVariable("id") Long idUsuario, Model model) {
+    public String editarUsuario(@PathVariable("iduser") Long idUsuario, Model model) {
         Usuarios usuario = usuariosService.getUsuarioById(idUsuario);
         List<Tipo_Usuario> listaTipo_Usuario = tipo_usuariosService.listTipo_Usuario();
         model.addAttribute("noticias", usuario);
