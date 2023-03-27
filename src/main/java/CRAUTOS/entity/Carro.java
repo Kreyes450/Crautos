@@ -18,20 +18,65 @@ import java.io.Serializable;
  * @author roleongu
  */
 /*patron decorador le agrega caracteristicas en la clase, */
+
+ /*
+
+CREATE TABLE `carros`
+  (
+     `carro_id`              INT(11) NOT NULL auto_increment,
+     `modelo`                VARCHAR(30) NOT NULL,
+     `cilindraje`            INT(50) NOT NULL,
+     `tipo`                  VARCHAR(30) NOT NULL,
+     `costo`                 INT(50) NOT NULL,
+     `color`                 VARCHAR(30) NOT NULL,
+     `sistema_de_frenos`     VARCHAR(25) NOT NULL,
+     `cantidad_puertas`      VARCHAR(25) NOT NULL,
+     `transmision`           VARCHAR(25) NOT NULL,
+     `categoria`             VARCHAR(25) NOT NULL,
+     `cantidad_de_pasajeros` VARCHAR(25) NOT NULL,
+	 `usuario_carro_id` int(11) NOT NULL,
+          PRIMARY KEY(carro_id,`usuario_carro_id`),
+	 KEY `fk_carros_usuarios_idx` (`usuario_carro_id`),  
+     CONSTRAINT `fk_carros_usuarios_idx` FOREIGN KEY (`usuario_carro_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  )ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+ */
 @Entity
-@Table(name = "carro")
+@Table(name = "carros")
+
 public class Carro implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Carro_ID;
 
-    public long getCarro_ID() {
-        return Carro_ID;
+    private long carro_id;
+    private String modelo;
+    private String cilindraje;
+    private String tipo;
+    private String costo;
+    private String color;
+    private String sistema_de_frenos;
+    private String cantidad_puertas;
+    private String transmision;
+    private String categoria;
+     private String cantidad_de_pasajeros;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_carro_id")
+    private Usuario usuario;
+
+
+    /*
+    @ManyToOne
+    @JoinColumn(name= "Carro_ID")
+    private Carro carro;
+     */
+
+    public long getCarro_id() {
+        return carro_id;
     }
 
-    public void setCarro_ID(long Carro_ID) {
-        this.Carro_ID = Carro_ID;
+    public void setCarro_id(long carro_id) {
+        this.carro_id = carro_id;
     }
 
     public String getModelo() {
@@ -42,22 +87,83 @@ public class Carro implements Serializable {
         this.modelo = modelo;
     }
 
-    public String getCosto() {
-        return Costo;
+    public String getCilindraje() {
+        return cilindraje;
     }
 
-    public void setCosto(String Costo) {
-        this.Costo = Costo;
+    public void setCilindraje(String cilindraje) {
+        this.cilindraje = cilindraje;
     }
-    private String modelo;
-    private String Costo;
-    
-    /*
-    @ManyToOne
-    @JoinColumn(name= "Carro_ID")
-    private Carro carro;
-*/
-    
-    
-    
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getCosto() {
+        return costo;
+    }
+
+    public void setCosto(String costo) {
+        this.costo = costo;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSistema_de_frenos() {
+        return sistema_de_frenos;
+    }
+
+    public void setSistema_de_frenos(String sistema_de_frenos) {
+        this.sistema_de_frenos = sistema_de_frenos;
+    }
+
+    public String getCantidad_puertas() {
+        return cantidad_puertas;
+    }
+
+    public void setCantidad_puertas(String cantidad_puertas) {
+        this.cantidad_puertas = cantidad_puertas;
+    }
+
+    public String getTransmision() {
+        return transmision;
+    }
+
+    public void setTransmision(String transmision) {
+        this.transmision = transmision;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getCantidad_de_pasajeros() {
+        return cantidad_de_pasajeros;
+    }
+
+    public void setCantidad_de_pasajeros(String cantidad_de_pasajeros) {
+        this.cantidad_de_pasajeros = cantidad_de_pasajeros;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }
