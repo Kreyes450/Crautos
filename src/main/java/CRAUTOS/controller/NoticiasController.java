@@ -27,6 +27,7 @@ public class NoticiasController {
         List<Noticias> listaNoticias = noticiasService.getAllNoticias();
         model.addAttribute("titulo", "Tabla Noticias");
         model.addAttribute("noticias", listaNoticias);
+        System.out.println(listaNoticias);
         return "noticias";
 
     }

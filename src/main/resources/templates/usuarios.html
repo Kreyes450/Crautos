@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="container mt-5">
-		<h1 class="text-center mb-5">Tabla de Noticias</h1>
+		<h1 class="text-center mb-5">Tabla de Usuarios</h1>
 		<table class="table">
 			<thead>
 				<tr>
@@ -16,31 +16,31 @@
 					<th>Nombre</th>
 					<th>Apellido</th>
 					<th>Edad</th>
-                                        <th>Telefono</th>
-                                        <th>Correo Electronico</th>
-                                        <th>Tipo</th>
+					<th>Telefono</th>
+					<th>Correo Electronico</th>
+					<th>Tipo</th>                                          
 				</tr>
 			</thead>
 			<tbody>
-				<!-- Iteramos sobre la lista de noticias para mostrarlas en la tabla -->
-				<tr th:each="usuario : ${usuarios}">
+				<!-- Iteramos sobre la lista de usuarios para mostrarlos en la tabla -->
+				<tr th:each="usuario : ${usuario}">
 					<td th:text="${usuario.usuario_id}"></td>
 					<td th:text="${usuario.nombre}"></td>
 					<td th:text="${usuario.apellido}"></td>
-                                        <td th:text="${usuario.edad}"></td>
-                                        <td th:text="${usuario.telefono}"></td>
-                                        <td th:text="${usuario.correo_electronico}"></td>
-                                        <td th:text="${usuario.tipo_usuario.tipo_usuario}"></td>
+					<td th:text="${usuario.edad}"></td>
+					<td th:text="${usuario.telefono}"></td>
+					<td th:text="${usuario.email}"></td>
+					<td th:text="${usuario.tipo_usuario.tipo}"></td>
 					<td>
-						<!-- Agregamos botones para editar y eliminar noticias -->
-						<a th:href="@{/editUsuario/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-warning">Editar</a>
-						<a th:href="@{/delete/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-danger">Eliminar</a>
+						 <!--Agregamos botones para editar y eliminar usuarios--> 
+						<a th:href="@{/editUser/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-warning">Editar</a>
+						<a th:href="@{/deleteUser/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-danger">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		<!-- Agregamos un botón para crear una nueva noticia -->
-		<a th:href="@{/usuarioN}" class="btn btn-primary">Nueva Noticia</a>
+		<!-- Agregamos un botón para crear un nuevo usuario -->
+		<a th:href="@{/usuarioN}" class="btn btn-primary">Nuevo Usuario</a>
 	</div>
 
 	<!-- Importamos los scripts de Bootstrap -->
