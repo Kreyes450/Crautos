@@ -39,7 +39,7 @@ public class UsuarioController {
 
     }
 
-    @GetMapping("/usuarioN/")
+    @GetMapping("/usuarioN")
     public String crearUsuario(Model model) {
         List<Tipo_Usuario> listaTipo_Usuario = tipo_usuarioService.listTipoUsuario();
         model.addAttribute("usuario", new Usuario());
@@ -54,7 +54,7 @@ public class UsuarioController {
         return "redirect:/usuarios";
     }
 
-    @PostMapping("/saveuser")
+    @PostMapping("/saveUser")
     public String guardarUsuario(@ModelAttribute Usuario usuario) {
         usuarioService.saveUsuario(usuario);
         return "redirect:/usuarios";
