@@ -6,33 +6,35 @@ import CRAUTOS.repository.ReviewRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 /**
  *
  * @author reyes
  */
 
+
 @Service
 public class ReviewService implements IReviewService {
+
     @Autowired
     private ReviewRepository reviewRepository;
 
     @Override
     public List<Review> getAllReviews() {
-        return(List<Review>)reviewRepository.findAll();
+        return reviewRepository.findAll();
     }
 
     @Override
     public Review getReviewById(long id) {
-        return reviewRepository.findById(id).orElse(null);
+        return reviewRepository.findById(id);
     }
 
     @Override
     public void saveReview(Review review) {
-       reviewRepository.save(review);
+        reviewRepository.save(review);
     }
 
-    public void delete(long id) {
+    @Override
+    public void deleteReview(long id) {
         reviewRepository.deleteById(id);
     }
 
@@ -41,24 +43,10 @@ public class ReviewService implements IReviewService {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public void deleteReview(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
-    public List<Review> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Review findById(int reviewId) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Review save(Review review) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Review update(int reviewId, Review review) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
+
+
+
+

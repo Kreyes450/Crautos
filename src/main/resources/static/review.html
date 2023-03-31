@@ -50,46 +50,17 @@
     <body>
 
 
-        <div class="container">
+        <div th:each="carro : ${carros}" class="container">
             <div class="image-box">
-                <img src="images/M5.jpg" alt="Imagen">
+                <img th:src="@{|images/${carro.imagen}|}" alt="Imagen">
             </div>
             <div class="text-box">
-                <h2>BMW M5</h2>
-                <p>El BMW M5 dispone, además del sistema M xDrive, orientado a la máxima tracción y dinamismo, de una suspensión que satisface cualquier exigencia de confort deportivo en los trayectos largos. En combinación con el potente motor M de 8 cilindros de 441 kW (600 CV), se genera un dinamismo marcado por la fuerza y la agilidad.</p>
-                <h6>1 hros</h6>
+                <h2 th:text="${carro.nombre}"></h2>
+                <p th:text="${carro.descripcion}"></p>
+                <h6 th:text="${carro.tiempo}"></h6>
             </div>
         </div>
-         <div class="container">
-            <div class="image-box">
-                <img src="images/RAM.jpg" alt="Imagen">
-            </div>
-            <div class="text-box">
-                <h2>Ram Limited Tungsten</h2>
-                <p>Las características estándar incluyen una suspensión neumática, volante con calefacción, asientos delanteros con calefacción y ventilación, y un sistema de infotainment Uconnect con una pantalla táctil de 8.4 pulgadas, compatibloe tanto con Apple CarPlay como con Android Auto.</p>
-                <h6>1 semana</h6>
-            </div>
-        </div>
-        <div class="container">
-            <div class="image-box">
-                <img src="images/Hayabusa.jpeg" alt="Imagen">
-            </div>
-            <div class="text-box">
-                <h2>Suzuki Hayabusa</h2>
-                <p>Concretando las características de esta moto, decirte que tiene una cilindrada de 1340.00 cc y una potencia total de 197.00 cv (143.8 kw) a 9500 rpm en un motor de cuatro cilindros en línea, 4 tiempos con arranque arranque eléctrico. Sin más, tienes aquí los detalles y ficha técnica de esta genial moto FICHA TÉCNICA SUZUKI HAYABUSA 2018</p>
-                <h6>1 mes</h6>
-            </div>
-        </div>
-         <div class="container">
-            <div class="image-box">
-                <img src="images/R8.jpg" alt="Imagen">
-            </div>
-            <div class="text-box">
-                <h2>Audi R8</h2>
-                <p>El Audi R8 2023 cuenta con un enorme motor V-10 montado detrás de su cabina de alta tecnología. Comparte motor y mecánica con el estridente Lamborghini Huracán, pero la personalidad más dócil y el aspecto del R8 hacen una declaración más sutil.</p>
-                <h6>1 año</h6>
-            </div>
-        </div>
+
 
     </body>
 

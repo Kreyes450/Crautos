@@ -1,15 +1,15 @@
 package CRAUTOS.controller;
 
 import CRAUTOS.entity.Review;
-import CRAUTOS.service.ReviewService;
+import CRAUTOS.service.IReviewService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-
 
 
 
@@ -17,36 +17,52 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ReviewController {
 
-    private final ReviewService reviewService;
-
     @Autowired
-    public ReviewController(ReviewService reviewService) {
-        this.reviewService = reviewService;
-    }
+    private IReviewService reviewService;
 
     @GetMapping("/review")
-    public String showReviews(Model model) {
-        model.addAttribute("review", reviewService.getAllReviews());
+    public String getAllReviews(Model model) {
+        List<Review> reviews = reviewService.getAllReviews();
+        model.addAttribute("review", reviews);
         return "review";
     }
 
     @GetMapping("/review/{id}")
-    public String showReviewDetails(@PathVariable("id") Long id, Model model) {
+    public String getReviewById(@PathVariable("id") long id, Model model) {
         Review review = reviewService.getReviewById(id);
         model.addAttribute("review", review);
-        return "review-details";
+        return "review";
     }
 
-    @GetMapping("/review/add")
-    public String showAddReviewForm(Model model) {
-        model.addAttribute("review", new Review());
-        return "add-review-form";
+    @GetMapping("/review/new")
+    public String showReviewForm(Model model) {
+        Review review = new Review();
+        model.addAttribute("review", review);
+        return "review-form";
     }
 
-    @PostMapping("/review/add")
-    public String addReview(Review review) {
+    @PostMapping("/review")
+    public String saveReview(@ModelAttribute("review") Review review) {
         reviewService.saveReview(review);
         return "redirect:/review";
     }
 
+    @GetMapping("/review/edit/{id}")
+    public String showEditForm(@PathVariable("id") long id, Model model) {
+        Review review = reviewService.getReviewById(id);
+        model.addAttribute("review", review);
+        return "review-form";
+    }
+
+    @PostMapping("/review/update/{id}")
+    public String updateReview(@PathVariable("id") long id, @ModelAttribute("review") Review review) {
+        reviewService.saveReview(review);
+        return "redirect:/review";
+    }
+
+    @GetMapping("/review/delete/{id}")
+    public String deleteReview(@PathVariable("id") long id) {
+        reviewService.deleteReview(id);
+        return "redirect:/review";
+    }
 }
