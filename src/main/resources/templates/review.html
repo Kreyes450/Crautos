@@ -52,39 +52,15 @@
 
     <body>
 
-        <table>
-            <thead>
+        <div class="container">
+            <th:block th:each="Review : ${review}">
                 <tr>
-                    <th>ID</th>
-                    <th>Tipo de Review</th>
-                    <th>Fecha</th>
-                    <th>Nombre de Review</th>
-                    <th>Usuario Review ID</th>
-                    <th>Author</th>
-                    <th>Contenido</th>
-                    <th>Rating</th>
-                    <th>Carro ID</th>
-                </tr>
-            </thead>
-            <!-- Error aqui el $review tiene que ensenharse en review controller no tenias reviews era review y resena es solamente para seguir el loop*/ -->
-            <tbody>
-                <tr th:each="resena : ${review}">
-                    <!-- Mae todas estas varas despues de resena tenian que traer los getter y no lo tenias asi -->
-                    <td th:text="${resena.getReviewId}"></td>
-                    <td th:text="${resena.getTipoReview}"></td>
-                    <td th:text="${resena.getFechaReview}"></td>
-                    <td th:text="${resena.getNombreDeReview}"></td>
-                    <td th:text="${resena.getUsuarioReviewId}"></td>
-                    <td th:text="${resena.getAuthor}"></td>
-                    <td th:text="${resena.getContent}"></td>
-                    <td th:text="${resena.getRating}"></td>
-                    <td th:text="${resena.getCarroId}"></td>
-                </tr>
-            </tbody>
-        </table>
+
+                <div class="containers"><div <td th:text="${Review.getReviewId}"> <td th:text="${Review.getContent}"> </td><div class="image-box" src="images/RAM.jpg"> </div>
 
 
-
-
+                    </tr>
+            </th:block>
+        </div>
     </body>
 </html>

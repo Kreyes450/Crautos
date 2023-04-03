@@ -39,25 +39,32 @@ nav a:hover {
 
  
  .container {
-    display: flex;
-    margin: 50px auto;
-    background-color: #403c3c94;
-    align-items: center;
-    flex-direction: row-reverse;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.containers {
+  display: flex;
+  align-items: center;
+  background-color: #403c3c94;
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
 }
 
 .image-box {
-  flex-basis: 45%;
+  flex-basis: 50%;
   padding-right: 10px;
   display: flex;
-  justify-content: flex-end
+  justify-content: flex-end;
 }
 
 .image-box img {
   display: block;
-  max-width: 60%;
+  max-width: 100%;
   height: auto;
-  
 }
 
 .text-box {
@@ -69,9 +76,11 @@ nav a:hover {
   font-size: 24px;
   font-weight: bold;
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .text-box p {
   font-size: 18px;
   line-height: 1.5;
+  margin: 0;
 }
