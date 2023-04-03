@@ -1,4 +1,3 @@
-
 package CRAUTOS.service;
 
 import CRAUTOS.entity.Review;
@@ -6,11 +5,11 @@ import CRAUTOS.repository.ReviewRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 /**
  *
  * @author reyes
  */
-
 
 @Service
 public class ReviewService implements IReviewService {
@@ -22,10 +21,11 @@ public class ReviewService implements IReviewService {
     public List<Review> getAllReviews() {
         return reviewRepository.findAll();
     }
-
+/*Mae aqui no lo tenias con else null */
     @Override
+    @SuppressWarnings("empty-statement")
     public Review getReviewById(long id) {
-        return reviewRepository.findById(id);
+        return reviewRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -43,10 +43,4 @@ public class ReviewService implements IReviewService {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
-
 }
-
-
-
-

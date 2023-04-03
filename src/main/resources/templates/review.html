@@ -66,17 +66,19 @@
                     <th>Carro ID</th>
                 </tr>
             </thead>
+            <!-- Error aqui el $review tiene que ensenharse en review controller no tenias reviews era review y resena es solamente para seguir el loop*/ -->
             <tbody>
-                <tr th:each="review : ${reviews}">
-                    <td th:text="${review.review_id}"></td>
-                    <td th:text="${review.tipo_review}"></td>
-                    <td th:text="${review.fecha_review}"></td>
-                    <td th:text="${review.nombre_de_review}"></td>
-                    <td th:text="${review.usuario_review_id}"></td>
-                    <td th:text="${review.author}"></td>
-                    <td th:text="${review.content}"></td>
-                    <td th:text="${review.rating}"></td>
-                    <td th:text="${review.carro_id}"></td>
+                <tr th:each="resena : ${review}">
+                    <!-- Mae todas estas varas despues de resena tenian que traer los getter y no lo tenias asi -->
+                    <td th:text="${resena.getReviewId}"></td>
+                    <td th:text="${resena.getTipoReview}"></td>
+                    <td th:text="${resena.getFechaReview}"></td>
+                    <td th:text="${resena.getNombreDeReview}"></td>
+                    <td th:text="${resena.getUsuarioReviewId}"></td>
+                    <td th:text="${resena.getAuthor}"></td>
+                    <td th:text="${resena.getContent}"></td>
+                    <td th:text="${resena.getRating}"></td>
+                    <td th:text="${resena.getCarroId}"></td>
                 </tr>
             </tbody>
         </table>
