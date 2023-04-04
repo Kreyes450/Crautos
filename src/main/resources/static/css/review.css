@@ -37,50 +37,48 @@ nav a:hover {
   height: 70px; 
  }
 
- 
- .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-}
 
-.containers {
-  display: flex;
-  align-items: center;
-  background-color: #403c3c94;
+
+.container2 {
+  margin: 50px auto;
+  background-color: #3e383878;
   padding: 20px;
-  margin-right: 20px;
-  border-radius: 10px;
-}
-
-.image-box {
-  flex-basis: 50%;
-  padding-right: 10px;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
 }
 
-.image-box img {
-  display: block;
-  max-width: 100%;
+.container img {
+  flex-basis: 30%;
+  max-width: 30%;
   height: auto;
+  margin-right: 20px;
+  
 }
 
-.text-box {
-  flex-basis: 50%;
-  color: white;
-}
+ 
 
-.text-box h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 10px;
+.container td1{
+  line-height: 1.5;
+  color:#fff;
+   font-weight: bold;
+  font-size: 1.2em;
+  color:#fff;
+   float: right;
 }
-
-.text-box p {
+.container td2 {
   font-size: 18px;
   line-height: 1.5;
-  margin: 0;
+  color:#fff;
+  clear: both; /* para que td2 quede debajo del cuadro */
 }
+.container td3 {
+  font-size: 18px;
+  line-height: 1.5;
+  color:#fff;
+ 
+}
+
+
+
+
+
