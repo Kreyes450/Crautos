@@ -56,10 +56,10 @@ public class CarroController {
     }
 
     /*el arroba es un patron decorador*/
-    @GetMapping("/delete/{id}")
-    public String eliminarCarro(@PathVariable("Carro_ID") Long idcarro) {
+    @GetMapping("/delete/{carro_id}")
+    public String eliminarCarro(@PathVariable("carro_id") Long idcarro) {
         carroService.delete(idcarro);
-        return "redirect:/persona";
+        return "redirect:/ventadecarros";
     }
 
     /*Que es el ModelAttribute, Model es un objeto, el @Modelattribute es un patron decorador*/
@@ -69,11 +69,11 @@ public class CarroController {
     @PostMapping("/save")
     public String guardarCarro(@ModelAttribute Carro carro) {
         carroService.saveCarro(carro);
-        return "redirect:/persona";
+        return "redirect:/ventadecarros";
     }
 
-    @GetMapping("/editPersona/{id}")
-    public String editarCarro(@PathVariable("Carro_ID") Long idcarro, Model model) {
+    @GetMapping("/verauto/{carro_id}")
+    public String editarCarro(@PathVariable("carro_id") Long idcarro, Model model) {
         Carro carro = carroService.getCarroById(idcarro);
         /*
         List<Pais> listaPaises = paisService.listCountry();*/
