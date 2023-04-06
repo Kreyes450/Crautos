@@ -4,6 +4,7 @@
  */
 package CRAUTOS.controller;
 
+import CRAUTOS.ImageUtil;
 import CRAUTOS.entity.Carro;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class CarroController {
         List<Carro> listacarros = carroService.getAllCarro();
         model.addAttribute("titulo", "Tabla Carros");
         model.addAttribute("carros", listacarros);
+        model.addAttribute("imgUtil", new ImageUtil());
         /*
         return "personas";*/
         return "ventadecarros";

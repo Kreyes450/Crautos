@@ -37,8 +37,12 @@ public class MotoController {
         List<Moto> listamotos = motoService.getAllMoto();
         model.addAttribute("titulo", "Tabla Motos");
         model.addAttribute("motos", listamotos);
-      
+
         return "ventademotos";
     }
+
+    /*Cambiar de aqui para abajo*/
+ /**/
+    
 
 }
