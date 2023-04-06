@@ -53,14 +53,20 @@
     <body>
 
 <div class="container">
-    <th:block th:each="Review : ${review}">
-        <tr>
-            
-        <div class="container2"><img src="images/RAM.jpg"><td1 th:text="${Review.getTipoReview}"></td1><td2 th:text="${Review.getFechaReview}"></td2><td3 th:text="${Review.getNombreDeReview}"></td3></div>
-
-
-        </tr>
-    </th:block>
+  <th:block th:each="Review : ${review}">
+    <tr>
+      <div class="container2">
+          
+          <div class= "container3">
+        <img src="images/RAM.jpg">
+          </div>
+        <td1 th:text="${Review.getTipoReview}"></td1>
+        <td3 th:text="${Review.getNombreDeReview}"></td3>
+        <td2 th:text="${Review.getFechaReview}"></td2>
+        
+      </div>
+    </tr>
+  </th:block>
 </div>
-    </body>
+  
 </html>
