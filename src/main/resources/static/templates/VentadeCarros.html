@@ -57,7 +57,7 @@
         <tr>
             <!-- <td th:text="#{Precio:}">:</td> -->
             <!-- <td class="caja caja1"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div> -->
-        <div class="caja cajan"><img src="'images/'+${carro.getCarro_id}+'.jpg'"> <td th:text="${carro.getModelo}+' '">  <td th:text="${carro.getCosto}+'$  '">  </td><td><a th:href="@{/verauto/{id}(id=${carro.getCarro_id})}">Ver_detalles</a></td><td>                        <!-- <a th:href="@{/delete/{id}(id=${carro.getCarro_id})}">Delete</a> --></td></div>
+        <div class="caja cajan"><img src="@{images/{image}(image=${carro.getCarro_id})+'.jpg'"> <td th:text="${carro.getModelo}+' '">  <td th:text="${carro.getCosto}+'$  '">  </td><td><a th:href="@{/verauto/{id}(id=${carro.getCarro_id})}">Ver_detalles</a></td><td>                        <!-- <a th:href="@{/delete/{id}(id=${carro.getCarro_id})}">Delete</a> --></td></div>
 
 
         </tr>
