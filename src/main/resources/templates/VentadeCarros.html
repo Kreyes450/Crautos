@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="css/VentadeCarros.css"/>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="css/comentarios.css" />
-        
+
+
     </head>
-        
+</head>
 
-
-    <body class="p-3 m-0 border-0 bd-example">
-        <header> 
-           <nav>
+<header> 
+    <nav>
         <ul>
 
             <img src="images/1.png" alt="Logo" class="logo">
@@ -45,21 +45,26 @@
             </li>
         </ul>
     </nav>
-        </header>
+</header>
+<br>
 
-        <br />
+<tbody>
+    <!-- esto es un loop th:each corro esto -->
+    <!-- Prueba para llenar cosas,  -->
+    <!-- usar bootstrap para ver si lleno esto solo en las cosas -->
+<div class="container">
+    <th:block th:each="carro : ${carros}">
+        <tr>
+            <!-- <td th:text="#{Precio:}">:</td> -->
+            <!-- <td class="caja caja1"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div> -->
+        <div class="caja cajan"><img src="'images/'+${carro.getCarro_id}+'.jpg'"> <td th:text="${carro.getModelo}+' '">  <td th:text="${carro.getCosto}+'$  '">  </td><td><a th:href="@{/verauto/{id}(id=${carro.getCarro_id})}">Ver_detalles</a></td><td>                        <!-- <a th:href="@{/delete/{id}(id=${carro.getCarro_id})}">Delete</a> --></td></div>
 
-        <div class="caja-comentarios">
-            <form>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Ingrese su email">
-                <label for="comentario">Comentario:</label>
-                <textarea id="comentario" name="comentario" placeholder="Ingrese su comentario"></textarea>
-                <button type="submit">Enviar comentario</button>
-            </form>
-        </div>
-          </body>
+
+        </tr>
+    </th:block>
+</div>
+
+</tbody>
+
+
 </html>
-

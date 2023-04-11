@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/VentadeMotos.css" />
+
+
+    <body class="p-3 m-0 border-0 bd-example">
+        <header> 
+            <nav>
+                <ul>
+
+                    <img src="images/1.png" alt="Logo" class="logo">
+
+                    <li class="navOpcion">
+                        <a href="home.html" class="navLink menuLink">Home</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="ventadecarros" class="navLink menuLink">Venta de Carros</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="ventademotos" class="navLink menuLink">Venta de Motos</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="review.html" class="navLink menuLink">Review</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="login.html" class="navLink menuLink">Login</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <br />
+    <body>
+
+        <div class="container">
+            <th:block th:each="moto : ${motos}">
+                <tr>
+
+                <div class="caja cajan"><img src="images/DB11.jpeg"><td th:text="${moto.getModelo}+'  '">  </td><td th:text="${moto.getCosto}+'$  '">   </td><td><a th:href="@{/vermoto/{id}(id=${moto.getMoto_id})}">Ver_detalles</a></td></div>
+
+
+                </tr>
+            </th:block>
+
+        </div>
+
+
+
+    </body>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Review</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    </head>
+    </head>
+    <body>
+        <div>
+            <img th:src="@{/images/review.jpg}" alt="Review Image" />
+            <h2 th:text="${review.titulo}"></h2>
+            <p th:text="${review.descripcion}"></p>
+            <p th:text="${#temporals.format(review.fechaPublicacion, 'dd/MM/yyyy')}"></p>
+        </div>
+    </body>
+</html>
