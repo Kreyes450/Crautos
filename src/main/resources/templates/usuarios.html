@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Tabla de Noticias</title>
-	<!-- Importamos los estilos de Bootstrap -->
+	 Importamos los estilos de Bootstrap 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<!-- Iteramos sobre la lista de usuarios para mostrarlos en la tabla -->
+				 Iteramos sobre la lista de usuarios para mostrarlos en la tabla 
 				<tr th:each="usuario : ${usuario}">
 					<td th:text="${usuario.usuario_id}"></td>
 					<td th:text="${usuario.nombre}"></td>
@@ -32,13 +32,56 @@
 					<td th:text="${usuario.email}"></td>
 					<td th:text="${usuario.tipo_usuario.tipo}"></td>
 					<td>
-						 <!--Agregamos botones para editar y eliminar usuarios--> 
+						 Agregamos botones para editar y eliminar usuarios 
 						<a th:href="@{/editUser/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-warning">Editar</a>
 						<a th:href="@{/deleteUser/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-danger">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+		 Agregamos un botón para crear un nuevo usuario 
+		<a th:href="@{/usuarioN}" class="btn btn-primary">Nuevo Usuario</a>
+	</div>
+
+	 Importamos los scripts de Bootstrap 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Usuarios</title>
+	<!-- Importamos los estilos de Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/NoticiasNuevas.css" />
+</head>
+<body>
+	<div class="container mt-5">
+		<h1 class="text-center mb-5">Usuarios</h1>
+		<div class="row">
+			<!-- Iteramos sobre la lista de usuarios para mostrarlos en tarjetas -->
+			<div th:each="usuario : ${usuario}" class="col-md-4 mb-4">
+				<div class="card">
+					<!-- Agregamos una imagen del usuario si está disponible -->
+					<div class="card-body">
+						<!-- Agregamos el nombre y apellido del usuario -->
+						<h5 th:text="${usuario.nombre + ' ' + usuario.apellido}" class="card-title"></h5>
+						<!-- Agregamos la edad del usuario -->
+						<p th:text="${usuario.edad + ' años'}" class="card-text"></p>
+						<!-- Agregamos el correo electrónico del usuario -->
+						<p th:text="${usuario.email}" class="card-text"></p>
+						<!-- Agregamos el tipo de usuario -->
+						<p th:text="${usuario.tipo_usuario.tipo}" class="card-text"></p>
+						<!-- Agregamos botones para editar y eliminar usuarios -->
+						<a th:href="@{/editUser/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-warning">Editar</a>
+						<a th:href="@{/deleteUser/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-danger">Eliminar</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- Agregamos un botón para crear un nuevo usuario -->
 		<a th:href="@{/usuarioN}" class="btn btn-primary">Nuevo Usuario</a>
 	</div>
@@ -49,3 +92,4 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
+

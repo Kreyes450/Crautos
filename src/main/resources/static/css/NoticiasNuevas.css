@@ -89,3 +89,7 @@ article a {
 article a:hover {
   background-color: #0055CC;
 }
+
+h1, label {
+  color: #fff;
+}

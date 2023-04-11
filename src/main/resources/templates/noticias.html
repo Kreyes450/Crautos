@@ -2,38 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
-	<title>Tabla de Noticias</title>
+	<title>Noticias</title>
 	<!-- Importamos los estilos de Bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/NoticiasNuevas.css" />
 </head>
 <body>
 	<div class="container mt-5">
-		<h1 class="text-center mb-5">Tabla de Noticias</h1>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Fecha</th>
-					<th>Nombre</th>
-					<th>Cuerpo</th>
-					<th>Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<!-- Iteramos sobre la lista de noticias para mostrarlas en la tabla -->
-				<tr th:each="noticia : ${noticias}">
-					<td th:text="${noticia.fecha_noticia}"></td>
-					<td th:text="${noticia.nombre_noticia}"></td>
-					<td th:text="${noticia.cuerpo_noticia}"></td>
-					<td>
-						<!-- Agregamos botones para editar y eliminar noticias -->
-						<a th:href="@{/editNoticia/{id}(id=${noticia.noticia_id})}" class="btn btn-sm btn-warning">Editar</a>
-						<a th:href="@{/delete/{id}(id=${noticia.noticia_id})}" class="btn btn-sm btn-danger">Eliminar</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<h1 class="text-center mb-5">Noticias</h1>
+		<div class="row">
+			<!-- Iteramos sobre la lista de noticias para mostrar cada una en un cuadro -->
+			<div class="col-md-4 mb-4" th:each="noticia : ${noticias}">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title" th:text="${noticia.nombre_noticia}"></h5>
+						<p class="card-text" th:text="${noticia.cuerpo_noticia}"></p>
+						<p class="card-text"><small class="text-muted" th:text="${noticia.fecha_noticia}"></small></p>
+						<a th:href="@{/editNoticia/{id}(id=${noticia.noticia_id})}" class="btn btn-warning mr-2">Editar</a>
+						<a th:href="@{/delete/{id}(id=${noticia.noticia_id})}" class="btn btn-danger">Eliminar</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- Agregamos un botón para crear una nueva noticia -->
-		<a th:href="@{/noticiaN}" class="btn btn-primary">Nueva Noticia</a>
+		<a th:href="@{/noticiaN}" class="btn btn-primary mt-3">Nueva Noticia</a>
 	</div>
 
 	<!-- Importamos los scripts de Bootstrap -->
@@ -42,3 +34,4 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
+
