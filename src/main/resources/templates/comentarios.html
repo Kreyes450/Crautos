@@ -1,93 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="UTF-8">
+        <title>Comentarios</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/comentarios.css" />
-        
     </head>
-        
+    <header> 
+        <nav>
+            <ul>
 
+                 
 
-    <body class="p-3 m-0 border-0 bd-example">
-        <header> 
-            <nav>
-                <ul>
+                                <img src="images/1.png" alt="Logo" class="logo">
 
-                    <img src="images/1.png" alt="Logo" class="logo">
+                 
 
-                    <li class="navOpcion">
-                        <a href="home.html" class="navLink menuLink">Home</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="review.html" class="navLink menuLink">Review</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="login.html" class="navLink menuLink">Login</a>
-                    </li>
-                    <li class="navOpcion">
-                        <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+                                <li class="navOpcion">
+                    <a href="home.html" class="navLink menuLink">Home</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="review.html" class="navLink menuLink">Review</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="login.html" class="navLink menuLink">Login</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center mb-5">Comentarios</h1>
+            <div class="row">
+                <!-- Iteramos sobre la lista de noticias para mostrar cada una en un cuadro -->
+                <div class="col-md-4 mb-4" th:each="comentarios : ${comentarios}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${comentarios.getNombre_comentario}"></h5>
+                            <p class="card-text" th:text="${comentarios.getCuerpo_comentario}"></p>
+                            <p class="card-text"><small class="text-muted" th:text="${comentarios.getFecha_comentario}"></small></p>
+                            <a th:href="@{/editcomentarios/{idC}(id=${comentarios.getComentarios_id})}" class="btn btn-warning mr-2">Editar</a>
+                            <a th:href="@{/delete/{idC}(idC=${comentarios.getComentarios_id})}" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a th:href="@{/comentarioN}" class="btn btn-primary mt-3">Nuevo Comentario</a>
+        </div>
 
-        <br />
+         
 
-        <div class="caja-comentarios">
-     <head>
-      <title>comentarios</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <!-- /*Este le da estilo. es como un css facil*/ -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>    
-   </head>
-   <body>
-      <h1 th:text="${titulo}"></h1>
-      <table class="table table-dark table-striped">
-         <thead class="thead-dark">
-             <tr><!-- table row -->
-                <th scope="col">fecha_comentario</th><!-- table heading -->
-               <th scope="col">nombre_comentario</th>
-               <th scope="col">cuerpo_comentario</th><!-- table heading -->
-               <th scope="col">usuario_comentarios_id</th>
-             
-             </tr>
-         </thead>
-         <tbody>
-             <!-- esto es un loop th:each corro esto -->
-             <!-- Prueba para llenar cosas,  -->
-             <!-- usar bootstrap para ver si lleno esto solo en las cosas -->
-            <th:block th:each="comentarios : ${comentarios}">
-               <tr>
-                  <td th:text="${comentarios.getFecha_comentario}"></td>
-                  <td th:text="${comentarios.getNombre_comentario}"></td>
-                  <td th:text="${comentarios.getCuerpo_comentario}"></td>
-                  <td th:text="${comentarios.getUsuario_comentarios_id}"></td>
-                  <td>                        <a th:href="@{/editcomentarios/{idC}(id=${comentarios.getComentarios_id})}">Edit</a>         </td>
-                  <td>                        <a th:href="@{/delete/{idC}(id=${comentarios.getComentarios_id})}">Delete</a>          </td>
-                  
-               </tr>
-            </th:block>
-         </tbody>
-      </table>
-   </body>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
 </html>
-        
+
