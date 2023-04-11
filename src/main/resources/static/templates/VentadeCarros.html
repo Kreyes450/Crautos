@@ -20,16 +20,16 @@
                 <a href="home.html" class="navLink menuLink">Home</a>
             </li>
             <li class="navOpcion">
-                <a href="ventadecarros" class="navLink menuLink">Venta de Carros</a>
+                <a href="src/main/resources/templates/ventadecarros" class="navLink menuLink">Venta de Carros</a>
             </li>
             <li class="navOpcion">
-                <a href="ventademotos" class="navLink menuLink">Venta de Motos</a>
+                <a href="src/main/resources/templates/ventademotos" class="navLink menuLink">Venta de Motos</a>
             </li>
             <li class="navOpcion">
                 <a href="review.html" class="navLink menuLink">Review</a>
             </li>
             <li class="navOpcion">
-                <a href="comentarios old.html" class="navLink menuLink">Comentarios</a>
+                <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
             </li>
             <li class="navOpcion">
                 <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
@@ -57,7 +57,7 @@
         <tr>
             <!-- <td th:text="#{Precio:}">:</td> -->
             <!-- <td class="caja caja1"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div> -->
-        <div class="caja cajan"><img src="'images/'+${carro.getCarro_id}+'.jpg'"> <td th:text="${carro.getModelo}+' '">  <td th:text="${carro.getCosto}+'$  '">  </td><td><a th:href="@{/verauto/{id}(id=${carro.getCarro_id})}">Ver_detalles</a></td><td>                        <!-- <a th:href="@{/delete/{id}(id=${carro.getCarro_id})}">Delete</a> --></td></div>
+        <div class="caja cajan"><img src="@{images/{image}(image=${carro.getCarro_id})+'.jpg'"> <td th:text="${carro.getModelo}+' '">  <td th:text="${carro.getCosto}+'$  '">  </td><td><a th:href="@{/verauto/{id}(id=${carro.getCarro_id})}">Ver_detalles</a></td><td>                        <!-- <a th:href="@{/delete/{id}(id=${carro.getCarro_id})}">Delete</a> --></td></div>
 
 
         </tr>

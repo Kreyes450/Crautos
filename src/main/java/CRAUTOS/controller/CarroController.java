@@ -4,6 +4,7 @@
  */
 package CRAUTOS.controller;
 
+import CRAUTOS.ImageUtil;
 import CRAUTOS.entity.Carro;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,21 +26,24 @@ public class CarroController {
     @Autowired
     private ICarroService carroService;
 
+
     /*
     @Autowired
     private IPaisService paisService;
      */
-    /*@GetMapping("/persona")*/
+ /*@GetMapping("/persona")*/
     @GetMapping("/ventadecarros")
     /*Model nos ayuda con el metodo addAttribute la informacion al frontend*/
     public String index(Model model) {
         List<Carro> listacarros = carroService.getAllCarro();
         model.addAttribute("titulo", "Tabla Carros");
         model.addAttribute("carros", listacarros);
+        model.addAttribute("imgUtil", new ImageUtil());
         /*
         return "personas";*/
         return "ventadecarros";
     }
+
 
     @GetMapping("/personaN")
 
@@ -54,10 +58,10 @@ public class CarroController {
     }
 
     /*el arroba es un patron decorador*/
-    @GetMapping("/delete/{id}")
-    public String eliminarCarro(@PathVariable("Carro_ID") Long idcarro) {
+    @GetMapping("/delete/{carro_id}")
+    public String eliminarCarro(@PathVariable("carro_id") Long idcarro) {
         carroService.delete(idcarro);
-        return "redirect:/persona";
+        return "redirect:/ventadecarros";
     }
 
     /*Que es el ModelAttribute, Model es un objeto, el @Modelattribute es un patron decorador*/
@@ -74,11 +78,11 @@ public class CarroController {
     @PostMapping("/save")
     public String guardarCarro(@ModelAttribute Carro carro) {
         carroService.saveCarro(carro);
-        return "redirect:/persona";
+        return "redirect:/ventadecarros";
     }
 
-    @GetMapping("/editPersona/{id}")
-    public String editarCarro(@PathVariable("Carro_ID") Long idcarro, Model model) {
+    @GetMapping("/verauto/{carro_id}")
+    public String editarCarro(@PathVariable("carro_id") Long idcarro, Model model) {
         Carro carro = carroService.getCarroById(idcarro);
         /*
         List<Pais> listaPaises = paisService.listCountry();*/
