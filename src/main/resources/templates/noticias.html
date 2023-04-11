@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Tabla de Noticias</title>
+	<!-- Importamos los estilos de Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container mt-5">
+		<h1 class="text-center mb-5">Tabla de Noticias</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Nombre</th>
+					<th>Cuerpo</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Iteramos sobre la lista de noticias para mostrarlas en la tabla -->
+				<tr th:each="noticia : ${noticias}">
+					<td th:text="${noticia.fecha_noticia}"></td>
+					<td th:text="${noticia.nombre_noticia}"></td>
+					<td th:text="${noticia.cuerpo_noticia}"></td>
+					<td>
+						<!-- Agregamos botones para editar y eliminar noticias -->
+						<a th:href="@{/editNoticia/{id}(id=${noticia.noticia_id})}" class="btn btn-sm btn-warning">Editar</a>
+						<a th:href="@{/delete/{id}(id=${noticia.noticia_id})}" class="btn btn-sm btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- Agregamos un botón para crear una nueva noticia -->
+		<a th:href="@{/noticiaN}" class="btn btn-primary">Nueva Noticia</a>
+	</div>
+
+	<!-- Importamos los scripts de Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
