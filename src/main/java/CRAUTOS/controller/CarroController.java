@@ -4,6 +4,7 @@
  */
 package CRAUTOS.controller;
 
+import CRAUTOS.ImageUtil;
 import CRAUTOS.entity.Carro;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class CarroController {
         List<Carro> listacarros = carroService.getAllCarro();
         model.addAttribute("titulo", "Tabla Carros");
         model.addAttribute("carros", listacarros);
+        model.addAttribute("imgUtil", new ImageUtil());
         /*
         return "personas";*/
         return "ventadecarros";
@@ -57,24 +59,31 @@ public class CarroController {
     }
 
     /*el arroba es un patron decorador*/
-    @GetMapping("/delete/{id}")
-    public String eliminarCarro(@PathVariable("Carro_ID") Long idcarro) {
+    @GetMapping("/delete/{carro_id}")
+    public String eliminarCarro(@PathVariable("carro_id") Long idcarro) {
         carroService.delete(idcarro);
-        return "redirect:/persona";
+        return "redirect:/ventadecarros";
     }
 
     /*Que es el ModelAttribute, Model es un objeto, el @Modelattribute es un patron decorador*/
  /*cuando lo agregamos como argumento dentro de un metodo, es como deberia retornar la informacion el postmapping, */
  /*El objeto model es una interfaz que crear pares de key value, donde el key va a ser "persona", value es lo siguiente*/
  /**/
+
+    /**
+     *
+     * @param carro
+     * @return 
+     */
+
     @PostMapping("/save")
     public String guardarCarro(@ModelAttribute Carro carro) {
         carroService.saveCarro(carro);
-        return "redirect:/persona";
+        return "redirect:/ventadecarros";
     }
 
-    @GetMapping("/editPersona/{id}")
-    public String editarCarro(@PathVariable("Carro_ID") Long idcarro, Model model) {
+    @GetMapping("/verauto/{carro_id}")
+    public String editarCarro(@PathVariable("carro_id") Long idcarro, Model model) {
         Carro carro = carroService.getCarroById(idcarro);
         /*
         List<Pais> listaPaises = paisService.listCountry();*/
