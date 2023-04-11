@@ -5,10 +5,11 @@ USE crautos;
 
 CREATE TABLE `tipo_usuario`
   (
-     `tipo_usuario_id`        INT(100) NOT NULL,
+     `tipo_usuario_id`        INT(11) NOT NULL,
      `tipo`            VARCHAR(50) NOT NULL,
      PRIMARY KEY(tipo_usuario_id)
-  );
+  ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
   
   
 INSERT INTO `tipo_usuario`
@@ -19,20 +20,19 @@ VALUES      (1,
 INSERT INTO `tipo_usuario`
 VALUES      (2,
              'Usuario');
-  
 
 CREATE TABLE `usuario`
   (
      `usuario_id`        INT(100) NOT NULL,
      `nombre`            VARCHAR(50) NOT NULL,
      `apellido`          VARCHAR(50) NOT NULL,
-     `edad`              VARCHAR(11) NOT NULL,
+     `edad`              int(11) NOT NULL,
      `telefono`          INT(50) NOT NULL,
-     `correo_eletronico` VARCHAR(60) NOT NULL,
-	 `tipo_usuario`          INT(100) NOT NULL,
+     `email` VARCHAR(100) NOT NULL,
+     `tipo_usuario`       INT(100) NOT NULL,
      PRIMARY KEY(usuario_id, tipo_usuario),
-	 KEY `fk_usuarios_tipo_usuario_idx` (`tipo_usuario`),  
-     CONSTRAINT `fk_usuarios_tipo_usuario_idx` FOREIGN KEY (`tipo_usuario`) REFERENCES `tipo_usuario` (`tipo_usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+	 KEY `fk_usuario_tipo_usuariox` (`tipo_usuario`),  
+     CONSTRAINT `fk_usuario_tipo_usuariox` FOREIGN KEY (`tipo_usuario`) REFERENCES `tipo_usuario` (`tipo_usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
   );
 
 INSERT INTO `usuario`
