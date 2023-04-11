@@ -68,6 +68,13 @@ public class CarroController {
  /*cuando lo agregamos como argumento dentro de un metodo, es como deberia retornar la informacion el postmapping, */
  /*El objeto model es una interfaz que crear pares de key value, donde el key va a ser "persona", value es lo siguiente*/
  /**/
+
+    /**
+     *
+     * @param carro
+     * @return 
+     */
+
     @PostMapping("/save")
     public String guardarCarro(@ModelAttribute Carro carro) {
         carroService.saveCarro(carro);
