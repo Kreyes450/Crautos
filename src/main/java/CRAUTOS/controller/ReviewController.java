@@ -1,68 +1,68 @@
 package CRAUTOS.controller;
 
 import CRAUTOS.entity.Review;
-import CRAUTOS.entity.Carro;
 import CRAUTOS.service.IReviewService;
-import CRAUTOS.service.ICarroService;
-import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+
+
 
 @Controller
 public class ReviewController {
 
     @Autowired
     private IReviewService reviewService;
-    
-    @Autowired
-    private ICarroService carroService;
 
-    @GetMapping("/reviews")
-    public String index(Model model) {
-        List<Review> listaReviews = reviewService.getAllReviews();
-        model.addAttribute("titulo", "Tabla de Reviews");
-        model.addAttribute("reviews", listaReviews);
-        return "reviews";
+    @GetMapping("/review")
+    public String getAllReviews(Model model) {
+        List<Review> reviews = reviewService.getAllReviews();
+        model.addAttribute("review", reviews);
+        return "review";
     }
 
-    @GetMapping("/crearReview")
-    public String crearReview(Model model) {
-        List<Carro> listaCarros = carroService.getAllCarros();
-        model.addAttribute("review", new Review());
-        model.addAttribute("carros", listaCarros);
-        return "form-review";
-    }
-
-    @PostMapping("/guardarReview")
-    public String guardarReview(@ModelAttribute Review review, BindingResult result, Model model) {
-        if (review.getCarro() == null) {
-            result.rejectValue("carro", "error.review", "Debe seleccionar un carro");
-            List<Carro> listaCarros = carroService.getAllCarros();
-            model.addAttribute("carros", listaCarros);
-            return "form-review";
-        }
-        review.setCreatedAt(new Date());
-        reviewService.saveReview(review);
-        return "redirect:/reviews";
-    }
-
-     @GetMapping("/editarReview/{id}")
-    public String editarReview(@PathVariable("id") Long idReview, Model model) {
-        Review review = reviewService.getReviewById(idReview);
+    @GetMapping("/review/{id}")
+    public String getReviewById(@PathVariable("id") long id, Model model) {
+        Review review = reviewService.getReviewById(id);
         model.addAttribute("review", review);
-        return "editarReview";
+        return "review";
     }
 
-    @GetMapping("/eliminarReview/{id}")
-    public String eliminarReview(@PathVariable("id") Long idReview) {
-        reviewService.deleteReview(idReview);
-        return "redirect:/reviews";
+    @GetMapping("/review/new")
+    public String showReviewForm(Model model) {
+        Review review = new Review();
+        model.addAttribute("review", review);
+        return "review-form";
+    }
+
+    @PostMapping("/review")
+    public String saveReview(@ModelAttribute("review") Review review) {
+        reviewService.saveReview(review);
+        return "redirect:/review";
+    }
+
+    @GetMapping("/review/edit/{id}")
+    public String showEditForm(@PathVariable("id") long id, Model model) {
+        Review review = reviewService.getReviewById(id);
+        model.addAttribute("review", review);
+        return "review-form";
+    }
+
+    @PostMapping("/review/update/{id}")
+    public String updateReview(@PathVariable("id") long id, @ModelAttribute("review") Review review) {
+        reviewService.saveReview(review);
+        return "redirect:/review";
+    }
+
+    @GetMapping("/review/delete/{id}")
+    public String deleteReview(@PathVariable("id") long id) {
+        reviewService.deleteReview(id);
+        return "redirect:/review";
     }
 }
