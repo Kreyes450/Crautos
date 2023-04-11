@@ -35,105 +35,66 @@ CREATE TABLE `usuario`
      CONSTRAINT `fk_usuario_tipo_usuariox` FOREIGN KEY (`tipo_usuario`) REFERENCES `tipo_usuario` (`tipo_usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
   );
 
-INSERT INTO `usuario`
-VALUES      (1,
-             'Carlos',
-             'Gonzales',
-             '21',
-             '86556430',
-             'CarlosGonzales@hotmail.com',
-             1);
-
-INSERT INTO `usuario`
-VALUES      (2,
-             'Daniel',
-             'Chaves',
-             '22',
-             '88245693',
-             'Daniel@hotmail.com',
-             1;
-
-INSERT INTO `usuario`
-VALUES      (3,
-             'Ronald',
-             'Gomez',
-             '20',
-             '22365648',
-             'Ronald@hotmail.com',
-             2);
-
-INSERT INTO `usuario`
-VALUES      (4,
-             'Mathias',
-             'Guzman',
-             '34',
-             '87256933',
-             'Matiasguzman@hotmail.com',
-             2);
-
-INSERT INTO `usuario`
-VALUES      (5,
-             'Roy',
-             'Chavarria',
-             '45',
-             '78569836',
-             'Roy@hotmail.com',
-             2);
-
-INSERT INTO `usuario`
-VALUES      (6,
-             'Alex',
-             'Marin',
-             '20',
-             '89632654',
-             'Alex@hotmail.com',
-             2);
-
-INSERT INTO `usuario`
-VALUES      (7,
-             'Mauricio',
-             'Elizondo',
-             '23',
-             '60364525',
-             'Mauricio@hotmail.com',
-             2);
-
-INSERT INTO `usuario`
-VALUES      (8,
-             'Josue',
-             'Espinoza',
-             '26',
-             '60364525',
-             'Josue@hotmail.com',
-             2);
-
-INSERT INTO `usuario`
-VALUES      (9,
-             'Martin',
-             'Castaño',
-             '28',
-             '70265896',
-             'Martin@hotmail.com',
-             2);
-
-INSERT INTO `usuario`
-VALUES      (10,
-             'Kevin',
-             'Umaña',
-             '27',
-             '65236458',
-             'Kevin@hotmail.com',
-             2);
-
-INSERT INTO `usuario`
-VALUES      (11,
-             'Salin',
-             'Gutierrez',
-             '22',
-             '88576430',
-             'Salin@hotmail.com',
-             2;
-			 
+INSERT INTO `usuario` 
+VALUES 
+  (
+    2, 'Daniel', 'Chaves', 22, 88245693, 
+    'Daniel@hotmail.com', 2
+  );
+INSERT INTO `usuario` 
+VALUES 
+  (
+    3, 'Ronald', 'Gomez', 20, 22365648, 
+    'Ronald@hotmail.com', 2
+  );
+INSERT INTO `usuario` 
+VALUES 
+  (
+    4, 'Matias', 'Guzman', 34, 87256933, 
+    'Matiasguzman@hotmail.com', 1
+  );
+INSERT INTO `usuario` 
+VALUES 
+  (
+    5, 'Roy', 'Chavarria', 45, 78569836, 
+    'Roy@hotmail.com', 1
+  );
+INSERT INTO `usuario` 
+VALUES 
+  (
+    6, 'Alex', 'Marin', 20, 89632654, 
+    'Alex@hotmail.com', 2
+  );
+INSERT INTO `usuario` 
+VALUES 
+  (
+    7, 'Mauricio', 'Elizondo', 23, 60364525, 
+    'Mauricio@hotmail.com', 2
+  );
+INSERT INTO `usuario` 
+VALUES 
+  (
+    8, 'Josue', 'Espinoza', 26, 60364525, 
+    'Josue@hotmail.com', 2
+  );
+INSERT INTO `usuario` 
+VALUES 
+  (
+    9, 'Martin', 'Castaño', 28, 70265896, 
+    'Martin@hotmail.com', 1
+  );
+INSERT INTO `usuario` 
+VALUES 
+  (
+    10, 'Kevin', 'Umaña', 27, 65236458, 
+    'Kevin@hotmail.com', 2
+  );
+INSERT INTO `usuario` 
+VALUES 
+  (
+    11, 'Salin', 'Gutierrez', 22, 88576430, 
+    'Salin@hotmail.com', 2
+  );		 
 
 CREATE TABLE `dinero`
   (
