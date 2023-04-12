@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Usuarios</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/NoticiasNuevas.css" />
+</head>
+<header> 
+        <nav>
+            <ul>
+
+                <img src="images/1.png" alt="Logo" class="logo">
+
+                <li class="navOpcion">
+                    <a href="home.html" class="navLink menuLink">Home</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="review.html" class="navLink menuLink">Review</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="login.html" class="navLink menuLink">Login</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+<body>
+	<div class="container mt-5">
+		<h1 class="text-center mb-5">Usuarios</h1>
+		<div class="row">
+			<!-- recorrer la lista de usuarios para mostrarlos en tarjetas -->
+			<div th:each="usuario : ${usuario}" class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<!-- Agregamos el nombre y apellido del usuario -->
+						<h5 th:text="${usuario.nombre + ' ' + usuario.apellido}" class="card-title"></h5>
+						<!-- Agregamos la edad del usuario -->
+						<p th:text="${usuario.edad + ' años'}" class="card-text"></p>
+						<!-- Agregamos el correo electrónico del usuario -->
+						<p th:text="${usuario.email}" class="card-text"></p>
+						<!-- Agregamos el tipo de usuario -->
+						<p th:text="${usuario.tipo_usuario.tipo}" class="card-text"></p>
+						<!-- Agregamos botones para editar y eliminar usuarios -->
+						<a th:href="@{/editUser/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-warning">Editar</a>
+						<a th:href="@{/deleteUser/{iduser}(iduser=${usuario.usuario_id})}" class="btn btn-sm btn-danger">Eliminar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a th:href="@{/usuarioN}" class="btn btn-primary">Nuevo Usuario</a>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+

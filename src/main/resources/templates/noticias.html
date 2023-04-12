@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Noticias</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/NoticiasNuevas.css" />
+</head>
+<header> 
+        <nav>
+            <ul>
+
+                <img src="images/1.png" alt="Logo" class="logo">
+
+                <li class="navOpcion">
+                    <a href="home.html" class="navLink menuLink">Home</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="review.html" class="navLink menuLink">Review</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="login.html" class="navLink menuLink">Login</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+<body>
+	<div class="container mt-5">
+		<h1 class="text-center mb-5">Noticias</h1>
+		<div class="row">
+			<!-- Iteramos sobre la lista de noticias para mostrar cada una en un cuadro -->
+			<div class="col-md-4 mb-4" th:each="noticia : ${noticias}">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title" th:text="${noticia.nombre_noticia}"></h5>
+						<p class="card-text" th:text="${noticia.cuerpo_noticia}"></p>
+						<p class="card-text"><small class="text-muted" th:text="${noticia.fecha_noticia}"></small></p>
+						<a th:href="@{/editNoticia/{id}(id=${noticia.noticia_id})}" class="btn btn-warning mr-2">Editar</a>
+						<a th:href="@{/delete/{id}(id=${noticia.noticia_id})}" class="btn btn-danger">Eliminar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a th:href="@{/noticiaN}" class="btn btn-primary mt-3">Nueva Noticia</a>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
