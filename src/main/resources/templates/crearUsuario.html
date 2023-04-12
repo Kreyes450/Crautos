@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<title>Crear Cuenta</title>
+        <meta charset="UTF-8">
+        <title>Crear Cuenta</title>
 	<!-- Importamos los estilos de Bootstrap -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/crearCuenta.css">
 </head>
 <body>
-	<div class="container mt-5">
-		<h1 class="text-center mb-5">Crear Cuenta</h1>
-		<form method="POST" th:action="@{/saveUser}">
-			<div class="form-group">
-				<label for="nombre">Nombre:</label>
-				<input type="text" class="form-control" id="nombre" name="nombre" required>
-			</div>
-			<div class="form-group">
-				<label for="apellido">Apellido:</label>
-				<input type="text" class="form-control" id="apellido" name="apellido" required>
-			</div>
-			<div class="form-group">
-				<label for="edad">Edad:</label>
-				<input type="number" class="form-control" id="edad" name="edad" required>
-			</div>
-			<div class="form-group">
-				<label for="telefono">Telefono:</label>
-				<input type="text" class="form-control" id="telefono" name="telefono" required>
-			</div>
-			<div class="form-group">
-				<label for="email">Correo electrónico:</label>
-				<input type="email" class="form-control" id="email" name="email" required>
-			</div>
-			<div class="form-group">
-				<label for="tipo_usuario">Tipo de usuario:</label>
-				<select th:field="*{tipo_usuario}"class="form-control" id="tipo_usuario" name="tipo_usuario" required>
-					<option th:each="tipo : ${tipo_usuario}" th:value="${tipo.tipo_usuario_id}" th:text="${tipo.tipo}"></option>
-				</select>
-			</div>
-			<button type="submit" class="btn btn-primary">Guardar</button>
-		</form>
-	</div>
+        <div class="container mt-5">
+                <h1 class="text-center mb-5">Crear Cuenta</h1>
+                <form th:object ="${usuario}" method="POST" th:action="@{/saveUser}">
+                    <input type="hidden" th:field="*{usuario_id}">
+                        <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" class="form-control" th:field="*{nombre}"  placeholder= "Nombre" id="nombre" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                                <label for="apellido">Apellido:</label>
+                                <input type="text" class="form-control" th:field="*{apellido}"  placeholder= "Apellido" id="apellido" aria-describedby="emailHelp"> 
+                        </div>
+                        <div class="form-group">
+                                <label for="edad">Edad:</label>
+                                <input type="number" class="form-control" th:field="*{edad}"  placeholder= "Edad" id="edad" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                                <label for="telefono">Telefono:</label>
+                                <input type="text" class="form-control" th:field="*{telefono}"  placeholder= "Telefono" id="telefono" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                                <label for="email">Correo electrónico:</label>
+                                <input type="text" class="form-control" th:field="*{email}"  placeholder= "Email" id="email" aria-describedby="emailHelp">    
+                        </div>
+                        <div class="form-group">
+                                <label for="tipo_usuario">Tipo de usuario:</label>
+                                <select th:field="*{tipo_usuario}" class="form-control" id="tipo_usuario" aria-describedby="emailHelp">                                    
+                                    <option th:each="x:${tipo_usuario}"                                            th:value="${x.tipo_usuario_id}"                                            th:text="${x.tipo}"/>                                
+                                </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+        </div>
 
 	<!-- Importamos los scripts de Bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
