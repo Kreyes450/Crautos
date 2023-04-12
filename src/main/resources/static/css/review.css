@@ -36,42 +36,76 @@ nav a:hover {
 .logo {
   height: 70px; 
  }
-
- 
- .container {
-    display: flex;
-    margin: 50px auto;
-    background-color: #403c3c94;
-    align-items: center;
-    flex-direction: row-reverse;
-}
-
-.image-box {
-  flex-basis: 45%;
-  padding-right: 10px;
+/* Estilos para el contenedor de la imagen y la información */
+.container2 {
   display: flex;
-  justify-content: flex-end
+  margin-bottom: 20px;
+  background-color: #3e383878;
+  align-items: center;
+  flex-direction: column;
+  color:white;
+  margin-right: 10px;
 }
 
-.image-box img {
-  display: block;
-  max-width: 60%;
+.container3 {
+  position: absolute;
+  right: 0;
+  display: flex;
+
+}
+
+
+.container2 img {
+  width: 20%;
   height: auto;
-  
+  float: right;
+  margin-left: 10px;
 }
 
-.text-box {
-  flex-basis: 50%;
+
+.container2 td1 {
+  margin: 0;
   color: white;
-}
-
-.text-box h2 {
-  font-size: 24px;
   font-weight: bold;
-  margin-top: 0;
+  font-size: 14px;
+  margin-top: auto;
+  color:white;
+   margin-bottom: 10px;
 }
 
-.text-box p {
-  font-size: 18px;
-  line-height: 1.5;
+.container2 td3 {
+  
+  font-size: 14px;
+  margin-bottom: auto;
+  color:#fff;
+   margin-bottom: 10px;
 }
+
+.container2 td2 {
+  font-size: 16px;
+  margin-top: auto;
+  color:white;
+  font-weight: bold;
+}
+
+.container3 img{
+   
+    width:160px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

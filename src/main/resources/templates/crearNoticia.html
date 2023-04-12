@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nueva Noticia</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/NoticiasNuevas.css" />
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center mb-5">Nueva Noticia</h1>
+            <form method="POST" th:action="@{/saveNoticia}">
+                <div class="form-group">
+                    <label for="nombre_noticia">Nombre de la Noticia</label>
+                    <input type="text" class="form-control" id="nombre_noticia" name="nombre_noticia">
+                </div>
+                <div class="form-group">
+                    <label for="cuerpo_noticia">Cuerpo</label>
+                    <textarea class="form-control" id="cuerpo_noticia" name="cuerpo_noticia"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_noticia">Fecha</label>
+                    <input type="date" class="form-control" id="fecha_noticia" name="fecha_noticia">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

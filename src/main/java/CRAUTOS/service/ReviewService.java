@@ -1,4 +1,3 @@
-
 package CRAUTOS.service;
 
 import CRAUTOS.entity.Review;
@@ -14,25 +13,28 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ReviewService implements IReviewService {
+
     @Autowired
     private ReviewRepository reviewRepository;
 
     @Override
     public List<Review> getAllReviews() {
-        return(List<Review>)reviewRepository.findAll();
+        return reviewRepository.findAll();
     }
-
+/*Mae aqui no lo tenias con else null */
     @Override
+    @SuppressWarnings("empty-statement")
     public Review getReviewById(long id) {
         return reviewRepository.findById(id).orElse(null);
     }
 
     @Override
     public void saveReview(Review review) {
-       reviewRepository.save(review);
+        reviewRepository.save(review);
     }
 
-    public void delete(long id) {
+    @Override
+    public void deleteReview(long id) {
         reviewRepository.deleteById(id);
     }
 
@@ -41,8 +43,4 @@ public class ReviewService implements IReviewService {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public void deleteReview(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
