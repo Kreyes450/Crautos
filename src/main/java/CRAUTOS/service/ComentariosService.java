@@ -18,26 +18,26 @@ import org.springframework.stereotype.Service;
 public class ComentariosService implements IComentariosService{
   
  @Autowired
-    private ComentariosRepository comentariosRepository;
+    private ComentariosRepository ComentariosRepository;
     
     @Override
     public List<Comentarios> getAllComentarios() {
-        return (List<Comentarios>)comentariosRepository.findAll();
+        return (List<Comentarios>)ComentariosRepository.findAll();
     }
     
     @Override
     public Comentarios getComentariosById(long id) {
-        return comentariosRepository.findById(id).orElse(null);
+        return ComentariosRepository.findById(id).orElse(null);
     }
     
     @Override
     public void saveComentarios(Comentarios comentarios) {
-        comentariosRepository.save(comentarios);
+        ComentariosRepository.save(comentarios);
     }
     
     @Override
     public void delete(long id) {
-        comentariosRepository.deleteById(id);
+        ComentariosRepository.deleteById(id);
     }
 
    

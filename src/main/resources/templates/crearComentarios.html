@@ -1,57 +1,78 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html xmlns:th="http://thymeleaf.org">
-    <head th:replace"plantilla/template::head"></head>
-    <body>
-        <h1 th:text="#{Comentarios.titulo}"></h1>
-        <header th:replace="plantilla/template::header"></header>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/comentarios.css" />
         
-      <div>TODO write content</div>
-        <div class="container">
-            <div class="card-header bg-black text-white"> </div>
-            <div class="card-body">
+    </head>
+        
+
+
+    <body class="p-3 m-0 border-0 bd-example">
+        <header> 
+            <nav>
+                <ul>
+
+                    <img src="images/1.png" alt="Logo" class="logo">
+
+                    <li class="navOpcion">
+                        <a href="home.html" class="navLink menuLink">Home</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="review.html" class="navLink menuLink">Review</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="login.html" class="navLink menuLink">Login</a>
+                    </li>
+                    <li class="navOpcion">
+                        <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
+                    </li>
+                </ul>
+            </nav>
+           </nav>
+        </header>
+
+        <br />
+
+        <div class="caja-comentarios">
+            <form>
+                <h2 class="text-center mb-5">Crear comentario</h2>
                 
-                <!-- ESTO ES UN FORMULARIO. -->
+                <label for="Ingrese su nombre">Ingrese su nombre</label>
+                <input type="text" id="" name="nombre" placeholder="Ingrese su nombre">
+                <label for="Ingrese su apellido">Ingrese su apellido</label>
+                <input type="text" id="" Ingrese su apellido="Ingrese su apellido" placeholder="Ingrese su apellido">
+                <label for="fecha comentario">fecha comentario</label>
+                <input type="fecha comentario" id="fecha comentario" fecha_comentario="fecha comentario" placeholder="fecha comentario">
+                <label for="nombre comentario">nombre comentario</label>
+                <input type="nombre comentario" id="nombre comentario" nombre_comentario="nombre comentario" placeholder="nombre comentario">
+                <label for="cuerpo comentario">cuerpo comentario</label>
+                <input type="cuerpo comentario" id="cuerpo comentario" cuerpo_comentario="cuerpo_comentario" placeholder="cuerpo comentario">
+                <label for="usuario comentarios_id">usuario comentarios_id</label>
+                <input type="cuerpo comentario" id="usuario comentarios_id" cuerpo_comentario="usuario comentarios_id" placeholder="usuario comentarios_id">
                 
-                <div class="comentarios">
-                 <form th:object ="${comentarios}"
-                       th:action="@{/save}"
-                       method="POST"
-                       >
-                     <input type="hidden" th:field="*{id}">
+                <label for="Crear comentario">Crear comentario:</label>
+                <textarea id="Crear comentario" name="Crear comentario" placeholder="Crear comentario"></textarea>
                 
-                <div class="form-group mb-3 row">                            
-                    <label  class="col-md-2 col-form-label" for="fecha_comentario">fecha_comentario</label>                            
-                    <div class="col-sm-10">                                
-                        <input type="text" class="form-control form-control-sm col-md-6" th:field="*{fecha_comentario}"  placeholder= "fecha_comentario" id="fecha_comentario" aria-describedby="emailHelp">                            
-                    </div>                        
-                </div>
-                
-                     <div class="form-group mb-3 row">                            
-                    <label  class="col-md-2 col-form-label" for="nombre_comentario">nombre_comentario</label>                            
-                    <div class="col-sm-10">                                
-                        <input type="text" class="form-control form-control-sm col-md-6" th:field="*{nombre_comentario}"  placeholder= "nombre_comentario" id="nombre_comentario" aria-describedby="emailHelp">                            
-                                            
-                    </div>
-                    
-                <div class="form-group mb-3 row">                            
-                    <label  class="col-md-2 col-form-label" for="cuerpo_comentario">cuerpo_comentario</label>                            
-                    <div class="col-sm-10">                                
-                        <input type="text" class="form-control form-control-sm col-md-6" th:field="*{cuerpo_comentario}"  placeholder= "cuerpo_comentario" id="cuerpo_comentario" aria-describedby="emailHelp">                            
-                                            
-                    </div>
-                    
-                 <div class="form-group mb-3 row">                            
-                    <label  class="col-md-2 col-form-label" for="usuario_comentarios_id">usuario_comentarios_id</label>                            
-                    <div class="col-sm-10">                                
-                        <input type="text" class="form-control form-control-sm col-md-6" th:field="*{usuario_comentarios_id}"  placeholder= "usuario_comentarios_id" id="usuario_comentarios_id" aria-describedby="emailHelp">                            
-                                            
-                    </div> 
-                   
-                    </div>    
-      </body>
-    
+                <button type="submit">Enviar su comentario</button>
+            </form>
+        </div>
+          </body>
 </html>
+
