@@ -5,7 +5,7 @@ USE crautos;
 
 CREATE TABLE `tipo_usuario`
   (
-     `tipo_usuario_id`        INT(11) NOT NULL,
+     `tipo_usuario_id`        INT(11) NOT NULL AUTO_INCREMENT,
      `tipo`            VARCHAR(50) NOT NULL,
      PRIMARY KEY(tipo_usuario_id)
   ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
@@ -23,7 +23,7 @@ VALUES      (2,
 
 CREATE TABLE `usuario`
   (
-     `usuario_id`        INT(100) NOT NULL,
+     `usuario_id`        INT(100) NOT NULL AUTO_INCREMENT,
      `nombre`            VARCHAR(50) NOT NULL,
      `apellido`          VARCHAR(50) NOT NULL,
      `edad`              int(11) NOT NULL,
