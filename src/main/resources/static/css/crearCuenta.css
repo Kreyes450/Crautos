@@ -37,4 +37,8 @@ nav a:hover {
   height: 70px; 
  }
  
+ h1, label {
+     color: #fff
+ }
+ 
  
