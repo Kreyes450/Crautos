@@ -47,8 +47,8 @@ public class NoticiasController {
         return "redirect:/noticias";
     }
 
-    @PostMapping("/save")
-    public String guardarPersona(@ModelAttribute Noticias noticia) {
+    @PostMapping("/saveNoticia")
+    public String guardarNoticia(@ModelAttribute Noticias noticia) {
         noticiasService.saveNoticia(noticia);
         return "redirect:/noticias";
     }
