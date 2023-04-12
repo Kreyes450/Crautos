@@ -54,5 +54,13 @@ public class MotoController {
         return "crearm";
     }
     
+      @PostMapping("/savem")
+    public String guardarMoto(@ModelAttribute Moto moto) {
+        /*
+        carroService.saveCarro(carro);
+        */
+        return "redirect:/ventademotos";
+    }
+    
 
 }

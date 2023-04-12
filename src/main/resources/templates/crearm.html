@@ -21,7 +21,7 @@
                 <!-- Esto es para crear un formulario que es para guardar, th:object le pasa al formulario -->                <!-- que vamos a manejar sobre un objeto, y el objeto es persona -->                
                 <div class="container">
                     <!-- el persona aqui es dentro del getmapping /personaN que es crear una nueva persona() -->                    <!-- formulario ejecuta una accion esa accion es guardar, el ${parametro} envia el backend mientras que el @{url que voy a ejecular} hacia el controlador-->                    <!-- Type de metodo es restful api POST es guardar dentro de la base de datos -->                    <!-- thobject es del controller y personaN -->                    
-                    <form th:object ="${persona}"                          th:action="@{/save}"                          method="POST">
+                    <form th:object ="${persona}"                          th:action="@{/savem}"                          method="POST">
                         <!-- tengo un problema con todos los input -->                        <input type="hidden" th:field="*{moto_id}">                        
                         <div class="form-group mb-3 row">
                             <label  class="col-md-2 col-form-label" for="modelo">Modelo</label>                            
