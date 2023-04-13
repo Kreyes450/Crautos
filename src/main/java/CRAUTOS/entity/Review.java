@@ -19,13 +19,18 @@ CREATE TABLE `usuario`
   )ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;*/
 package CRAUTOS.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "review")
@@ -36,7 +41,7 @@ public class Review implements Serializable {
 
     private Long review_id;
     private String tipo_review;
-    private LocalDate fecha_review;
+    private String date;
     private String nombre_de_review;
     private Long usuario_review_id;
     private String author;
@@ -60,13 +65,55 @@ public class Review implements Serializable {
         this.tipo_review = tipo_review;
     }
 
-    public LocalDate getFechaReview() {
-        return fecha_review;
+    public Long getReview_id() {
+        return review_id;
     }
 
-    public void setFechaReview(LocalDate fecha_review) {
-        this.fecha_review = fecha_review;
+    public void setReview_id(Long review_id) {
+        this.review_id = review_id;
     }
+
+    public String getTipo_review() {
+        return tipo_review;
+    }
+
+    public void setTipo_review(String tipo_review) {
+        this.tipo_review = tipo_review;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getNombre_de_review() {
+        return nombre_de_review;
+    }
+
+    public void setNombre_de_review(String nombre_de_review) {
+        this.nombre_de_review = nombre_de_review;
+    }
+
+    public Long getUsuario_review_id() {
+        return usuario_review_id;
+    }
+
+    public void setUsuario_review_id(Long usuario_review_id) {
+        this.usuario_review_id = usuario_review_id;
+    }
+
+    public Long getCarro_id() {
+        return carro_id;
+    }
+
+    public void setCarro_id(Long carro_id) {
+        this.carro_id = carro_id;
+    }
+
+   
 
     public String getNombreDeReview() {
         return nombre_de_review;

@@ -36,4 +36,9 @@ public class UsuarioService implements IUsuarioService {
         usuarioRepository.deleteById(iduser);
     }
 
+    @Override
+    public Usuario findByApellido(String apellido) {
+        return usuarioRepository.findByapellido(apellido);
+    }
+
 }
