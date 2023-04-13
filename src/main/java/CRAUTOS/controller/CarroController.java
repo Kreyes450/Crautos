@@ -45,6 +45,16 @@ public class CarroController {
         return "ventadecarros";
     }
 
+      @GetMapping("/home")
+    /*Model nos ayuda con el metodo addAttribute la informacion al frontend*/
+      public String home(Model model) {
+        
+        model.addAttribute("persona", "prueba");
+
+         return "home";
+    }
+       
+    
 
     @GetMapping("/personaN")
 

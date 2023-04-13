@@ -70,24 +70,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /*Este metodo ve los accesos que puede tener una persona segun el role*/
     
-    /*Para los Endpoints persona y login puede ingresar ADMIN solamente, para los endpoint PersonasN persona y login todos pueden ir */
+    /*Para los Endpoints ventadecarros y login puede ingresar ADMIN solamente, para los endpoint PersonasN persona y login todos pueden ir */
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/persona", "/login")
+                .antMatchers("/usuarios")
                 .hasRole("Admin")
 
 
                 /*persona y login solamente admin*/
-                .antMatchers("/personasN", "/persona", "/login")
+                .antMatchers("/comentarios", "/review", "/login")
                 /**/
-                .hasAnyRole("USER", "VENDEDOR", "Admin")
+                .hasRole("User")
+                /*.hasAnyRole("User", "Admin") este es para multiples roles*/
+                
                 /*cualquiera con estos otros roles puede ingresar a los de arriba*/
                 /*.anyRequest().authenticated() se quita esta parte, se obliga que si o si hay que autenticarse, aunque no hagamos login. Siempre y cuando el endpoint que voy a acceder no ocupe logon*/
                 
                 
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll().defaultSuccessUrl("/persona", true).and().logout()
+                .loginPage("/login").permitAll().defaultSuccessUrl("/home", true).and().logout()
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/");
     }

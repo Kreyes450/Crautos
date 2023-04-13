@@ -19,7 +19,6 @@ CREATE TABLE `usuario`
   )ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;*/
 package CRAUTOS.entity;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -41,14 +40,23 @@ public class Review implements Serializable {
 
     private Long review_id;
     private String tipo_review;
-    private String date;
+    private String fecha_review;
     private String nombre_de_review;
     private Long usuario_review_id;
+
+
     private String author;
     private String content;
     private Integer rating;
     private Long carro_id;
 
+        public String getFecha_review() {
+        return fecha_review;
+    }
+
+    public void setFecha_review(String fecha_review) {
+        this.fecha_review = fecha_review;
+    }
     public Long getReviewId() {
         return review_id;
     }
@@ -81,14 +89,6 @@ public class Review implements Serializable {
         this.tipo_review = tipo_review;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public String getNombre_de_review() {
         return nombre_de_review;
     }
@@ -112,8 +112,6 @@ public class Review implements Serializable {
     public void setCarro_id(Long carro_id) {
         this.carro_id = carro_id;
     }
-
-   
 
     public String getNombreDeReview() {
         return nombre_de_review;
