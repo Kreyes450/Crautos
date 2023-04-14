@@ -31,6 +31,17 @@ public class NoticiasController {
         return "noticias";
 
     }
+    
+    @GetMapping("/noticiasUser") // aca definimos el endpoint para el html persona. Se triggerea ese mapping 
+    //el restful api ejecuta todo mediante requests.
+    public String indexU(Model model) { //el model permite pasarle al frontend la info mediante el addAttribute
+        List<Noticias> listaNoticias = noticiasService.getAllNoticias();
+        model.addAttribute("titulo", "Tabla Noticias");
+        model.addAttribute("noticias", listaNoticias);
+        System.out.println(listaNoticias);
+        return "noticiasUser";
+
+    }
 
     @GetMapping("/noticiaN")
     public String crearNoticia(Model model) {
