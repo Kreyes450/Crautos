@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8">
+        <title>Comentarios</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/comentarios.css" />
+    </head>
+    <header> 
+        <nav>
+            <ul>
+
+                <img src="images/1.png" alt="Logo" class="logo">
+
+                <li class="navOpcion">
+                    <a href="home" class="navLink menuLink">Home</a>
+                </li>
+                <li class="navOpcion">
+
+                    <a href="ventadecarros" class="navLink menuLink">Venta de Carros</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="ventademotos" class="navLink menuLink">Venta de Motos</a>
+
+                </li>
+                <li class="navOpcion">
+                    <a href="review" class="navLink menuLink">Review</a>
+                </li>
+                <li class="navOpcion">
+
+                    <a href="comentarios" class="navLink menuLink">Comentarios</a>
+
+                </li>
+                <li class="navOpcion">
+                    <a href="noticias" class="navLink menuLink">Noticias Nuevas</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="login" class="navLink menuLink">Login TBD</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="crearUsuario" class="navLink menuLink">Crear usuario TBD</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="usuarios" class="navLink menuLink">TBC adminonly</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center mb-5">Comentarios</h1>
+            <div class="row">
+                <!-- Iteramos sobre la lista de noticias para mostrar cada una en un cuadro -->
+                <div class="col-md-4 mb-4" th:each="comentarios : ${comentarios}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${comentarios.getNombre_comentario}"></h5>
+                            <p class="card-text" th:text="${comentarios.getCuerpo_comentario}"></p>
+                            <p class="card-text"><small class="text-muted" th:text="${comentarios.getFecha_comentario}"></small></p>
+                            <!--                        <a th:href="@{/editcomentarios/{idC}(id=${comentarios.getComentarios_id})}" class="btn btn-warning mr-2">Editar</a>
+                                                    <a th:href="@{/delete/{idC}(idC=${comentarios.getComentarios_id})}" class="btn btn-danger">Eliminar</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <a th:href="@{/comentarioN}" class="btn btn-primary mt-3">Nuevo Comentario</a>
+        </div>
+<!--        <div class="feedback">
+            <h2 style="color: #fff" class="text-center mt-5">Feedback</h2>
+            <p style="color: #fff" class="text-center">¡Nos encantaría saber tu opinión! Por favor, envíanos tus comentarios y sugerencias.</p>
+            <form th:object ="${comentarios}" method="POST" th:action="@{/saveComment}">
+                <input type="hidden" th:field="*{comentarios_id}">
+                <div class="form-group">
+                    <label style="color: #fff" for="nombre_comentario">Titulo</label>
+                    <input type="text" class="form-control" id="nombre_comentario" th:field="*{nombre_comentario}" aria-describedby="emailHelp" placeholder="Ingresa el titulo de tu comentario">
+                </div>
+                <div class="form-group">
+                    <label style="color: #fff" for="cuerpo_comentario">Comentario</label>
+                    <textarea type="text" class="form-control" id="cuerpo_comentario" th:field="*{cuerpo_comentario}" aria-describedby="emailHelp" rows="3" placeholder="Ingresa tu comentario"></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="color: #fff" for="fecha_comentario">Fecha</label>
+                    <input type="text" class="form-control" id="fecha_comentario" th:field="*{fecha_comentario}" aria-describedby="emailHelp" placeholder="Selecciona la fecha">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+
+-->        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+
+</html>
+
