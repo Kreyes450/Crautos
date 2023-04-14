@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
     <head>
         <meta charset="UTF-8">
         <title>Noticias</title>
@@ -49,29 +50,31 @@
             </ul>
         </nav>
     </header>
+
     <body>
-        <div class="container mt-5">
-            <h1 class="text-center mb-5">Noticias ADMIN</h1>
+        <div class="container">
+            <h1 class="text-center mb-5"></h1>
             <div class="row">
-                <!-- Iteramos sobre la lista de noticias para mostrar cada una en un cuadro -->
-                <div class="col-md-4 mb-4" th:each="noticia : ${noticias}">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${noticia.nombre_noticia}"></h5>
-                            <p class="card-text" th:text="${noticia.cuerpo_noticia}"></p>
-                            <p class="card-text"><small class="text-muted" th:text="${noticia.fecha_noticia}"></small></p>
-                            <a th:href="@{/editNoticia/{id}(id=${noticia.noticia_id})}" class="btn btn-warning mr-2">Editar</a>
-                            <a th:href="@{/delete/{id}(id=${noticia.noticia_id})}" class="btn btn-danger">Eliminar</a>
+                <div class="col-md-8 mx-auto">
+                    <div class="list-group">
+                        <div class="list-group-item list-group-item-action active">
+                            <h1>Últimas noticias</h1>
                         </div>
+                        <a th:each="noticia : ${noticias}" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1" th:text="${noticia.nombre_noticia}"></h5>
+                                <small class="text-muted" th:text="${noticia.fecha_noticia}"></small>
+                            </div>
+                            <p class="mb-1" th:text="${noticia.cuerpo_noticia}"></p>
+                        </a>
                     </div>
                 </div>
             </div>
-            <a th:href="@{/noticiaN}" class="btn btn-primary mt-3">Nueva Noticia</a>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </body>
-</html>
 
+</html>
