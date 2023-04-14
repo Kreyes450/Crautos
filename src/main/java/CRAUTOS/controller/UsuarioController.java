@@ -47,6 +47,15 @@ public class UsuarioController {
         return "crearUsuario";
 
     }
+    
+    @GetMapping("/crearCuenta")
+    public String crearCuenta(Model model) {
+        List<Tipo_Usuario> listaTipo_Usuario = tipo_usuarioService.listTipoUsuario();
+        model.addAttribute("usuario", new Usuario());
+        model.addAttribute("tipo_usuario", listaTipo_Usuario);
+        return "crearCuenta";
+
+    }
 
     @GetMapping("deleteUser/{iduser}")
     public String eliminarUsuario(@PathVariable("iduser") Long usuario_id) {
@@ -58,6 +67,12 @@ public class UsuarioController {
     public String guardarUsuario(@ModelAttribute Usuario usuario) {
         usuarioService.saveUsuario(usuario);
         return "redirect:/usuarios";
+    }
+    
+    @PostMapping("/saveCuenta")
+    public String guardarCuenta(@ModelAttribute Usuario usuario) {
+        usuarioService.saveUsuario(usuario);
+        return "redirect:/login";
     }
 
     @GetMapping("editUser/{iduser}")
