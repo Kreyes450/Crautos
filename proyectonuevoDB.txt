@@ -116,7 +116,7 @@ CREATE TABLE `motos`
      `transmision` VARCHAR(40) NOT NULL,
      `costo`       INT(50) NOT NULL,
 	 `usuario_moto_id` int(11) NOT NULL, 
-     PRIMARY KEY(moto_id,`usuario_moto_id`)
+     PRIMARY KEY(moto_id,`usuario_moto_id`),
 	 KEY `fk_motos_usuarios_idx` (`usuario_moto_id`),  
      CONSTRAINT `fk_motos_usuarios_idx` FOREIGN KEY (`usuario_moto_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
   )
@@ -182,7 +182,7 @@ CREATE TABLE `carros`
      `categoria`             VARCHAR(25) NOT NULL,
      `cantidad_de_pasajeros` VARCHAR(25) NOT NULL,
 	 `usuario_carro_id` int(11) NOT NULL,
-          PRIMARY KEY(carro_id,`usuario_carro_id`)
+          PRIMARY KEY(carro_id,`usuario_carro_id`),
 	 KEY `fk_carros_usuarios_idx` (`usuario_carro_id`),  
      CONSTRAINT `fk_carros_usuarios_idx` FOREIGN KEY (`usuario_carro_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
   )
@@ -364,7 +364,7 @@ CREATE TABLE `comentarios`
      `nombre_comentario` VARCHAR(30) NOT NULL,
      `cuerpo_comentario` VARCHAR(250) NOT NULL,
       `usuario_comentarios_id` int(11) NOT NULL,
-          PRIMARY KEY(carro_id,`usuario_comentarios_id`)
+          PRIMARY KEY(`comentarios_id`,`usuario_comentarios_id`),
 	 KEY `fk_comentarios_usuarios_idx` (`usuario_comentarios_id`),  
      CONSTRAINT `fk_comentarios_usuarios_idx` FOREIGN KEY (`usuario_comentarios_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
   )
@@ -401,7 +401,7 @@ CREATE TABLE `review`
      `fecha_review`     DATE NOT NULL,
      `nombre_de_review` VARCHAR(50) NOT NULL,
      `usuario_review_id` int(11) NOT NULL,
-          PRIMARY KEY(carro_id,`usuario_review_id`)
+          PRIMARY KEY(`review_id`,`usuario_review_id`),
 	 KEY `fk_review_usuarios_idx` (`usuario_review_id`),  
      CONSTRAINT `fk_review_usuarios_idx` FOREIGN KEY (`usuario_review_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
   )
@@ -451,44 +451,32 @@ VALUES     (1,
              '2023-06-19',
              'traccion 4x4', 8);
 
-CREATE TABLE `noticias`
+CREATE TABLE `noticias` (
+  `noticia_id` int(100) NOT NULL AUTO_INCREMENT, 
+  `fecha_noticia` date NOT NULL, 
+  `nombre_noticia` varchar(30) NOT NULL, 
+  `cuerpo_noticia` varchar(250) NOT NULL, 
+  PRIMARY KEY(noticia_id)
+) ENGINE = InnoDB AUTO_INCREMENT = 100 DEFAULT CHARSET = utf8;
+INSERT INTO `noticias` 
+VALUES 
   (
-     `noticia_id`     INT(100) NOT NULL auto_increment,
-     `fecha_noticia`  DATE NOT NULL,
-     `nombre_noticia` VARCHAR(30) NOT NULL,
-     `cuerpo_noticia` VARCHAR(250) NOT NULL,
-     `usuario_noticias_id` int(11) NOT NULL,
-          PRIMARY KEY(carro_id,`usuario_noticias_id`)
-	 KEY `fk_noticias_usuarios_idx` (`usuario_noticias_id`),  
-     CONSTRAINT `fk_noticias_usuarios_idx` FOREIGN KEY (`usuario_noticias_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-  )
-engine=innodb
-auto_increment=100
-DEFAULT charset=utf8;
+    1, '2023-05-12', 'resistencia', 'los nuevos vehiculos incluyen mejores materiales'
+  ), 
+  (
+    2, '2023-06-13', 'motor', 'las motos mas nuevas tienen menor cilindraje pero dan mejor rendimiento'
+  ), 
+  (
+    3, '2023-07-14', 'carroceria', 'se esta implementando una nueva aleacion para las carrocerias'
+  ), 
+  (
+    4, '2023-08-15', 'productos', 'proximamente se estara vendiendo mercaderia de crautos'
+  ), 
+  (
+    5, '2023-09-16', 'general', 'la aplicacion estara en mantenimiento durante esta fecha'
+  ), 
+  (
+    6, '2023-10-17', 'vehiculos', 'nuevos vehiculos todos los dias'
+  );
 
-INSERT INTO `noticias`
-VALUES     (1,
-            '2023-05-12',
-            'resistencia',
-            'los nuevos vehiculos incluyen mejores materiales', 1),
-            (2,
-             '2023-06-13',
-             'motor',
-'las motos mas nuevas tienen menor cilindraje pero dan mejor rendimiento', 1),
-            (3,
-             '2023-07-14',
-             'carroceria',
-             'se esta implementando una nueva aleacion para las carrocerias', 2),
-            (4,
-             '2023-08-15',
-             'productos',
-             'proximamente se estara vendiendo mercaderia de crautos', 2),
-            (5,
-             '2023-09-16',
-             'general',
-             'la aplicacion estara en mantenimiento durante esta fecha', 1),
-            (6,
-             '2023-10-17',
-             'vehiculos',
-             'nuevos vehiculos todos los dias', 2);
 

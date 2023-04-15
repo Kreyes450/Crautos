@@ -9,7 +9,7 @@
 </head>
 <body>
         <div class="container mt-5">
-                <h1 class="text-center mb-5">Crear Cuenta</h1>
+                <h1 class="text-center mb-5">Crear Usuario ADMIN</h1>
                 <form th:object ="${usuario}" method="POST" th:action="@{/saveUser}">
                     <input type="hidden" th:field="*{usuario_id}">
                         <div class="form-group">
@@ -38,7 +38,7 @@
                                     <option th:each="x:${tipo_usuario}"                                            th:value="${x.tipo_usuario_id}"                                            th:text="${x.tipo}"/>                                
                                 </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary">Crear Usuario</button>
                 </form>
         </div>
 
