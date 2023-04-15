@@ -70,5 +70,19 @@ public class MotoController {
         return "redirect:/ventademotos";
     }
     
+    @GetMapping("/crearmoto")
+    
+     public String crearMoto(Model model) {
+        
+        /*
+        List<Carro> listaPaises = paisService.listCountry();*/
+        model.addAttribute("moto", new Moto());
+       
+        
+        
+        
+        return "crearm";
+    }
+    
 
 }
