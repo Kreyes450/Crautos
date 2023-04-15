@@ -63,6 +63,15 @@ public class Carro implements Serializable {
     private String transmision;
     private String categoria;
      private String cantidad_de_pasajeros;
+     private String imgpath;
+
+    public String getImgpath() {
+        return imgpath;
+    }
+
+    public void setImgpath(String imgpath) {
+        this.imgpath = imgpath;
+    }
 
     @ManyToOne
     @JoinColumn(name = "usuario_carro_id")
