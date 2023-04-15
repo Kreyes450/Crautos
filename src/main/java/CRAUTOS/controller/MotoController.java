@@ -49,9 +49,17 @@ public class MotoController {
         Moto moto = motoService.getMotoById(idmoto);
         /*
         List<Pais> listaPaises = paisService.listCountry();*/
-        model.addAttribute("persona", moto);/*
+        model.addAttribute("moto", moto);/*
         model.addAttribute("paises", listaPaises);*/
-        return "crearm";
+        return "verm";
+    }
+    
+      @PostMapping("/returnm")
+    public String verMoto(@ModelAttribute Moto moto) {
+        /*
+        carroService.saveCarro(carro);
+        */
+        return "redirect:/ventademotos";
     }
     
       @PostMapping("/savem")

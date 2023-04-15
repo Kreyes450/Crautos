@@ -4,7 +4,7 @@
  */
 package CRAUTOS.entity;
 
-
+import CRAUTOS.service.UserService;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -49,6 +49,8 @@ CREATE TABLE `carros`
 
 public class Carro implements Serializable {
 
+   
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -62,9 +64,10 @@ public class Carro implements Serializable {
     private String cantidad_puertas;
     private String transmision;
     private String categoria;
-     private String cantidad_de_pasajeros;
-     private String imgpath;
+    private String cantidad_de_pasajeros;
+    private String imgpath;
 
+  
     public String getImgpath() {
         return imgpath;
     }
@@ -83,7 +86,6 @@ public class Carro implements Serializable {
     @JoinColumn(name= "Carro_ID")
     private Carro carro;
      */
-
     public long getCarro_id() {
         return carro_id;
     }
