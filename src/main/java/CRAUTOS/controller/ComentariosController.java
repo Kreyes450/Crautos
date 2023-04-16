@@ -30,12 +30,12 @@ public class ComentariosController {
     @Autowired
     private IUsuarioService usuarioService;
 
-    @GetMapping("/comentarios")
+    @GetMapping("/comentariosAdm")
     public String index(Model model) {
         List<Comentarios> listaComentarios = comentariosService.getAllComentarios();
         model.addAttribute("titulo", "Tabla comentarios");
         model.addAttribute("comentarios", listaComentarios);
-        return "comentarios";
+        return "comentariosAdm";
     }
 
     @GetMapping("/comentariosUser")
@@ -57,7 +57,7 @@ public class ComentariosController {
     @GetMapping("/delete/{idC}")
     public String eliminarComentarios(@PathVariable("comentarios_id") Long idComentario) {
         comentariosService.delete(idComentario);
-        return "redirect:/comentarios";
+        return "redirect:/comentariosAdm";
     }
 
     @PostMapping("/saveComment")
