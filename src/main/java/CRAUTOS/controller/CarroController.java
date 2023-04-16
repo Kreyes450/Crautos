@@ -6,6 +6,7 @@ package CRAUTOS.controller;
 
 import CRAUTOS.ImageUtil;
 import CRAUTOS.entity.Carro;
+import CRAUTOS.entity.Usuario;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import CRAUTOS.service.ICarroService;
+import CRAUTOS.service.IUsuarioService;
+import CRAUTOS.service.UserService;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +26,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class CarroController {
+   
 
     @Autowired
     private ICarroService carroService;
@@ -56,16 +60,18 @@ public class CarroController {
        
     
 
-    @GetMapping("/personaN")
+    @GetMapping("/crearauto")
 
     public String crearCarro(Model model) {
+        
         /*
         List<Carro> listaPaises = paisService.listCountry();*/
-        model.addAttribute("persona", new Carro());
-        /*
-        model.addAttribute("paises", listaPaises);
-         */
-        return "crear";
+        model.addAttribute("carro", new Carro());
+       
+        
+        
+        
+        return "crearc";
     }
 
     /*el arroba es un patron decorador*/
@@ -88,6 +94,14 @@ public class CarroController {
 
     @PostMapping("/save")
     public String guardarCarro(@ModelAttribute Carro carro) {
+        
+        carroService.saveCarro(carro);
+        
+        return "redirect:/ventadecarros";
+    }
+    
+      @PostMapping("/returnc")
+    public String verCarro(@ModelAttribute Carro carro) {
         /*
         carroService.saveCarro(carro);
         */
@@ -99,9 +113,9 @@ public class CarroController {
         Carro carro = carroService.getCarroById(idcarro);
         /*
         List<Pais> listaPaises = paisService.listCountry();*/
-        model.addAttribute("persona", carro);/*
+        model.addAttribute("carro", carro);/*
         model.addAttribute("paises", listaPaises);*/
-        return "crear";
+        return "verc";
     }
     
 }

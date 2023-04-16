@@ -21,6 +21,14 @@
             </li>
             <li class="navOpcion">
 
+                <a href="crearauto" class="navLink menuLink">Anuncie o edite su Auto</a>
+            </li>
+             <li class="navOpcion">
+
+                <a href="crearmoto" class="navLink menuLink">Anuncie o edite su Moto</a>
+            </li>
+            <li class="navOpcion">
+
                 <a href="ventadecarros" class="navLink menuLink">Venta de Carros</a>
             </li>
             <li class="navOpcion">
@@ -65,7 +73,7 @@
             <!-- <td th:text="#{Precio:}">:</td> -->
             <!-- <td class="caja caja1"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}"></td><td th:text="${carro.getCosto}"></td></div> -->
 
-        <div class="caja cajan"><img src="images/DB11.jpeg"><td th:text="${carro.getModelo}+'  '">  </td><td th:text="${carro.getCosto}+'$  '">   </td><td><a th:href="@{/verauto/{id}(id=${carro.getCarro_id})}">Ver_detalles</a></td></div>
+        <div class="caja cajan"><img th:src="${carro.getImgpath}"><td th:text="${carro.getModelo}+'  '">  </td><td th:text="${carro.getCosto}+'$  '">   </td><td><a th:href="@{/verauto/{id}(id=${carro.getCarro_id})}">Ver_detalles</a></td></div>
 
 
 

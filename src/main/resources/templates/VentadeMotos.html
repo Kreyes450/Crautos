@@ -57,7 +57,7 @@
             <th:block th:each="moto : ${motos}">
                 <tr>
 
-                <div class="caja cajan"><img src="images/DB11.jpeg"><td th:text="${moto.getModelo}+'  '">  </td><td th:text="${moto.getCosto}+'$  '">   </td><td><a th:href="@{/vermoto/{id}(id=${moto.getMoto_id})}">Ver_detalles</a></td></div>
+                <div class="caja cajan"><img th:src="${moto.getImgpath}"><td th:text="${moto.getModelo}+'  '">  </td><td th:text="${moto.getCosto}+'$  '">   </td><td><a th:href="@{/vermoto/{id}(id=${moto.getMoto_id})}">Ver_detalles</a></td></div>
 
 
                 </tr>

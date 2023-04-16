@@ -54,6 +54,15 @@ public class Moto implements Serializable {
     private String tipo;
     private String transmision;
     private String costo;
+    private String imgpath;
+
+    public String getImgpath() {
+        return imgpath;
+    }
+
+    public void setImgpath(String imgpath) {
+        this.imgpath = imgpath;
+    }
   
 
     @ManyToOne
