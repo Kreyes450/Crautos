@@ -61,7 +61,7 @@
                             <p class="card-text" th:text="${noticia.cuerpo_noticia}"></p>
                             <p class="card-text"><small class="text-muted" th:text="${noticia.fecha_noticia}"></small></p>
                             <a th:href="@{/editNoticia/{id}(id=${noticia.noticia_id})}" class="btn btn-warning mr-2">Editar</a>
-                            <a th:href="@{/delete/{id}(id=${noticia.noticia_id})}" class="btn btn-danger">Eliminar</a>
+                            <a th:href="@{/borrarN/{id}(id=${noticia.noticia_id})}" class="btn btn-danger">Eliminar</a>
                         </div>
                     </div>
                 </div>

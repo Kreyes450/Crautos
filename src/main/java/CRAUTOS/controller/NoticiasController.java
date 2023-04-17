@@ -52,7 +52,7 @@ public class NoticiasController {
 
     }
 
-    @GetMapping("delete/{id}")
+    @GetMapping("borrarN/{id}")
     public String eliminarNoticia(@PathVariable("id") Long idNoticia) {
         noticiasService.delete(idNoticia);
         return "redirect:/noticias";

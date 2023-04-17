@@ -28,14 +28,14 @@ public class UsuarioController {
     @Autowired
     private ITipo_UsuarioService tipo_usuarioService;
     
-    @GetMapping("/usuarios") // aca definimos el endpoint para el html persona. Se triggerea ese mapping 
+    @GetMapping("/usuariosA") // aca definimos el endpoint para el html persona. Se triggerea ese mapping 
     //el restful api ejecuta todo mediante requests.
     public String index(Model model) { //el model permite pasarle al frontend la info mediante el addAttribute
         List<Usuario> listaUsuario = usuarioService.getAllUsuario();
         System.out.println(listaUsuario);
         model.addAttribute("titulo", "Tabla Usuarios");
         model.addAttribute("usuario", listaUsuario);
-        return "usuarios";
+        return "usuariosA";
 
     }
 
@@ -60,13 +60,13 @@ public class UsuarioController {
     @GetMapping("deleteUser/{iduser}")
     public String eliminarUsuario(@PathVariable("iduser") Long usuario_id) {
         usuarioService.delete(usuario_id);
-        return "redirect:/usuarios";
+        return "redirect:/usuariosA";
     }
 
     @PostMapping("/saveUser")
     public String guardarUsuario(@ModelAttribute Usuario usuario) {
         usuarioService.saveUsuario(usuario);
-        return "redirect:/usuarios";
+        return "redirect:/usuariosA";
     }
     
     @PostMapping("/saveCuenta")

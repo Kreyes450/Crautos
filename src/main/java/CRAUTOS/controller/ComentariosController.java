@@ -54,8 +54,8 @@ public class ComentariosController {
         return "crearComentario";
     }
 
-    @GetMapping("/delete/{idC}")
-    public String eliminarComentarios(@PathVariable("comentarios_id") Long idComentario) {
+    @GetMapping("/borrar/{idComentario}")
+    public String eliminarComentarios(@PathVariable("idComentario") Long idComentario) {
         comentariosService.delete(idComentario);
         return "redirect:/comentariosAdm";
     }
