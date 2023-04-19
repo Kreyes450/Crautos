@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 
@@ -28,8 +30,14 @@ public class Pago implements Serializable{
      private String numero_de_targeta;
      private String fecha_de_vencimiento;
      private String codigo;
-     private int usuario_id;
-     private int publicidad_id;
+     
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario_id;
+    
+    @ManyToOne
+    @JoinColumn(name = "publicidad_id")
+    private Publicidad publicidad_id;
 
     public long getPago_id() {
         return pago_id;
@@ -79,20 +87,21 @@ public class Pago implements Serializable{
         this.codigo = codigo;
     }
 
-    public int getUsuario_id() {
+    public Usuario getUsuario_id() {
         return usuario_id;
     }
 
-    public void setUsuario_id(int usuario_id) {
+    public void setUsuario_id(Usuario usuario_id) {
         this.usuario_id = usuario_id;
     }
 
-    public int getPublicidad_id() {
+    public Publicidad getPublicidad_id() {
         return publicidad_id;
     }
 
-    public void setPublicidad_id(int publicidad_id) {
+    public void setPublicidad_id(Publicidad publicidad_id) {
         this.publicidad_id = publicidad_id;
     }
+
  }
    

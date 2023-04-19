@@ -6,6 +6,7 @@ package CRAUTOS.controller;
 
 import CRAUTOS.entity.Pago;
 import CRAUTOS.service.IPagoService;
+import CRAUTOS.service.IPublicidadService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,12 @@ public class PagoController {
   
     @Autowired
     private IPagoService PagoService;
+    
+//    @Autowired
+//    private IUsuarioService usuarioService;
+    
+    @Autowired
+    private IPublicidadService publicidadService;
  
    //@Autowired
 
