@@ -26,14 +26,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ComentariosController {
   
     @Autowired
-    private IComentariosService comentariosService;
+    private IComentariosService ComentariosService;
  
    //@Autowired
 
     
     @GetMapping("/comentarios")
     public String index(Model model) {
-        List<Comentarios> listaComentarios = comentariosService.getAllComentarios();
+        List<Comentarios> listaComentarios = ComentariosService.getAllComentarios();
         model.addAttribute("titulo", "Tabla comentarios");
         model.addAttribute("comentarios", listaComentarios);
         return "comentarios";
@@ -49,21 +49,21 @@ public class ComentariosController {
     
     @GetMapping("/delete/{idC}")
     public String eliminarComentarios(@PathVariable("comentarios_id") Long idComentario) {
-        comentariosService.delete(idComentario);
+        ComentariosService.delete(idComentario);
         return"redirect:/comentarios";
     }
     
     @PostMapping("/saveC")
     public String guardarComentarios(@ModelAttribute Comentarios comentarios) {
-        comentariosService.saveComentarios(comentarios);
+        ComentariosService.saveComentarios(comentarios);
         return"redirect:/comentarios";  
   }
 
     @GetMapping("editComentarios/{id}")
     public String editarComentarios(@PathVariable("comentarios_id") Long idComentario, Model model) {
-            Comentarios comentarios = comentariosService.getComentariosById(idComentario);
+            Comentarios comentarios = ComentariosService.getComentariosById(idComentario);
             //List<Pais> listaPaises = paisService.listCountry();
-            model.addAttribute("comentarios", comentarios);
+            model.addAttribute("Comentarios", comentarios);
             //model.addAttribute("paises", listaPaises);
             return "crearComentarios";   
 }

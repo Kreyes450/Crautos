@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Publicidad</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/publicidad.css" />
+    </head>
+    <header> 
+        <nav>
+            <ul>
+
+                 
+
+                                <img src="images/1.png" alt="Logo" class="logo">
+
+                 
+
+                                <li class="navOpcion">
+                    <a href="home.html" class="navLink menuLink">Home</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="review.html" class="navLink menuLink">Review</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="login.html" class="navLink menuLink">Login</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center mb-5">Publicidad</h1>
+            <div class="row">
+                
+                <div class="col-md-3 mb-3" th:each="publicidad : ${publicidad}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${publicidad.getNombre_paquete}"></h5>
+                            <p class="card-text" th:text="${publicidad.getDescricion_paquete}"></p>
+                            <p class="card-text" th:text="${publicidad.getPrecio_paquete}"></p>
+                            <p class="card-text"><small class="text-muted" th:text="${publicidad.getPrecio_paquete}"></small></p>
+                            <a th:href="@{/editpublicidad/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-warning mr-2">Editar</a>
+                            <a th:href="@{/delete/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-danger">Eliminar</a>
+                            <a th:href="@{/publicidadN}" class="btn btn-primary mt-3">Realizar compra</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
