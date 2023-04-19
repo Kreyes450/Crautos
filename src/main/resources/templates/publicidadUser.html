@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Publicidad</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/comentarios.css" />
+    </head>
+    <header> 
+        <nav>
+            <ul>
+
+                <img src="images/1.png" alt="Logo" class="logo">
+
+                <li class="navOpcion">
+                    <a href="home" class="navLink menuLink">Home</a>
+                </li>
+                <li class="navOpcion">
+
+                    <a href="ventadecarros" class="navLink menuLink">Venta de Carros</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="ventademotos" class="navLink menuLink">Venta de Motos</a>
+
+                </li>
+                <li class="navOpcion">
+                    <a href="review" class="navLink menuLink">Review</a>
+                </li>
+                <li class="navOpcion">
+
+                    <a href="comentarios" class="navLink menuLink">Comentarios</a>
+
+                </li>
+                <li class="navOpcion">
+                    <a href="noticias" class="navLink menuLink">Noticias Nuevas</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="login" class="navLink menuLink">Login TBD</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="crearUsuario" class="navLink menuLink">Crear usuario TBD</a>
+                </li>
+                <li class="navOpcion">
+                    <a href="usuarios" class="navLink menuLink">TBC adminonly</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center mb-5">Paquetes de Publicidad</h1>
+            <div class="row">
+                <!-- Iteramos sobre la lista de noticias para mostrar cada una en un cuadro -->
+                <div class="col-md-3 mb-3" th:each="publicidad : ${publicidad}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${publicidad.getNombre_paquete}"></h5>
+                            <p class="card-text" th:text="${publicidad.getDescricion_paquete}"></p>
+                            <p class="card-text">Precio: ₡ <small class="text-muted" th:text="${publicidad.getPrecio_paquete}"></small></p>
+<!--                            <a th:href="@{/editPublicidad/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-warning mr-2">Editar</a>
+                            <a th:href="@{/eliminarPub/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-danger">Eliminar</a>-->
+                            <a th:href="@{/publicidadN}" class="btn btn-primary mt-3">Adquirir Paquete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

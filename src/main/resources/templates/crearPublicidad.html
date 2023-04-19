@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nuevo Paquete</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/NoticiasNuevas.css" />
+    </head>
+    
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center mb-5">Nuevo Paquete</h1>
+            <form th:object ="${publicidad}" method="POST" th:action="@{/savePub}">
+                <input type="hidden" th:field="*{publicidad_id}">
+                <div class="form-group">
+                    <label for="nombre_paquete">Nombre del paquete</label>
+                    <input type="text" class="form-control" th:field="*{nombre_paquete}" placeholder="Nombre" id="nombre_paquete" name="nombre_paquete">
+                </div>
+                <div class="form-group">
+                    <label for="descricion_paquete">Descripcion del paquete</label>
+                    <textarea class="form-control" th:field="*{descricion_paquete}" placeholder="Descripcion" id="descricion_paquete" name="descricion_paquete"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="precio_paquete">Precio del paquete</label>
+                    <input type="number" class="form-control" th:field="*{precio_paquete}" placeholder="Precio" id="precio_paquete" name="precio_paquete">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>
