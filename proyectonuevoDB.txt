@@ -131,7 +131,7 @@ CREATE TABLE `pago` (
 `nombre` VARCHAR(80) NOT NULL, 
 `apellido`VARCHAR(80) NOT NULL,  
 `numero_de_targeta` int NOT NULL,
-`fecha_de_vencimiento` int NOT NULL,
+`fecha_de_vencimiento` date NOT NULL,
 `codigo` int NOT NULL,
 `usuario_id`int NOT NULL, 
 `publicidad_id`int NOT NULL, 
