@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Formulario de Pago</title>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" href="css/comentarios.css" />
+        <style>
+            body {
+                background-color:slategrey;
+            }
+
+            .container {
+                margin-top: 50px;
+            }
+
+            .card-form {
+                background-color: darkgray;
+                border-radius: 10px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+            }
+
+            .form-control:focus {
+                border-color: #38c172;
+                box-shadow: 0 0 0 0.25rem rgba(56, 193, 114, 0.25);
+            }
+
+            button[type="submit"] {
+                background-color: #38c172;
+                border-color: #38c172;
+                margin-top: 10px;
+                font-size: 20px;
+            }
+
+            button[type="submit"]:hover {
+                background-color: #2d9c5f;
+                border-color: #2d9c5f;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card-form">
+                        <h1 style="color: black" class="text-center mb-4">Formulario de Pago</h1>
+                        <form th:object ="${pago}" method="POST" th:action="@{/savePago}">
+                            <input type="hidden" th:field="*{pago_id}">
+                            <div class="form-group">
+                                <label for="nombre">Nombre en la Tarjeta</label>
+                                <input type="text" class="form-control" th:field="*{nombre}" id="nombre" name="nombre"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido en la Tarjeta</label>
+                                <input type="text" class="form-control" th:field="*{apellido}" id="apellido" name="apellido"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="numero">Número de Tarjeta</label>
+                                <input type="text" class="form-control" th:field="*{numero_de_tarjeta}" id="numero" name="numero"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="expiracion">Fecha de Expiración</label>
+                                <input type="date" class="form-control" th:field="*{fecha_de_vencimiento}" id="expiracion" name="expiracion"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="codigo">CVV</label>
+                                <input type="text" class="form-control" th:field="*{codigo}" id="codigo" name="codigo"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="usuario_id">Selecciona tu ID de usuario</label>
+                                <select th:field="*{usuario_id}" class="form-control" id="usuario_id" aria-describedby="emailHelp">                                    
+                                    <option th:each="x:${usuario}" th:value="${x.usuario_id}" th:text="${x.usuario_id}"/>                                
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="publicidad_id">Selecciona el paquete que deseas</label>
+                                <select th:field="*{publicidad_id}" class="form-control" id="usuario_id" aria-describedby="emailHelp">                                    
+                                    <option th:each="x:${publicidad}" th:value="${x.publicidad_id}" th:text="${x.nombre_paquete}"/>                                
+                                </select>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg btn-block mt-4">Realizar Pago</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script th:src="@{/webjars/bootstrap/5.0.0-beta3/js/bootstrap.min.js}"></script>
+    </body>
+</html>

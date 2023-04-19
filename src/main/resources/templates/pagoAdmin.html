@@ -2,9 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Publicidad</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <title>Pagos</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
         <link rel="stylesheet" href="css/comentarios.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
     <header> 
         <nav class="navbar navbar-expand-lg navbar-light bg-grey">
@@ -53,6 +56,7 @@
                             <a class="dropdown-item" href="noticias">Noticias</a>
                             <a class="dropdown-item" href="comentariosAdm">Comentarios</a>
                             <a class="dropdown-item" href="publicidad">Publicidad</a>
+                            <a class="dropdown-item" href="pagoAdmin">Suscripciones</a>
                         </div>
                     </li>
                 </ul>
@@ -61,26 +65,42 @@
 
     </header>
     <body>
-        <div class="container mt-5">
-            <h1 class="text-center mb-5">Paquetes de Publicidad</h1>
-            <div class="row">
-                <!-- Iteramos sobre la lista de noticias para mostrar cada una en un cuadro -->
-                <div class="col-md-3 mb-3" th:each="publicidad : ${publicidad}">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${publicidad.getNombre_paquete}"></h5>
-                            <p class="card-text" th:text="${publicidad.getDescricion_paquete}"></p>
-                            <p class="card-text">Precio: ₡ <small class="text-muted" th:text="${publicidad.getPrecio_paquete}"></small></p>
-                            <p class="card-text">Numero de paquete: <small class="text-muted" th:text="${publicidad.getPublicidad_id}"></small></p>
-<!--                            <a th:href="@{/editPublicidad/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-warning mr-2">Editar</a>
-                            <a th:href="@{/eliminarPub/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-danger">Eliminar</a>-->
-                            <a th:href="crearPago" class="btn btn-primary mt-3">Adquirir Paquete</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="container">
+            <h1>Suscripciones Activas</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="color: #fff">ID</th>
+                        <th style="color: #fff">Nombre</th>
+                        <th style="color: #fff">Apellido</th>
+                        <th style="color: #fff">Número de tarjeta</th>
+                        <th style="color: #fff">Fecha de vencimiento</th>
+                        <th style="color: #fff">Código</th>
+                        <th style="color: #fff">ID Usuario</th>
+                        <th style="color: #fff">Paquete Activo</th>
+                        <th style="color: #fff">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="pago : ${pago}">
+                        <td style="color: #fff" th:text="${pago.getPago_id()}"></td>
+                        <td style="color: #fff" th:text="${pago.getNombre()}"></td>
+                        <td style="color: #fff" th:text="${pago.getApellido()}"></td>
+                        <td style="color: #fff" th:text="${pago.getNumero_de_tarjeta()}"></td>
+                        <td style="color: #fff" th:text="${pago.getFecha_de_vencimiento()}"></td>
+                        <td style="color: #fff" th:text="${pago.getCodigo()}"></td>
+                        <td style="color: #fff" th:text="${pago.getUsuario_id().getUsuario_id()}"></td>
+                        <td style="color: #fff" th:text="${pago.getPublicidad_id().getNombre_paquete()}"></td>
+                        <td>
+                            <a th:href="@{deletePago/{idP}(idP=${pago.getPago_id()})}"
+                               class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </body>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </html>
