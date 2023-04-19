@@ -1,5 +1,5 @@
-CREATE DATABASE crautos;
-USE crautos;
+CREATE DATABASE pruebaFcrautos;
+USE pruebaFcrautos;
 
 
 CREATE TABLE `tipo_usuario` (
@@ -130,8 +130,8 @@ CREATE TABLE `pago` (
 `pago_id`INT(11) NOT NULL auto_increment, 
 `nombre` VARCHAR(80) NOT NULL, 
 `apellido`VARCHAR(80) NOT NULL,  
-`numero_de_targeta` int NOT NULL,
-`fecha_de_vencimiento` int NOT NULL,
+`numero_de_tarjeta` int(100) NOT NULL,
+`fecha_de_vencimiento` date NOT NULL,
 `codigo` int NOT NULL,
 `usuario_id`int NOT NULL, 
 `publicidad_id`int NOT NULL, 
@@ -412,3 +412,4 @@ VALUES
     10, 'Audi A4', '2023-06-19', 'El Audi A4 es un automóvil compacto de lujo fabricado por el fabricante alemán de automóviles Audi. Fue introducido por primera vez en 1994 y se ha convertido en uno de los modelos más populares de la marca. El A4 se ha destacado por su diseño elegante y deportivo, su tecnología avanzada y su rendimiento eficiente. El A4 está disponible en varias opciones de motor, incluyendo motores a gasolina y diésel, y ofrece una experiencia de conducción deportiva y ágil.', 
     8
   );
+  
