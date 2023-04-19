@@ -1,457 +1,326 @@
 CREATE DATABASE crautos;
-
 USE crautos;
 
 
-CREATE TABLE `tipo_usuario`
-  (
-     `tipo_usuario_id`        INT(11) NOT NULL AUTO_INCREMENT,
-     `tipo`            VARCHAR(50) NOT NULL,
-     PRIMARY KEY(tipo_usuario_id)
-  ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
+CREATE TABLE `tipo_usuario` (
+  `tipo_usuario_id` INT(11) NOT NULL AUTO_INCREMENT, 
+  `tipo` VARCHAR(50) NOT NULL, 
+  PRIMARY KEY(tipo_usuario_id)
+) ENGINE = InnoDB AUTO_INCREMENT = 11 DEFAULT CHARSET = utf8;
+INSERT INTO `tipo_usuario` 
+VALUES 
+  (1, 'Empleado');
+INSERT INTO `tipo_usuario` 
+VALUES 
+  (2, 'Usuario');
   
   
-INSERT INTO `tipo_usuario`
-VALUES      (1,
-             'Empleado');
-			 
-			 
-INSERT INTO `tipo_usuario`
-VALUES      (2,
-             'Usuario');
-
-CREATE TABLE `usuario`
-  (
-     `usuario_id`        INT(100) NOT NULL AUTO_INCREMENT,
-     `nombre`            VARCHAR(50) NOT NULL,
-     `apellido`          VARCHAR(50) NOT NULL,
-     `edad`              int(11) NOT NULL,
-     `telefono`          INT(50) NOT NULL,
-     `email` VARCHAR(100) NOT NULL,
-     `tipo_usuario`       INT(100) NOT NULL,
-     PRIMARY KEY(usuario_id, tipo_usuario),
-	 KEY `fk_usuario_tipo_usuariox` (`tipo_usuario`),  
-     CONSTRAINT `fk_usuario_tipo_usuariox` FOREIGN KEY (`tipo_usuario`) REFERENCES `tipo_usuario` (`tipo_usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-  );
-
+CREATE TABLE `usuario` (
+  `usuario_id` INT(100) NOT NULL AUTO_INCREMENT, 
+  `nombre` VARCHAR(50) NOT NULL, 
+  `apellido` VARCHAR(50) NOT NULL, 
+  `edad` int(11) NOT NULL, 
+  `telefono` INT(50) NOT NULL, 
+  `email` VARCHAR(100) NOT NULL, 
+  `tipo_usuario` INT(100) NOT NULL, 
+  `password` VARCHAR(255) NOT NULL,
+  `permissions` VARCHAR(255) NOT NULL,
+  `roles` VARCHAR(255) NOT NULL,
+  `active` INT NOT NULL,
+  PRIMARY KEY(usuario_id, tipo_usuario), 
+  KEY `fk_usuario_tipo_usuariox` (`tipo_usuario`), 
+  CONSTRAINT `fk_usuario_tipo_usuariox` FOREIGN KEY (`tipo_usuario`) REFERENCES `tipo_usuario` (`tipo_usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
 INSERT INTO `usuario` 
 VALUES 
   (
     2, 'Daniel', 'Chaves', 22, 88245693, 
-    'Daniel@hotmail.com', 2
+    'Daniel@hotmail.com', 2, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
   );
 INSERT INTO `usuario` 
 VALUES 
   (
     3, 'Ronald', 'Gomez', 20, 22365648, 
-    'Ronald@hotmail.com', 2
+    'Ronald@hotmail.com', 2, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
   );
 INSERT INTO `usuario` 
 VALUES 
   (
     4, 'Matias', 'Guzman', 34, 87256933, 
-    'Matiasguzman@hotmail.com', 1
+    'Matiasguzman@hotmail.com', 1, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
   );
 INSERT INTO `usuario` 
 VALUES 
   (
     5, 'Roy', 'Chavarria', 45, 78569836, 
-    'Roy@hotmail.com', 1
+    'Roy@hotmail.com', 1, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
   );
 INSERT INTO `usuario` 
 VALUES 
   (
-    6, 'Alex', 'Marin', 20, 89632654, 
-    'Alex@hotmail.com', 2
+    6, 'Alex', 'Marin', 20, 89632654, 'Alex@hotmail.com', 
+    2, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
   );
 INSERT INTO `usuario` 
 VALUES 
   (
     7, 'Mauricio', 'Elizondo', 23, 60364525, 
-    'Mauricio@hotmail.com', 2
+    'Mauricio@hotmail.com', 2, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
   );
 INSERT INTO `usuario` 
 VALUES 
   (
     8, 'Josue', 'Espinoza', 26, 60364525, 
-    'Josue@hotmail.com', 2
+    'Josue@hotmail.com', 2, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
   );
 INSERT INTO `usuario` 
 VALUES 
   (
     9, 'Martin', 'Castaño', 28, 70265896, 
-    'Martin@hotmail.com', 1
+    'Martin@hotmail.com', 1, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
   );
 INSERT INTO `usuario` 
 VALUES 
   (
     10, 'Kevin', 'Umaña', 27, 65236458, 
-    'Kevin@hotmail.com', 2
+    'Kevin@hotmail.com', 2, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
   );
 INSERT INTO `usuario` 
 VALUES 
   (
     11, 'Salin', 'Gutierrez', 22, 88576430, 
-    'Salin@hotmail.com', 2
-  );		 
-
-CREATE TABLE `dinero`
+    'Salin@hotmail.com', 2, 
+    '$2a$12$viBles3yAVHiwx2/PaMAXur.j.10BQvJjs.YB/XCl5XxLY7esdGEu', 'Admin', 'Admin', 1
+  );
+ 
+ 
+  CREATE TABLE `publicidad` (
+  `publicidad_id` INT(11) NOT NULL auto_increment, 
+  `nombre_paquete` VARCHAR(80) NOT NULL, 
+  `descricion_paquete` VARCHAR(150) NOT NULL, 
+  `precio_paquete` int NOT NULL, 
+  PRIMARY KEY(publicidad_id) 
+ )ENGINE = InnoDB AUTO_INCREMENT = 11 DEFAULT CHARSET = utf8;
+INSERT INTO `publicidad` 
+VALUES 
   (
-     `dinero_id`        INT(100) NOT NULL,
-	 `dinero_usuario_id`        INT(100) NOT NULL,
-     `dinero`    INT(100) NOT NULL,
-     PRIMARY KEY(dinero_id, dinero_usuario_id),
-	 KEY `fk_dinero_usuarios_idx` (`dinero_usuario_id`),  
-     CONSTRAINT `fk_dinero_usuarios_idx` FOREIGN KEY (`dinero_usuario_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  1, 'Paquete Diamante','por la suscripcion de este paquete tu vehiculo se muestra siempre destacado y aparecera mas veces en pantalla', 50000
+  ), 
+ (
+   2, 'Paquete Oro','por la suscripcion de este paquete tu vehiculo se muestra tres veces a la semana como destacado', 40000
+  ), 
+ (
+   3, 'Paquete Plata','por la suscripcion de este paquete tu vehiculo se muestra dos veces a la semana como destacado', 30000
+  ),
+  (
+   4, 'Paquete Bronce','por la suscripcion de este paquete tu vehiculo se muestra una vez a la semana como destacado', 20000
+  );
+ 
+ 
+CREATE TABLE `pago` (
+`pago_id`INT(11) NOT NULL auto_increment, 
+`nombre` VARCHAR(80) NOT NULL, 
+`apellido`VARCHAR(80) NOT NULL,  
+`numero_de_targeta` int NOT NULL,
+`fecha_de_vencimiento` int NOT NULL,
+`codigo` int NOT NULL,
+`usuario_id`int NOT NULL, 
+`publicidad_id`int NOT NULL, 
+PRIMARY KEY(pago_id), 
+FOREIGN KEY (usuario_id) REFERENCES `usuario`(usuario_id),
+FOREIGN KEY (publicidad_id) REFERENCES `publicidad`(publicidad_id)
+)ENGINE = InnoDB AUTO_INCREMENT = 11 DEFAULT CHARSET = utf8;
+
+
+CREATE TABLE `motos` (
+  `moto_id` INT(100) NOT NULL auto_increment, 
+  `modelo` VARCHAR(11) NOT NULL, 
+  `cilindraje` INT(50) NOT NULL, 
+  `color` VARCHAR(30) NOT NULL, 
+  `tipo` VARCHAR(25) NOT NULL, 
+  `transmision` VARCHAR(40) NOT NULL, 
+  `costo` INT(50) NOT NULL, 
+  `usuario_moto_id` int(11) NOT NULL, 
+  PRIMARY KEY(moto_id, `usuario_moto_id`), 
+  KEY `fk_motos_usuarios_idx` (`usuario_moto_id`), 
+  CONSTRAINT `fk_motos_usuarios_idx` FOREIGN KEY (`usuario_moto_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) engine = innodb auto_increment = 100 DEFAULT charset = utf8;
+INSERT INTO `motos` 
+VALUES 
+  (
+    1, 'BMW', 500, 'verde', 'gas', 'manual', 
+    18000, 3
+  ), 
+  (
+    2, 'Yamaha', 250, 'rojo', 'gasolina', 
+    'manual', 150001, 4
+  ), 
+  (
+    3, 'Honda', 400, 'naraja', 'gas', 'automatico', 
+    20000, 5
+  ), 
+  (
+    4, 'Freedom', 150, 'azul', 'electrica', 
+    'manual', 10000, 6
+  ), 
+  (
+    5, 'Kawazaki', 1200, 'morado', 'bio', 
+    'automatico', 25000, 7
+  ), 
+  (
+    6, 'KTM', 1050, 'rosado', 'gasolina', 
+    'manual', 12000, 8
+  );
+  
+  
+  CREATE TABLE `carros` (
+  `carro_id` INT(100) NOT NULL auto_increment, 
+  `modelo` VARCHAR(30) NOT NULL, 
+  `cilindraje` INT(50) NOT NULL, 
+  `tipo` VARCHAR(30) NOT NULL, 
+  `costo` INT(50) NOT NULL, 
+  `color` VARCHAR(30) NOT NULL, 
+  `sistema_de_frenos` VARCHAR(25) NOT NULL, 
+  `cantidad_puertas` VARCHAR(25) NOT NULL, 
+  `transmision` VARCHAR(25) NOT NULL, 
+  `categoria` VARCHAR(25) NOT NULL, 
+  `cantidad_de_pasajeros` VARCHAR(25) NOT NULL, 
+  `usuario_carro_id` int(11) NOT NULL, 
+  PRIMARY KEY(carro_id, `usuario_carro_id`), 
+  KEY `fk_carros_usuarios_idx` (`usuario_carro_id`), 
+  CONSTRAINT `fk_carros_usuarios_idx` FOREIGN KEY (`usuario_carro_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) engine = innodb auto_increment = 100 DEFAULT charset = utf8;
+INSERT INTO `carros` 
+VALUES 
+  (
+    1, 'Bmw', 1800, 'gas', 67000, 'morado', 
+    'automatico', 'puertas 2', 'manual', 
+    'particular', '2 pasajeros', 9
+  ), 
+  (
+    2, 'Toyota', 2500, 'gasolina', 56000, 
+    'azul', 'manual', 'puertas 2', 'manual', 
+    'todoterreno', '4 pasajeros', 10
+  ), 
+  (
+    3, 'Honda', 1200, 'gas', 45000, 'rojo', 
+    'manual', 'puertas 3', 'manual', 
+    'particular', '4 pasajeros', 11
+  ), 
+  (
+    4, 'Nissan', 3500, 'electrica', 30000, 
+    'naranja', 'manual', 'puertas 4', 
+    'automatico', 'coupe', '4 pasajeros', 
+    3
+  ), 
+  (
+    5, 'Suzuki', 1500, 'bio', 25000, 'blanco', 
+    'manual', 'puertas 4', 'manual', 
+    'sedan', '4 pasajeros', 4
+  ), 
+  (
+    6, 'Ford', 6000, 'gasolina', 80000, 
+    'verde', 'manual', 'puertas 2', 'automatico', 
+    'particular', '2 pasajeros', 5
+  ), 
+  (
+    7, 'Renauld', 4500, 'gas', 32000, 'negro', 
+    'automatico', 'puertas 6', 'manual', 
+    'sedan', '4 pasajeros', 6
+  ), 
+  (
+    8, 'Prius', 2000, 'electrica', 16000, 
+    'plateado', 'automatico', 'puertas 4', 
+    'automatico', 'particular', '2 pasajeros', 
+    7
+  ), 
+  (
+    9, 'LanRober', 3000, 'gas', 19000, 'rojovino', 
+    'manual', 'puertas 2', 'automatico', 
+    'sedan', '4 pasajeros', 8
+  ), 
+  (
+    10, 'Volvo', 2300, 'bio', 28000, 'crema', 
+    'manual', 'puertas 4', 'manual', 
+    'coupe', '3 pasajeros', 9
+  ), 
+  (
+    11, 'Subaru', 3000, 'gasolina', 45000, 
+    'celeste', 'manual', 'puertas 4', 
+    'manual', 'coupe', '5 pasajeros', 
+    10
+  ), 
+  (
+    12, 'Citroën', 1700, 'solar', 15000, 
+    'negromate', 'manual', 'puertas 2', 
+    'automatico', 'convertible', '8 pasajeros', 
+    11
+  ), 
+  (
+    13, 'Volkswagen', 2600, 'electrica', 
+    30000, 'rosado', 'manual', 'puertas 2', 
+    'manual', 'particular', '6 pasajeros', 
+    3
+  ), 
+  (
+    14, 'Byd', 2000, 'gas', 23000, 'amarillo', 
+    'manual', 'puertas 4', 'automatico', 
+    'sedan', '4 pasajeros', 4
+  ), 
+  (
+    15, 'hyundai', 1200, 'gasolina', 20000, 
+    'gris', 'manual', 'puertas 4', 'manual', 
+    'convertible', '3 pasajeros', 5
   );
 
-CREATE TABLE `motos`
+
+CREATE TABLE `comentarios` (
+  `comentarios_id` INT(100) NOT NULL auto_increment, 
+  `fecha_comentario` DATE NOT NULL, 
+  `nombre_comentario` VARCHAR(30) NOT NULL, 
+  `cuerpo_comentario` VARCHAR(250) NOT NULL, 
+  `usuario_comentarios_id` int(11) NOT NULL, 
+  PRIMARY KEY(
+    `comentarios_id`, `usuario_comentarios_id`
+  ), 
+  KEY `fk_comentarios_usuarios_idx` (`usuario_comentarios_id`), 
+  CONSTRAINT `fk_comentarios_usuarios_idx` FOREIGN KEY (`usuario_comentarios_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) engine = innodb auto_increment = 100 DEFAULT charset = utf8;
+INSERT INTO `comentarios` 
+VALUES 
   (
-     `moto_id`     INT(100) NOT NULL auto_increment,
-     `modelo`      VARCHAR(11) NOT NULL,
-     `cilindraje`  INT(50) NOT NULL,
-     `color`       VARCHAR(30) NOT NULL,
-     `tipo`        VARCHAR(25) NOT NULL,
-     `transmision` VARCHAR(40) NOT NULL,
-     `costo`       INT(50) NOT NULL,
-	 `usuario_moto_id` int(11) NOT NULL, 
-     PRIMARY KEY(moto_id,`usuario_moto_id`),
-	 KEY `fk_motos_usuarios_idx` (`usuario_moto_id`),  
-     CONSTRAINT `fk_motos_usuarios_idx` FOREIGN KEY (`usuario_moto_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-  )
-engine=innodb
-auto_increment=100
-DEFAULT charset=utf8;
-
-INSERT INTO `motos`
-VALUES     (1,
-            'BMW',
-            500,
-            'verde',
-            'gas',
-            'manual',
-            18000, 3),
-            (2,
-             'Yamaha',
-             250,
-             'rojo',
-             'gasolina',
-             'manual',
-             150001, 4),
-            (3,
-             'Honda',
-             400,
-             'naraja',
-             'gas',
-             'automatico',
-             20000, 5),
-            (4,
-             'Freedom',
-             150,
-             'azul',
-             'electrica',
-             'manual',
-             10000, 6),
-            (5,
-             'Kawazaki',
-             1200,
-             'morado',
-             'bio',
-             'automatico',
-             25000, 7),
-            (6,
-             'KTM',
-             1050,
-             'rosado',
-             'gasolina',
-             'manual',
-             12000, 8);
-
-CREATE TABLE `carros`
+    1, '2023-05-12', 'Pagina', 'La pagina es facil de usar', 
+    3
+  ), 
   (
-     `carro_id`              INT(100) NOT NULL auto_increment,
-     `modelo`                VARCHAR(30) NOT NULL,
-     `cilindraje`            INT(50) NOT NULL,
-     `tipo`                  VARCHAR(30) NOT NULL,
-     `costo`                 INT(50) NOT NULL,
-     `color`                 VARCHAR(30) NOT NULL,
-     `sistema_de_frenos`     VARCHAR(25) NOT NULL,
-     `cantidad_puertas`      VARCHAR(25) NOT NULL,
-     `transmision`           VARCHAR(25) NOT NULL,
-     `categoria`             VARCHAR(25) NOT NULL,
-     `cantidad_de_pasajeros` VARCHAR(25) NOT NULL,
-	 `usuario_carro_id` int(11) NOT NULL,
-          PRIMARY KEY(carro_id,`usuario_carro_id`),
-	 KEY `fk_carros_usuarios_idx` (`usuario_carro_id`),  
-     CONSTRAINT `fk_carros_usuarios_idx` FOREIGN KEY (`usuario_carro_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-  )
-engine=innodb
-auto_increment=100
-DEFAULT charset=utf8;
-
-INSERT INTO `carros`
-VALUES     (1,
-            'Bmw',
-            1800,
-            'gas',
-            67000,
-            'morado',
-            'automatico',
-            'puertas 2',
-            'manual',
-            'particular',
-            '2 pasajeros', 9),
-            (2,
-             'Toyota',
-             2500,
-             'gasolina',
-             56000,
-             'azul',
-             'manual',
-             'puertas 2',
-             'manual',
-             'todoterreno',
-             '4 pasajeros', 10),
-            (3,
-             'Honda',
-             1200,
-             'gas',
-             45000,
-             'rojo',
-             'manual',
-             'puertas 3',
-             'manual',
-             'particular',
-             '4 pasajeros', 11),
-            (4,
-             'Nissan',
-             3500,
-             'electrica',
-             30000,
-             'naranja',
-             'manual',
-             'puertas 4',
-             'automatico',
-             'coupe',
-             '4 pasajeros', 3),
-            (5,
-             'Suzuki',
-             1500,
-             'bio',
-             25000,
-             'blanco',
-             'manual',
-             'puertas 4',
-             'manual',
-             'sedan',
-             '4 pasajeros', 4),
-            (6,
-             'Ford',
-             6000,
-             'gasolina',
-             80000,
-             'verde',
-             'manual',
-             'puertas 2',
-             'automatico',
-             'particular',
-             '2 pasajeros', 5),
-            (7,
-             'Renauld',
-             4500,
-             'gas',
-             32000,
-             'negro',
-             'automatico',
-             'puertas 6',
-             'manual',
-             'sedan',
-             '4 pasajeros', 6),
-            (8,
-             'Prius',
-             2000,
-             'electrica',
-             16000,
-             'plateado',
-             'automatico',
-             'puertas 4',
-             'automatico',
-             'particular',
-             '2 pasajeros', 7),
-            (9,
-             'LanRober',
-             3000,
-             'gas',
-             19000,
-             'rojovino',
-             'manual',
-             'puertas 2',
-             'automatico',
-             'sedan',
-             '4 pasajeros', 8),
-            (10,
-             'Volvo',
-             2300,
-             'bio',
-             28000,
-             'crema',
-             'manual',
-             'puertas 4',
-             'manual',
-             'coupe',
-             '3 pasajeros', 9),
-            (11,
-             'Subaru',
-             3000,
-             'gasolina',
-             45000,
-             'celeste',
-             'manual',
-             'puertas 4',
-             'manual',
-             'coupe',
-             '5 pasajeros', 10),
-            (12,
-             'Citroën',
-             1700,
-             'solar',
-             15000,
-             'negromate',
-             'manual',
-             'puertas 2',
-             'automatico',
-             'convertible',
-             '8 pasajeros', 11),
-            (13,
-             'Volkswagen',
-             2600,
-             'electrica',
-             30000,
-             'rosado',
-             'manual',
-             'puertas 2',
-             'manual',
-             'particular',
-             '6 pasajeros', 3),
-            (14,
-             'Byd',
-             2000,
-             'gas',
-             23000,
-             'amarillo',
-             'manual',
-             'puertas 4',
-             'automatico',
-             'sedan',
-             '4 pasajeros', 4),
-            (15,
-             'hyundai',
-             1200,
-             'gasolina',
-             20000,
-             'gris',
-             'manual',
-             'puertas 4',
-             'manual',
-             'convertible',
-             '3 pasajeros', 5);
-
-CREATE TABLE `comentarios`
+    2, '2022-05-12', 'Compra', 'Hice una compra y estoy satisfecho', 
+    4
+  ), 
   (
-     `comentarios_id`    INT(100) NOT NULL auto_increment,
-     `fecha_comentario`  DATE NOT NULL,
-     `nombre_comentario` VARCHAR(30) NOT NULL,
-     `cuerpo_comentario` VARCHAR(250) NOT NULL,
-      `usuario_comentarios_id` int(11) NOT NULL,
-          PRIMARY KEY(`comentarios_id`,`usuario_comentarios_id`),
-	 KEY `fk_comentarios_usuarios_idx` (`usuario_comentarios_id`),  
-     CONSTRAINT `fk_comentarios_usuarios_idx` FOREIGN KEY (`usuario_comentarios_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-  )
-engine=innodb
-auto_increment=100
-DEFAULT charset=utf8;
-
-INSERT INTO `comentarios`
-VALUES      (1,
-             '2023-05-12',
-             'Pagina',
-             'La pagina es facil de usar', 3),
-            (2,
-             '2022-05-12',
-             'Compra',
-             'Hice una compra y estoy satisfecho', 4),
-            (3,
-             '2023-06-22',
-             'Recomendacion',
-             'Recomiendo el uso de la pagina', 5),
-            (4,
-             '2023-08-25',
-             'Soporte',
-             'El servicio al cliente es excelente', 6),
-            (5,
-             '2023-05-19',
-             'Precios',
-             'Los precios de las motos estan muy elevados', 7);
-
-CREATE TABLE `review`
+    3, '2023-06-22', 'Recomendacion', 
+    'Recomiendo el uso de la pagina', 
+    5
+  ), 
   (
-     `review_id`        INT(100) NOT NULL auto_increment,
-     `tipo_review`      VARCHAR(50) NOT NULL,
-     `fecha_review`     DATE NOT NULL,
-     `nombre_de_review` VARCHAR(50) NOT NULL,
-     `usuario_review_id` int(11) NOT NULL,
-          PRIMARY KEY(`review_id`,`usuario_review_id`),
-	 KEY `fk_review_usuarios_idx` (`usuario_review_id`),  
-     CONSTRAINT `fk_review_usuarios_idx` FOREIGN KEY (`usuario_review_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-  )
-engine=innodb
-auto_increment=100
-DEFAULT charset=utf8;
-
-INSERT INTO `review`
-VALUES     (1,
-            'performance',
-            '2023-05-12',
-            'velocidad', 8),
-            (2,
-             'fuerza',
-             '2023-08-02',
-             'caballos de fuerza', 9),
-            (3,
-             'tecnologia',
-             '2023-12-22',
-             'carroceria', 10),
-            (4,
-             'ahorro',
-             '2023-05-05',
-             'tanque de gasolina', 11),
-            (5,
-             'frenos',
-             '2023-02-11',
-             'agarre en la calle', 3),
-            (6,
-             'luces',
-             '2023-01-20',
-             'luces y faros', 4),
-            (7,
-             'seguridad',
-             '2023-05-12',
-             'productos', 5),
-            (8,
-             'resistencia',
-             '2023-05-16',
-             'durabilidad', 6),
-            (9,
-             'tecnologia',
-             '2023-04-24',
-             'inteligencia artificial', 7),
-            (10,
-             'agarre',
-             '2023-06-19',
-             'traccion 4x4', 8);
-
-CREATE TABLE `noticias` (
+    4, '2023-08-25', 'Soporte', 'El servicio al cliente es excelente', 
+    6
+  ), 
+  (
+    5, '2023-05-19', 'Precios', 'Los precios de las motos estan muy elevados', 
+    7
+  );
+  
+  
+  CREATE TABLE `noticias` (
   `noticia_id` int(100) NOT NULL AUTO_INCREMENT, 
   `fecha_noticia` date NOT NULL, 
   `nombre_noticia` varchar(30) NOT NULL, 
@@ -478,5 +347,68 @@ VALUES
   (
     6, '2023-10-17', 'vehiculos', 'nuevos vehiculos todos los dias'
   );
-
-
+  
+  
+CREATE TABLE `review` (
+  `review_id` INT(100) NOT NULL auto_increment, 
+  `tipo_review` VARCHAR(250) NOT NULL, 
+  `fecha_review` DATE NOT NULL, 
+  `nombre_de_review` VARCHAR(1200) NOT NULL, 
+  `usuario_review_id` int(100) NOT NULL, 
+  PRIMARY KEY(
+    `review_id`, `usuario_review_id`
+  ), 
+  KEY `fk_review_usuarios_idx` (`usuario_review_id`), 
+  CONSTRAINT `fk_review_usuarios_idx` FOREIGN KEY (`usuario_review_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) engine = innodb auto_increment = 100 DEFAULT charset = utf8;
+INSERT INTO `review` (
+  review_id, tipo_review, fecha_review, 
+  nombre_de_review, usuario_review_id
+) 
+VALUES 
+  (
+    1, 'BMW M5', '2023-05-12', 'El BMW M5 dispone, además del sistema M xDrive, orientado a la máxima tracción y dinamismo, de una suspensión que satisface cualquier exigencia de confort deportivo en los trayectos largos. En combinación con el potente motor M de 8 cilindros de 441 kW (600 CV), se genera un dinamismo marcado por la fuerza y la agilidad.', 
+    8
+  ), 
+  (
+    2, 'Ram Limited Tungsten', '2023-08-02', 
+    'Las características estándar incluyen una suspensión neumática, volante con calefacción, asientos delanteros con calefacción y ventilación, y un sistema de infotainment Uconnect con una pantalla táctil de 8.4 pulgadas, compatibloe tanto con Apple CarPlay como con Android Auto.', 
+    9
+  ), 
+  (
+    3, 'Suzuki Hayabusa', '2023-12-22', 
+    'Concretando las características de esta moto, decirte que tiene una cilindrada de 1340.00 cc y una potencia total de 197.00 cv (143.8 kw) a 9500 rpm en un motor de cuatro cilindros en línea, 4 tiempos con arranque arranque eléctrico. Sin más, tienes aquí los detalles y ficha técnica de esta genial moto FICHA TÉCNICA SUZUKI HAYABUSA 2018', 
+    10
+  ), 
+  (
+    4, 'Audi R8', '2023-05-05', 'El Audi R8 2023 cuenta con un enorme motor V-10 montado detrás de su cabina de alta tecnología. Comparte motor y mecánica con el estridente Lamborghini Huracán, pero la personalidad más dócil y el aspecto del R8 hacen una declaración más sutil.', 
+    11
+  ), 
+  (
+    5, 'Toyota Corolla', '2023-02-11', 
+    'El Corolla se ha ganado una reputación de confiabilidad y durabilidad, y ha sido un popular vehículo para aquellos que buscan un automóvil práctico y económico. A lo largo de los años, el Corolla ha evolucionado para ofrecer tecnología y características de seguridad avanzadas, pero ha mantenido su reputación como un vehículo confiable y accesible.', 
+    3
+  ), 
+  (
+    6, 'Ford Mustang', '2023-01-20', 'El Mustang se ha destacado por su diseño musculoso y agresivo, su rendimiento deportivo y su facilidad de personalización. Ha sido producido en una variedad de modelos y ediciones especiales, desde el clásico Mustang Fastback hasta el moderno Mustang GT. El Mustang ha sido un símbolo de la cultura automotriz estadounidense y ha sido destacado en películas, programas de televisión y canciones populares.', 
+    4
+  ), 
+  (
+    7, 'Tesla Model S', '2023-05-12', 
+    'El Model S tiene una impresionante autonomía de batería, que permite viajes largos sin necesidad de recargar, y puede acelerar de 0 a 100 km/h en cuestión de segundos, lo que lo convierte en un automóvil deportivo muy rápido. También cuenta con una gran pantalla táctil central que controla muchas de las funciones del vehículo, y está equipado con tecnología de conducción autónoma avanzada. El Model S ha sido reconocido como uno de los automóviles más innovadores y avanzados del mercado actual.', 
+    5
+  ), 
+  (
+    8, 'Volkswagen Golf', '2023-05-16', 
+    'El Volkswagen Golf es un automóvil compacto fabricado por el fabricante alemán de automóviles Volkswagen. Fue introducido por primera vez en 1974 y ha sido uno de los modelos más vendidos de Volkswagen. El Golf se ha destacado por su diseño elegante y deportivo, su rendimiento eficiente y su amplia gama de opciones de motores, que incluyen motores diésel y gasolina, así como motores eléctricos. El Golf ha sido aclamado por su manejo preciso y sensible, su seguridad y su confort de conducción.', 
+    6
+  ), 
+  (
+    9, 'Jeep Wrangler', '2023-04-24', 
+    'El Jeep Wrangler es un vehículo deportivo utilitario todoterreno fabricado por la marca estadounidense Jeep, propiedad de la compañía Fiat Chrysler Automobiles. El Wrangler se introdujo por primera vez en 1986 y ha sido popular por su capacidad todoterreno y su diseño icónico. El Wrangler es conocido por su capacidad de conducción en todo terreno, con tracción en las cuatro ruedas, una suspensión resistente y una carrocería resistente. También se ha destacado por su capacidad de personalización, con una amplia variedad de opciones de accesorios disponibles para los entusiastas de los deportes todo terreno. El Wrangler está disponible en una variedad de modelos y ediciones especiales, incluyendo versiones de techo duro y suave, y ha sido utilizado tanto como un vehículo de uso diario como para actividades al aire libre.', 
+    7
+  ), 
+  (
+    10, 'Audi A4', '2023-06-19', 'El Audi A4 es un automóvil compacto de lujo fabricado por el fabricante alemán de automóviles Audi. Fue introducido por primera vez en 1994 y se ha convertido en uno de los modelos más populares de la marca. El A4 se ha destacado por su diseño elegante y deportivo, su tecnología avanzada y su rendimiento eficiente. El A4 está disponible en varias opciones de motor, incluyendo motores a gasolina y diésel, y ofrece una experiencia de conducción deportiva y ágil.', 
+    8
+  );
