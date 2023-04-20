@@ -70,7 +70,7 @@
                         <div class="card-body">
                             <h5 class="card-title" th:text="${carro.getModelo}"></h5>
                             <img style="width: 90%;" th:src="${carro.getImgpath}">
-                            <p class="card-text">Precio: ₡ <small class="text-muted" th:text="${carro.getCosto}"></small></p>
+                            <p class="card-text">Precio: $ <small class="text-muted" th:text="${carro.getCosto}"></small></p>
                             <a th:href="@{/verauto/{id}(id=${carro.getCarro_id})}" class="btn btn-primary mt-3">Ver Detalles</a>
                         </div>
                     </div>
