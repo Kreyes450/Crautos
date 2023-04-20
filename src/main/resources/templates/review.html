@@ -76,14 +76,9 @@
   <th:block th:each="Review : ${review}">
     <tr>
       <div class="container2">
-          
-          <div class= "container3">
-        <img src="images/RAM.jpg">
-          </div>
         <td1 th:text="${Review.getTipoReview}"></td1>
         <td3 th:text="${Review.getNombreDeReview}"></td3>
         <td2 th:text="${Review.getFecha_review}"></td2>
-        
       </div>
     </tr>
   </th:block>

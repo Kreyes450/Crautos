@@ -1,22 +1,3 @@
-/**
- *
- * @author reyes
- */
-
-/*
-CREATE TABLE `usuario`
-  (
-     `usuario_id`        INT(11) NOT NULL AUTO_INCREMENT,
-     `nombre`            VARCHAR(50) NOT NULL,
-     `apellido`          VARCHAR(50) NOT NULL,
-     `edad`              VARCHAR(11) NOT NULL,
-     `telefono`          INT(50) NOT NULL,
-     `correo_eletronico` VARCHAR(60) NOT NULL,
-	 `tipo_usuario`          INT(11) NOT NULL,
-     PRIMARY KEY(usuario_id, tipo_usuario),
-	 KEY `fk_usuarios_tipo_usuario_idx` (`tipo_usuario`),  
-     CONSTRAINT `fk_usuarios_tipo_usuario_idx` FOREIGN KEY (`tipo_usuario`) REFERENCES `tipo_usuario` (`tipo_usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-  )ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;*/
 package CRAUTOS.entity;
 
 import javax.persistence.Entity;
@@ -44,19 +25,14 @@ public class Review implements Serializable {
     private String nombre_de_review;
     private Long usuario_review_id;
 
-
-    private String author;
-    private String content;
-    private Integer rating;
-    private Long carro_id;
-
-        public String getFecha_review() {
+    public String getFecha_review() {
         return fecha_review;
     }
 
     public void setFecha_review(String fecha_review) {
         this.fecha_review = fecha_review;
     }
+
     public Long getReviewId() {
         return review_id;
     }
@@ -105,14 +81,6 @@ public class Review implements Serializable {
         this.usuario_review_id = usuario_review_id;
     }
 
-    public Long getCarro_id() {
-        return carro_id;
-    }
-
-    public void setCarro_id(Long carro_id) {
-        this.carro_id = carro_id;
-    }
-
     public String getNombreDeReview() {
         return nombre_de_review;
     }
@@ -129,35 +97,4 @@ public class Review implements Serializable {
         this.usuario_review_id = usuario_review_id;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getRating() {
-        return rating;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
-    }
-
-    public Long getCarroId() {
-        return carro_id;
-    }
-
-    public void setCarroId(Long carro_id) {
-        this.carro_id = carro_id;
-    }
 }
