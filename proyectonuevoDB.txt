@@ -142,145 +142,50 @@ FOREIGN KEY (publicidad_id) REFERENCES `publicidad`(publicidad_id)
 
 
 CREATE TABLE `motos` (
-  `moto_id` INT(100) NOT NULL auto_increment, 
-  `modelo` VARCHAR(11) NOT NULL, 
-  `cilindraje` INT(50) NOT NULL, 
-  `color` VARCHAR(30) NOT NULL, 
-  `tipo` VARCHAR(25) NOT NULL, 
-  `transmision` VARCHAR(40) NOT NULL, 
-  `costo` INT(50) NOT NULL, 
-  `usuario_moto_id` int(11) NOT NULL, 
-  PRIMARY KEY(moto_id, `usuario_moto_id`), 
-  KEY `fk_motos_usuarios_idx` (`usuario_moto_id`), 
-  CONSTRAINT `fk_motos_usuarios_idx` FOREIGN KEY (`usuario_moto_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) engine = innodb auto_increment = 100 DEFAULT charset = utf8;
-INSERT INTO `motos` 
-VALUES 
-  (
-    1, 'BMW', 500, 'verde', 'gas', 'manual', 
-    18000, 3
-  ), 
-  (
-    2, 'Yamaha', 250, 'rojo', 'gasolina', 
-    'manual', 150001, 4
-  ), 
-  (
-    3, 'Honda', 400, 'naraja', 'gas', 'automatico', 
-    20000, 5
-  ), 
-  (
-    4, 'Freedom', 150, 'azul', 'electrica', 
-    'manual', 10000, 6
-  ), 
-  (
-    5, 'Kawazaki', 1200, 'morado', 'bio', 
-    'automatico', 25000, 7
-  ), 
-  (
-    6, 'KTM', 1050, 'rosado', 'gasolina', 
-    'manual', 12000, 8
-  );
+  `moto_id` int NOT NULL AUTO_INCREMENT,
+  `modelo` varchar(11) NOT NULL,
+  `cilindraje` int NOT NULL,
+  `color` varchar(30) NOT NULL,
+  `tipo` varchar(25) NOT NULL,
+  `transmision` varchar(40) NOT NULL,
+  `costo` int NOT NULL,
+  `usuario_moto_id` int NOT NULL,
+  `imgpath` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`moto_id`,`usuario_moto_id`),
+  KEY `fk_motos_usuarios_idx` (`usuario_moto_id`),
+  CONSTRAINT `fk_motos_usuarios_idx` FOREIGN KEY (`usuario_moto_id`) REFERENCES `usuario` (`usuario_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+INSERT INTO `motos` VALUES (1,'BMW',500,'verde','gas','manual',18000,3,'images/bmwmoto.jpg'),(2,'Yamaha',250,'rojo','gasolina','manual',150001,4,'images/yamahamoto.jpg'),(3,'Honda',400,'naraja','gas','automatico',20000,5,'images/hondamoto.jpg'),(4,'Freedom',150,'azul','electrica','manual',10000,6,'images/freedommoto.jpg'),(5,'Kawazaki',1200,'morado','bio','automatico',25000,7,'images/kawasakimoto.jpeg'),(6,'KTM',1050,'rosado','gasolina','manual',12000,8,'images/ktmmoto.jpg');
+
   
-  
-  CREATE TABLE `carros` (
-  `carro_id` INT(100) NOT NULL auto_increment, 
-  `modelo` VARCHAR(30) NOT NULL, 
-  `cilindraje` INT(50) NOT NULL, 
-  `tipo` VARCHAR(30) NOT NULL, 
-  `costo` INT(50) NOT NULL, 
-  `color` VARCHAR(30) NOT NULL, 
-  `sistema_de_frenos` VARCHAR(25) NOT NULL, 
-  `cantidad_puertas` VARCHAR(25) NOT NULL, 
-  `transmision` VARCHAR(25) NOT NULL, 
-  `categoria` VARCHAR(25) NOT NULL, 
-  `cantidad_de_pasajeros` VARCHAR(25) NOT NULL, 
-  `usuario_carro_id` int(11) NOT NULL, 
-  PRIMARY KEY(carro_id, `usuario_carro_id`), 
-  KEY `fk_carros_usuarios_idx` (`usuario_carro_id`), 
-  CONSTRAINT `fk_carros_usuarios_idx` FOREIGN KEY (`usuario_carro_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) engine = innodb auto_increment = 100 DEFAULT charset = utf8;
-INSERT INTO `carros` 
-VALUES 
-  (
-    1, 'Bmw', 1800, 'gas', 67000, 'morado', 
-    'automatico', 'puertas 2', 'manual', 
-    'particular', '2 pasajeros', 9
-  ), 
-  (
-    2, 'Toyota', 2500, 'gasolina', 56000, 
-    'azul', 'manual', 'puertas 2', 'manual', 
-    'todoterreno', '4 pasajeros', 10
-  ), 
-  (
-    3, 'Honda', 1200, 'gas', 45000, 'rojo', 
-    'manual', 'puertas 3', 'manual', 
-    'particular', '4 pasajeros', 11
-  ), 
-  (
-    4, 'Nissan', 3500, 'electrica', 30000, 
-    'naranja', 'manual', 'puertas 4', 
-    'automatico', 'coupe', '4 pasajeros', 
-    3
-  ), 
-  (
-    5, 'Suzuki', 1500, 'bio', 25000, 'blanco', 
-    'manual', 'puertas 4', 'manual', 
-    'sedan', '4 pasajeros', 4
-  ), 
-  (
-    6, 'Ford', 6000, 'gasolina', 80000, 
-    'verde', 'manual', 'puertas 2', 'automatico', 
-    'particular', '2 pasajeros', 5
-  ), 
-  (
-    7, 'Renauld', 4500, 'gas', 32000, 'negro', 
-    'automatico', 'puertas 6', 'manual', 
-    'sedan', '4 pasajeros', 6
-  ), 
-  (
-    8, 'Prius', 2000, 'electrica', 16000, 
-    'plateado', 'automatico', 'puertas 4', 
-    'automatico', 'particular', '2 pasajeros', 
-    7
-  ), 
-  (
-    9, 'LanRober', 3000, 'gas', 19000, 'rojovino', 
-    'manual', 'puertas 2', 'automatico', 
-    'sedan', '4 pasajeros', 8
-  ), 
-  (
-    10, 'Volvo', 2300, 'bio', 28000, 'crema', 
-    'manual', 'puertas 4', 'manual', 
-    'coupe', '3 pasajeros', 9
-  ), 
-  (
-    11, 'Subaru', 3000, 'gasolina', 45000, 
-    'celeste', 'manual', 'puertas 4', 
-    'manual', 'coupe', '5 pasajeros', 
-    10
-  ), 
-  (
-    12, 'Citroën', 1700, 'solar', 15000, 
-    'negromate', 'manual', 'puertas 2', 
-    'automatico', 'convertible', '8 pasajeros', 
-    11
-  ), 
-  (
-    13, 'Volkswagen', 2600, 'electrica', 
-    30000, 'rosado', 'manual', 'puertas 2', 
-    'manual', 'particular', '6 pasajeros', 
-    3
-  ), 
-  (
-    14, 'Byd', 2000, 'gas', 23000, 'amarillo', 
-    'manual', 'puertas 4', 'automatico', 
-    'sedan', '4 pasajeros', 4
-  ), 
-  (
-    15, 'hyundai', 1200, 'gasolina', 20000, 
-    'gris', 'manual', 'puertas 4', 'manual', 
-    'convertible', '3 pasajeros', 5
-  );
+CREATE TABLE `carros` (
+  `carro_id` int NOT NULL AUTO_INCREMENT,
+  `modelo` varchar(30) NOT NULL,
+  `cilindraje` int NOT NULL,
+  `tipo` varchar(30) NOT NULL,
+  `costo` int NOT NULL,
+  `color` varchar(30) NOT NULL,
+  `sistema_de_frenos` varchar(25) NOT NULL,
+  `cantidad_puertas` varchar(25) NOT NULL,
+  `transmision` varchar(25) NOT NULL,
+  `categoria` varchar(25) NOT NULL,
+  `cantidad_de_pasajeros` varchar(25) NOT NULL,
+  `usuario_carro_id` int NOT NULL,
+  `usuario_id` bigint NOT NULL,
+  `apellido` varchar(255) DEFAULT NULL,
+  `correo_eletronico` varchar(255) DEFAULT NULL,
+  `edad` varchar(255) DEFAULT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `telefono` varchar(255) DEFAULT NULL,
+  `tipo_usuario` bigint DEFAULT NULL,
+  `imgpath` varchar(255) DEFAULT NULL,
+  `c_uid` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`carro_id`,`usuario_carro_id`),
+  KEY `fk_carros_usuarios_idx` (`usuario_carro_id`),
+  CONSTRAINT `fk_carros_usuarios_idx` FOREIGN KEY (`usuario_carro_id`) REFERENCES `usuario` (`usuario_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+INSERT INTO `carros` VALUES (1,'Bmw',1800,'gas',67000,'morado','automatico','puertas 2','manual','particular','2 pasajeros',9,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/bmw.jpg',NULL),(2,'Toyota',2500,'gasolina',56000,'azul','manual','puertas 2','manual','todoterreno','4 pasajeros',10,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/toyota.jpg',NULL),(3,'Honda',1200,'gas',45000,'rojo','manual','puertas 3','manual','particular','4 pasajeros',11,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/honda.jpg',NULL),(4,'Nissan',3500,'electrica',30000,'naranja','manual','puertas 4','automatico','coupe','4 pasajeros',3,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/nissan.jpg',NULL),(5,'Suzuki',1500,'bio',25000,'blanco','manual','puertas 4','manual','sedan','4 pasajeros',4,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/suzuki.jpg',NULL),(6,'Ford',6000,'gasolina',80000,'verde','manual','puertas 2','automatico','particular','2 pasajeros',5,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/ford.jpg',NULL),(7,'Renauld',4500,'gas',32000,'negro','automatico','puertas 6','manual','sedan','4 pasajeros',6,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/renault.jpg',NULL),(8,'mini',2000,'electrica',16000,'plateado','automatico','puertas 4','automatico','particular','2 pasajeros',7,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/mini.jpg',NULL),(9,'Land Rover',3000,'gas',19000,'rojovino','manual','puertas 2','automatico','sedan','4 pasajeros',8,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/landrover.jpg',NULL),(10,'Volvo',2300,'bio',28000,'crema','manual','puertas 4','manual','coupe','3 pasajeros',9,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/volvo.jpg',NULL),(11,'Subaru',3000,'gasolina',45000,'celeste','manual','puertas 4','manual','coupe','5 pasajeros',10,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/subaru.jpg',NULL),(12,'Citroën',1700,'solar',15000,'negromate','manual','puertas 2','automatico','convertible','8 pasajeros',11,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/citroen.jpg',NULL),(13,'Volkswagen',2600,'electrica',30000,'rosado','manual','puertas 2','manual','particular','6 pasajeros',3,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/volkswagen.jpg',NULL),(14,'Byd',2000,'gas',23000,'amarillo','manual','puertas 4','automatico','sedan','4 pasajeros',4,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/byd.jpg',NULL),(15,'hyundai',1200,'gasolina',20000,'gris','manual','puertas 4','manual','convertible','3 pasajeros',5,0,NULL,NULL,NULL,NULL,NULL,NULL,'images/hyundai.jpg',NULL);
+
 
 
 CREATE TABLE `comentarios` (
