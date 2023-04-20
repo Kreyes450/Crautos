@@ -73,12 +73,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /*Para los Endpoints ventadecarros y login puede ingresar ADMIN solamente, para los endpoint PersonasN persona y login todos pueden ir */
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/usuarios")
+                .antMatchers("/usuariosA", "/noticias", "/comentariosAdm","/publicidad","/pagoAdmin")
+              
                 .hasRole("Admin")
 
 
                 /*persona y login solamente admin*/
-                .antMatchers("/comentarios", "/review", "/login")
+                .antMatchers("/comentariosUser", "/review", "/login")
                 /**/
                 .hasRole("User")
                 /*.hasAnyRole("User", "Admin") este es para multiples roles*/
