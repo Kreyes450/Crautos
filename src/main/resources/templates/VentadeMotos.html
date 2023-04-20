@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="css/VentadeMotos.css" />
-   </head>
-
-    <body class="p-3 m-0 border-0 bd-example">
-        <header> 
+        <meta charset="UTF-8">
+        <title>Venta de Motos</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/comentarios.css" />
+    </head>
+    <header> 
         <nav class="navbar navbar-expand-lg navbar-light bg-grey">
             <a class="navbar-brand" href="#"><img src="images/1.png" alt="Logo" class="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,23 +62,27 @@
         </nav>
 
     </header>
-        <br />
-        <br>
-        <br>
     <body>
-
-        <div class="container">
-            <th:block th:each="moto : ${motos}">
-                <tr>
-
-                <div class="caja cajan"><img th:src="${moto.getImgpath}"><td th:text="${moto.getModelo}+'  '">  </td><td th:text="${moto.getCosto}+'$  '">   </td><td><a th:href="@{/vermoto/{id}(id=${moto.getMoto_id})}">Ver_detalles</a></td></div>
-
-
-                </tr>
-            </th:block>
-
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4 mb-4" th:each="moto : ${motos}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${moto.getModelo}"></h5>
+                            <img <img style="width: 90%;" th:src="${moto.getImgpath}">
+                            <p class="card-text">Precio: $ <small class="text-muted" th:text="${moto.getCosto}"></small></p>
+                            <a th:href="@{/vermoto/{id}(id=${moto.getMoto_id})}" class="btn btn-primary mt-3">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--                    <a th:href="" class="btn btn-primary mt-3">Nuevo Vehiculo</a>-->
         </div>
-
-
-
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </body>
+
+</html>
+
+
