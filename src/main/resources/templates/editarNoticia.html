@@ -6,10 +6,10 @@
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
     </head>
-    <body>
+    <body style="background-image: url(../images/fondo.jpg); color: #FFFFFF;">
         <div class="container mt-5">
             <h1 class="text-center mb-5">Editar Noticia</h1>
-            <form th:object="${noticias}" method="post" th:action="@{/save}" class="form">
+            <form th:object="${noticias}" method="post" th:action="@{/saveNoticia}" class="form">
                 <input type="hidden" th:field="*{noticia_id}">
                 <div class="form-group">
                     <label for="fecha_noticia">Nueva Fecha</label>
