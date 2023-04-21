@@ -1,41 +1,73 @@
-body {
-  background-image: url(../images/fondo.jpg); 
-  background-size: auto;
- }
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 1, 2023, 8:34:34 PM
+    Author     : roleongu
+*/
 
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
-nav {
-  background-color: #333;
-  height: 70px;
+*{
+    margin:0;
+    padding:0;
+    font-family:'Itim', cursive;
+    box-sizing: border-box;
+
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
+body{
+    /*degradado de background en vez de un solo color, degradado, color donde empieza color donde termina*/
+    background: linear-gradient(120deg, #65098c, #e68BFA);
+    height: 100vh;
+    overflow:hidden;
+    
 }
 
-nav li {
-  margin: 14px;
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:400px;
+    background: white;
+    /*en vez que el cuadrado sea cuadrado se da una curvatura*/
+    border-radius:10px;
+    /*se puede rotar las etiquetas*/
+    transform: translate(-50%, -50%);
+    
 }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
+.center h1 {
+    /*h1 login se hace mas centrada y bonita */
+    text-align:center;
+    border-bottom:2px solid silver;
+    padding: 20px 0;    
 }
 
-nav a:hover {
-  color: #00b4db;
+/*un estilo al form*/
+
+.center form{
+    padding: 0 40px;
+    box-sizing: border-box;
+    
 }
 
-.logo {
-  height: 70px; 
- }
 
- 
- 
+form .txtfield {
+    position:relative;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
+    
+}
+
+.txtfield{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border:none;
+    background:none;
+    
+    
+}

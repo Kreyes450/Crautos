@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8" />
 
@@ -11,41 +12,60 @@
 
     <body class="p-3 m-0 border-0 bd-example">
         <header> 
-            <nav>
-                <ul>
-
-                    <img src="images/1.png" alt="Logo" class="logo">
-
-                    <li class="navOpcion">
-                        <a href="home.html" class="navLink menuLink">Home</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+            <a class="navbar-brand" href="#"><img src="images/1.png" alt="Logo" class="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="home">Home</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="VentadeCarros.html" class="navLink menuLink">Venta de Carros</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="ventadecarros">Autos</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="VentadeMotos.html" class="navLink menuLink">Venta de Motos</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="ventademotos">Motos</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="review.html" class="navLink menuLink">Review</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="publicidadUser">Publicidad</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="comentarios.html" class="navLink menuLink">Comentarios</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="review">Review</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="NoticiasNuevas.html" class="navLink menuLink">Noticias Nuevas</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="comentariosUser">Comentarios</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="soporteContacto.html" class="navLink menuLink">Soporte</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="noticiasUser">Noticias</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="login.html" class="navLink menuLink">Login</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="soporteContacto.html">Soporte</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="crearCuenta.html" class="navLink menuLink">Crear cuenta</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="crearCuenta">Crear Cuenta</a>
+                    </li>
+                    <li style="margin-left: 5px;"class="nav-item dropdown">
+                        <a style="color: #FFFFFF" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ADM
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="usuariosA">Usuarios</a>
+                            <a class="dropdown-item" href="noticias">Noticias</a>
+                            <a class="dropdown-item" href="comentariosAdm">Comentarios</a>
+                            <a class="dropdown-item" href="publicidad">Publicidad</a>
+                            <a class="dropdown-item" href="pagoAdmin">Suscripciones</a>
+                        </div>
                     </li>
                 </ul>
-            </nav>
-        </header>
+            </div>
+        </nav>
+
+    </header>
         <br />
 
 
@@ -56,14 +76,9 @@
   <th:block th:each="Review : ${review}">
     <tr>
       <div class="container2">
-          
-          <div class= "container3">
-        <img src="images/RAM.jpg">
-          </div>
         <td1 th:text="${Review.getTipoReview}"></td1>
         <td3 th:text="${Review.getNombreDeReview}"></td3>
-        <td2 th:text="${Review.getFechaReview}"></td2>
-        
+        <td2 th:text="${Review.getFecha_review}"></td2>
       </div>
     </tr>
   </th:block>

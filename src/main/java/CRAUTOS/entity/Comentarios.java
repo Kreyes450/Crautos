@@ -4,15 +4,18 @@
  */
 package CRAUTOS.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -23,16 +26,15 @@ import java.io.Serializable;
 public class Comentarios implements Serializable{
  
 @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
      private long comentarios_id;     
      private String fecha_comentario;
      private String nombre_comentario;
      private String cuerpo_comentario;
-     private int usuario_comentarios_id;
      
-     //@ManyToOne
-     //@JoinColumn(name = "usuario_comentarios_id")
-     //private Usuario usuario;
+     @ManyToOne
+     @JoinColumn(name = "usuario_comentarios_id")
+     private Usuario usuario_comentarios_id;
 
     public long getComentarios_id() {
         return comentarios_id;
@@ -66,15 +68,15 @@ public class Comentarios implements Serializable{
         this.cuerpo_comentario = cuerpo_comentario;
     }
 
-    public int getUsuario_comentarios_id() {
-       return usuario_comentarios_id;
+    public Usuario getUsuario_comentarios_id() {
+        return usuario_comentarios_id;
     }
 
-    public void setUsuario_comentarios_id(int usuario_comentarios_id) {
+    public void setUsuario_comentarios_id(Usuario usuario_comentarios_id) {
         this.usuario_comentarios_id = usuario_comentarios_id;
     }
-   
- 
+    
+    
  }
    
     

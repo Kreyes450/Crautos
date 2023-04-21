@@ -44,5 +44,45 @@ public class MotoController {
     /*Cambiar de aqui para abajo*/
  /**/
     
+        @GetMapping("/vermoto/{moto_id}")
+    public String editarMoto(@PathVariable("moto_id") Long idmoto, Model model) {
+        Moto moto = motoService.getMotoById(idmoto);
+        /*
+        List<Pais> listaPaises = paisService.listCountry();*/
+        model.addAttribute("moto", moto);/*
+        model.addAttribute("paises", listaPaises);*/
+        return "verm";
+    }
+    
+      @PostMapping("/returnm")
+    public String verMoto(@ModelAttribute Moto moto) {
+        /*
+        carroService.saveCarro(carro);
+        */
+        return "redirect:/ventademotos";
+    }
+    
+      @PostMapping("/savem")
+    public String guardarMoto(@ModelAttribute Moto moto) {
+        /*
+        carroService.saveCarro(carro);
+        */
+        return "redirect:/ventademotos";
+    }
+    
+    @GetMapping("/crearmoto")
+    
+     public String crearMoto(Model model) {
+        
+        /*
+        List<Carro> listaPaises = paisService.listCountry();*/
+        model.addAttribute("moto", new Moto());
+       
+        
+        
+        
+        return "crearm";
+    }
+    
 
 }

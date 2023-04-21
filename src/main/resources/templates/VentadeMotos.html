@@ -1,65 +1,88 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="css/VentadeMotos.css" />
-
-
-    <body class="p-3 m-0 border-0 bd-example">
-        <header> 
-            <nav>
-                <ul>
-
-                    <img src="images/1.png" alt="Logo" class="logo">
-
-                    <li class="navOpcion">
-                        <a href="templates/home" class="navLink menuLink">Home</a>
+        <meta charset="UTF-8">
+        <title>Venta de Motos</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/comentarios.css" />
+    </head>
+    <header> 
+        <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+            <a class="navbar-brand" href="#"><img src="images/1.png" alt="Logo" class="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="home">Home</a>
                     </li>
-                    <li class="navOpcion">
-
-                        <a href="templates/VentaDeCarros.html" class="navLink menuLink">Venta de Carros</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="ventadecarros">Autos</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="templates/VentadeMotos" class="navLink menuLink">Venta de Motos</a>
-
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="ventademotos">Motos</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="template/review" class="navLink menuLink">Review</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="publicidadUser">Publicidad</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="template/comentarios" class="navLink menuLink">Comentarios</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="review">Review</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="template/NoticiasNuevas" class="navLink menuLink">Noticias Nuevas</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="comentariosUser">Comentarios</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="template/soporteContacto" class="navLink menuLink">Soporte</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="noticiasUser">Noticias</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="template/login" class="navLink menuLink">Login</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="soporteContacto.html">Soporte</a>
                     </li>
-                    <li class="navOpcion">
-                        <a href="template/crearCuenta" class="navLink menuLink">Crear cuenta</a>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="crearCuenta">Crear Cuenta</a>
+                    </li>
+                    <li style="margin-left: 5px;"class="nav-item dropdown">
+                        <a style="color: #FFFFFF" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ADM
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="usuariosA">Usuarios</a>
+                            <a class="dropdown-item" href="noticias">Noticias</a>
+                            <a class="dropdown-item" href="comentariosAdm">Comentarios</a>
+                            <a class="dropdown-item" href="publicidad">Publicidad</a>
+                            <a class="dropdown-item" href="pagoAdmin">Suscripciones</a>
+                        </div>
                     </li>
                 </ul>
-            </nav>
-        </header>
-        <br />
+            </div>
+        </nav>
+
+    </header>
     <body>
-
-        <div class="container">
-            <th:block th:each="moto : ${motos}">
-                <tr>
-
-                <div class="caja cajan"><img src="images/DB11.jpeg"><td th:text="${moto.getModelo}+'  '">  </td><td th:text="${moto.getCosto}+'$  '">   </td><td><a th:href="@{/vermoto/{id}(id=${moto.getMoto_id})}">Ver_detalles</a></td></div>
-
-
-                </tr>
-            </th:block>
-
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4 mb-4" th:each="moto : ${motos}">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${moto.getModelo}"></h5>
+                            <img <img style="width: 90%;" th:src="${moto.getImgpath}">
+                            <p class="card-text">Precio: $ <small class="text-muted" th:text="${moto.getCosto}"></small></p>
+                            <a th:href="@{/vermoto/{id}(id=${moto.getMoto_id})}" class="btn btn-primary mt-3">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--                    <a th:href="" class="btn btn-primary mt-3">Nuevo Vehiculo</a>-->
         </div>
-
-
-
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </body>
+
+</html>
+
+

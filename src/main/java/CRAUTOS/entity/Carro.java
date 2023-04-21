@@ -4,14 +4,18 @@
  */
 package CRAUTOS.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import CRAUTOS.service.UserService;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -45,6 +49,8 @@ CREATE TABLE `carros`
 
 public class Carro implements Serializable {
 
+   
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -58,7 +64,17 @@ public class Carro implements Serializable {
     private String cantidad_puertas;
     private String transmision;
     private String categoria;
-     private String cantidad_de_pasajeros;
+    private String cantidad_de_pasajeros;
+    private String imgpath;
+
+  
+    public String getImgpath() {
+        return imgpath;
+    }
+
+    public void setImgpath(String imgpath) {
+        this.imgpath = imgpath;
+    }
 
     @ManyToOne
     @JoinColumn(name = "usuario_carro_id")
@@ -70,7 +86,6 @@ public class Carro implements Serializable {
     @JoinColumn(name= "Carro_ID")
     private Carro carro;
      */
-
     public long getCarro_id() {
         return carro_id;
     }

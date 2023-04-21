@@ -5,7 +5,9 @@
 package CRAUTOS.controller;
 
 import CRAUTOS.entity.Comentarios;
+import CRAUTOS.entity.Usuario;
 import CRAUTOS.service.IComentariosService;
+import CRAUTOS.service.IUsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,58 +17,62 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
-
 /**
  *
  * @author Kenneth
  */
-
 @Controller
 public class ComentariosController {
-  
+
     @Autowired
     private IComentariosService comentariosService;
- 
-   //@Autowired
 
-    
-    @GetMapping("/comentarios")
+    @Autowired
+    private IUsuarioService usuarioService;
+
+    @GetMapping("/comentariosAdm")
     public String index(Model model) {
         List<Comentarios> listaComentarios = comentariosService.getAllComentarios();
         model.addAttribute("titulo", "Tabla comentarios");
         model.addAttribute("comentarios", listaComentarios);
-        return "comentarios";
+        return "comentariosAdm";
     }
- 
+
+    @GetMapping("/comentariosUser")
+    public String indexC(Model model) {
+        List<Comentarios> listaComentarios = comentariosService.getAllComentarios();
+        model.addAttribute("titulo", "Tabla comentarios");
+        model.addAttribute("comentarios", listaComentarios);
+        return "comentariosUser";
+    }
+
     @GetMapping("/comentarioN")
     public String crearComentarios(Model model) {
-       //List<Pais> listaPaises = paisService.listCountry();
-       model.addAttribute("comentarios", new Comentarios());
-       //model.addAttribute("paises", listaPaises);
-       return"crearComentarios";
+        List<Usuario> listaUsuario = usuarioService.getAllUsuario();
+        model.addAttribute("comentarios", new Comentarios());
+        model.addAttribute("usuarios", listaUsuario);
+        return "crearComentario";
     }
-    
-    @GetMapping("/delete/{idC}")
-    public String eliminarComentarios(@PathVariable("comentarios_id") Long idComentario) {
+
+    @GetMapping("/borrar/{idComentario}")
+    public String eliminarComentarios(@PathVariable("idComentario") Long idComentario) {
         comentariosService.delete(idComentario);
-        return"redirect:/comentarios";
+        return "redirect:/comentariosAdm";
     }
-    
-    @PostMapping("/saveC")
+
+    @PostMapping("/saveComment")
     public String guardarComentarios(@ModelAttribute Comentarios comentarios) {
         comentariosService.saveComentarios(comentarios);
-        return"redirect:/comentarios";  
-  }
+        return "redirect:/comentariosUser";
+    }
 
     @GetMapping("editComentarios/{id}")
     public String editarComentarios(@PathVariable("comentarios_id") Long idComentario, Model model) {
-            Comentarios comentarios = comentariosService.getComentariosById(idComentario);
-            //List<Pais> listaPaises = paisService.listCountry();
-            model.addAttribute("comentarios", comentarios);
-            //model.addAttribute("paises", listaPaises);
-            return "crearComentarios";   
-}
-
+        Comentarios comentarios = comentariosService.getComentariosById(idComentario);
+        List<Usuario> listaUsuario = usuarioService.getAllUsuario();
+        model.addAttribute("comentarios", comentarios);
+        model.addAttribute("usuarios", listaUsuario);
+        return "crearComentarios";
+    }
 
 }

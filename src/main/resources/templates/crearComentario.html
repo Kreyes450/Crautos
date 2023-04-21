@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+        <meta charset="UTF-8">
+        <title>Crear Comentario</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/comentarios.css" />
+    </head>
+<body>
+        <div class="feedback">
+            <h2 style="color: #fff" class="text-center mt-5">Feedback y Comentarios</h2>
+            <p style="color: #fff" class="text-center">¡Nos encantaría saber tu opinión sobre nuestra pagina! Por favor, envíanos tus comentarios y sugerencias.</p>
+            <form th:object ="${comentarios}" method="POST" th:action="@{/saveComment}">
+                <input type="hidden" th:field="*{comentarios_id}">
+                <div class="form-group">
+                    <label style="color: #fff"for="usuario_comentarios_id">Selecciona tu ID de usuario:</label>
+                        <select th:field="*{usuario_comentarios_id}" class="form-control" id="usuario_comentarios_id" aria-describedby="emailHelp">                                    
+                                <option th:each="x:${usuarios}"                                            th:value="${x.usuario_id}"                                            th:text="${x.usuario_id}"/>                                
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label style="color: #fff" for="nombre_comentario">Titulo</label>
+                    <input type="text" class="form-control" id="nombre_comentario" th:field="*{nombre_comentario}" aria-describedby="emailHelp" placeholder="Ingresa el titulo de tu comentario">
+                </div>
+                <div class="form-group">
+                    <label style="color: #fff" for="cuerpo_comentario">Comentario</label>
+                    <textarea type="text" class="form-control" id="cuerpo_comentario" th:field="*{cuerpo_comentario}" aria-describedby="emailHelp" rows="3" placeholder="Ingresa tu comentario"></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="color: #fff" for="fecha_comentario">Fecha</label>
+                    <input type="date" class="form-control" id="fecha_comentario" th:field="*{fecha_comentario}" aria-describedby="emailHelp" placeholder="Selecciona la fecha">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

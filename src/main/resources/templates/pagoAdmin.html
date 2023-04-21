@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pagos</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="css/comentarios.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <header> 
+        <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+            <a class="navbar-brand" href="#"><img src="images/1.png" alt="Logo" class="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="ventadecarros">Autos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="ventademotos">Motos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="publicidadUser">Publicidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="review">Review</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="comentariosUser">Comentarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="noticiasUser">Noticias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="soporteContacto.html">Soporte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="crearCuenta">Crear Cuenta</a>
+                    </li>
+                    <li style="margin-left: 5px;"class="nav-item dropdown">
+                        <a style="color: #FFFFFF" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ADM
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="usuariosA">Usuarios</a>
+                            <a class="dropdown-item" href="noticias">Noticias</a>
+                            <a class="dropdown-item" href="comentariosAdm">Comentarios</a>
+                            <a class="dropdown-item" href="publicidad">Publicidad</a>
+                            <a class="dropdown-item" href="pagoAdmin">Suscripciones</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+    <body>
+        <div class="container">
+            <h1>Suscripciones Activas</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="color: #fff">ID</th>
+                        <th style="color: #fff">Nombre</th>
+                        <th style="color: #fff">Apellido</th>
+                        <th style="color: #fff">Número de tarjeta</th>
+                        <th style="color: #fff">Fecha de vencimiento</th>
+                        <th style="color: #fff">Código</th>
+                        <th style="color: #fff">ID Usuario</th>
+                        <th style="color: #fff">Paquete Activo</th>
+                        <th style="color: #fff">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="pago : ${pago}">
+                        <td style="color: #fff" th:text="${pago.getPago_id()}"></td>
+                        <td style="color: #fff" th:text="${pago.getNombre()}"></td>
+                        <td style="color: #fff" th:text="${pago.getApellido()}"></td>
+                        <td style="color: #fff" th:text="${pago.getNumero_de_tarjeta()}"></td>
+                        <td style="color: #fff" th:text="${pago.getFecha_de_vencimiento()}"></td>
+                        <td style="color: #fff" th:text="${pago.getCodigo()}"></td>
+                        <td style="color: #fff" th:text="${pago.getUsuario_id().getUsuario_id()}"></td>
+                        <td style="color: #fff" th:text="${pago.getPublicidad_id().getNombre_paquete()}"></td>
+                        <td>
+                            <a th:href="@{deletePago/{idP}(idP=${pago.getPago_id()})}"
+                               class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>
