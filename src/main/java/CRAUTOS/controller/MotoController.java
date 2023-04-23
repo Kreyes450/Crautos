@@ -57,16 +57,15 @@ public class MotoController {
       @PostMapping("/returnm")
     public String verMoto(@ModelAttribute Moto moto) {
         /*
-        carroService.saveCarro(carro);
+        motoService.saveMoto(moto);
         */
         return "redirect:/ventademotos";
     }
     
       @PostMapping("/savem")
     public String guardarMoto(@ModelAttribute Moto moto) {
-        /*
-        carroService.saveCarro(carro);
-        */
+        motoService.saveMoto(moto);
+        
         return "redirect:/ventademotos";
     }
     

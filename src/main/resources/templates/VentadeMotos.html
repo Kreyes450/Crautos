@@ -19,6 +19,12 @@
                         <a style="color: #FFFFFF" class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="crearauto" th:if="${#authorization.expression('hasRole(''User'')')}">Venda su auto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="crearmoto" th:if="${#authorization.expression('hasRole(''User'')')}">Venda su Moto</a>
+                    </li>
+                    <li class="nav-item">
                         <a style="color: #FFFFFF" class="nav-link" href="ventadecarros">Autos</a>
                     </li>
                     <li class="nav-item">
@@ -76,9 +82,9 @@
                     </div>
                 </div>
             </div>
-<!--                    <a th:href="" class="btn btn-primary mt-3">Nuevo Vehiculo</a>-->
+            <!--                    <a th:href="" class="btn btn-primary mt-3">Nuevo Vehiculo</a>-->
         </div>
-       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </body>

@@ -18,6 +18,12 @@
                         <a style="color: #FFFFFF" class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="crearauto" th:if="${#authorization.expression('hasRole(''User'')')}">Venda su auto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: #FFFFFF" class="nav-link" href="crearmoto" th:if="${#authorization.expression('hasRole(''User'')')}">Venda su Moto</a>
+                    </li>
+                    <li class="nav-item">
                         <a style="color: #FFFFFF" class="nav-link" href="ventadecarros">Autos</a>
                     </li>
                     <li class="nav-item">
@@ -73,8 +79,8 @@
                             <p class="card-text" th:text="${publicidad.getDescricion_paquete}"></p>
                             <p class="card-text">Precio: ₡ <small class="text-muted" th:text="${publicidad.getPrecio_paquete}"></small></p>
                             <p class="card-text">Numero de paquete: <small class="text-muted" th:text="${publicidad.getPublicidad_id}"></small></p>
-<!--                            <a th:href="@{/editPublicidad/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-warning mr-2">Editar</a>
-                            <a th:href="@{/eliminarPub/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-danger">Eliminar</a>-->
+                            <!--                            <a th:href="@{/editPublicidad/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-warning mr-2">Editar</a>
+                                                        <a th:href="@{/eliminarPub/{id}(id=${publicidad.getPublicidad_id})}" class="btn btn-danger">Eliminar</a>-->
                             <a th:href="crearPago" class="btn btn-primary mt-3">Adquirir Paquete</a>
                         </div>
                     </div>

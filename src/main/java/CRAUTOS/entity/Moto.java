@@ -55,6 +55,15 @@ public class Moto implements Serializable {
     private String transmision;
     private String costo;
     private String imgpath;
+    private String usuario_moto_id;
+
+    public String getUsuario_moto_id() {
+        return usuario_moto_id;
+    }
+
+    public void setUsuario_moto_id(String usuario_moto_id) {
+        this.usuario_moto_id = usuario_moto_id;
+    }
 
     public String getImgpath() {
         return imgpath;
@@ -66,7 +75,7 @@ public class Moto implements Serializable {
   
 
     @ManyToOne
-    @JoinColumn(name = "usuario_moto_id")
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     public long getMoto_id() {

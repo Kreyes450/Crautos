@@ -66,15 +66,16 @@ public class Carro implements Serializable {
     private String categoria;
     private String cantidad_de_pasajeros;
     private String imgpath;
-    private String usuario_id;
+    private String usuario_carro_id;
 
-    public String getUsuario_id() {
-        return usuario_id;
+    public String getUsuario_carro_id() {
+        return usuario_carro_id;
     }
 
-    public void setUsuario_id(String usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setUsuario_carro_id(String usuario_carro_id) {
+        this.usuario_carro_id = usuario_carro_id;
     }
+
 
   
     public String getImgpath() {
@@ -86,7 +87,7 @@ public class Carro implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "usuario_carro_id")
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
 
