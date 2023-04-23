@@ -66,6 +66,15 @@ public class Carro implements Serializable {
     private String categoria;
     private String cantidad_de_pasajeros;
     private String imgpath;
+    private String usuario_id;
+
+    public String getUsuario_id() {
+        return usuario_id;
+    }
+
+    public void setUsuario_id(String usuario_id) {
+        this.usuario_id = usuario_id;
+    }
 
   
     public String getImgpath() {
