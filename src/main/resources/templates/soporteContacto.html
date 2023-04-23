@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8">
-        <title>Noticias</title>
+        <title>Comentarios</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/NoticiasNuevas.css" />
+        <link rel="stylesheet" href="css/comentarios.css" />
+        <link rel="stylesheet" href="css/soporteContacto.css" />
     </head>
     <header> 
         <nav class="navbar navbar-expand-lg navbar-light bg-grey">
@@ -61,29 +63,64 @@
         </nav>
 
     </header>
-    <body>
-        <div class="container mt-5">
-            <h1 class="text-center mb-5">Noticias ADMIN</h1>
-            <div class="row">
-                <!-- Iteramos sobre la lista de noticias para mostrar cada una en un cuadro -->
-                <div class="col-md-4 mb-4" th:each="noticia : ${noticias}">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${noticia.nombre_noticia}"></h5>
-                            <p class="card-text" th:text="${noticia.cuerpo_noticia}"></p>
-                            <p class="card-text"><small class="text-muted" th:text="${noticia.fecha_noticia}"></small></p>
-                            <a th:href="@{/editNoticia/{id}(id=${noticia.noticia_id})}" class="btn btn-warning mr-2">Editar</a>
-                            <a th:href="@{/borrarN/{id}(id=${noticia.noticia_id})}" class="btn btn-danger">Eliminar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a th:href="@{/noticiaN}" class="btn btn-primary mt-3">Nueva Noticia</a>
-        </div>
+    <br>
+    <br>
+    <body style="margin-bottom: 80px;">
 
+        <main>
+            <div class="contact-form">
+                <h2>Contáctenos</h2>
+
+                <form id="contact" method="post">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <input type="submit" value="Enviar">
+                    <br>
+                    <h3>
+                        <span class="material-symbols-outlined">Correo:</span>
+                        <i class="fa fa-envelope"></i> crautosoporte@gmail.com
+                    </h3>
+
+                    <h3>
+                        <span class="material-symbols-outlined">Telefono: </span>
+                        <i class="fa fa-phone"></i> (506) 1234-5678
+                    </h3>
+
+                </form>
+
+                <a href="mailto:crautosoporte@gmail.com" id="btn">mail</a>
+            </div>
+
+        </main>
+
+
+        <script>
+            const $form = document.querySelector('#contact');
+            const $buttonMailto = document.querySelector('#btn');
+            const $submitButton = document.querySelector('input[type="submit"]');
+
+            $submitButton.addEventListener('click', handleSubmit);
+
+            function handleSubmit(event) {
+                event.preventDefault();
+                const form = new FormData($form);
+                console.log(form.get('name'));
+                $buttonMailto.setAttribute('href', `mailto:crautosoporte@gmail.com?subject=${form.get('name')} ${form.get('email')}&body=${form.get('message')}`);
+                $buttonMailto.click();
+            }
+        </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </body>
+
 </html>
+
 

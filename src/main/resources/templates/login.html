@@ -48,7 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <a style="color: #FFFFFF" class="nav-link" href="noticiasUser">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: #FFFFFF" class="nav-link" href="soporteContacto.html">Soporte</a>
+                        <a style="color: #FFFFFF" class="nav-link" href="soporteContacto">Soporte</a>
                     </li>
                     <li class="nav-item">
                         <a style="color: #FFFFFF" class="nav-link" href="login">Login</a>
@@ -57,7 +57,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <a style="color: #FFFFFF" class="nav-link" href="crearCuenta">Crear Cuenta</a>
                     </li>
                     <li style="margin-left: 5px;"class="nav-item dropdown">
-                        <a style="color: #FFFFFF" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a style="color: #FFFFFF" class="nav-link dropdown-toggle" href="#" th:if="${#authorization.expression('hasRole(''Admin'')')}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             ADM
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">

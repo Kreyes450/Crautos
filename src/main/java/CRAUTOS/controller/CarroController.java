@@ -57,6 +57,14 @@ public class CarroController {
 
          return "home";
     }
+           @GetMapping("/soporteContacto")
+    /*Model nos ayuda con el metodo addAttribute la informacion al frontend*/
+      public String soporteContacto(Model model) {
+        
+        model.addAttribute("persona", "prueba");
+
+         return "soporteContacto";
+    }
        
     
 
