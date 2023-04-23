@@ -35,17 +35,19 @@ CREATE TABLE `carros` (
   `categoria` varchar(25) NOT NULL,
   `cantidad_de_pasajeros` varchar(25) NOT NULL,
   `usuario_carro_id` int NOT NULL,
-  `usuario_id` bigint NOT NULL,
+  `usuario_id` bigint DEFAULT NULL,
   `apellido` varchar(255) DEFAULT NULL,
   `correo_eletronico` varchar(255) DEFAULT NULL,
   `edad` varchar(255) DEFAULT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `telefono` varchar(255) DEFAULT NULL,
   `tipo_usuario` bigint DEFAULT NULL,
+  `imgpath` varchar(255) DEFAULT NULL,
+  `c_uid` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`carro_id`,`usuario_carro_id`),
   KEY `fk_carros_usuarios_idx` (`usuario_carro_id`),
   CONSTRAINT `fk_carros_usuarios_idx` FOREIGN KEY (`usuario_carro_id`) REFERENCES `usuario` (`usuario_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,7 +56,7 @@ CREATE TABLE `carros` (
 
 LOCK TABLES `carros` WRITE;
 /*!40000 ALTER TABLE `carros` DISABLE KEYS */;
-INSERT INTO `carros` VALUES (1,'Bmw',1800,'gas',67000,'morado','automatico','puertas 2','manual','particular','2 pasajeros',9,0,NULL,NULL,NULL,NULL,NULL,NULL),(2,'Toyota',2500,'gasolina',56000,'azul','manual','puertas 2','manual','todoterreno','4 pasajeros',10,0,NULL,NULL,NULL,NULL,NULL,NULL),(3,'Honda',1200,'gas',45000,'rojo','manual','puertas 3','manual','particular','4 pasajeros',11,0,NULL,NULL,NULL,NULL,NULL,NULL),(4,'Nissan',3500,'electrica',30000,'naranja','manual','puertas 4','automatico','coupe','4 pasajeros',3,0,NULL,NULL,NULL,NULL,NULL,NULL),(5,'Suzuki',1500,'bio',25000,'blanco','manual','puertas 4','manual','sedan','4 pasajeros',4,0,NULL,NULL,NULL,NULL,NULL,NULL),(6,'Ford',6000,'gasolina',80000,'verde','manual','puertas 2','automatico','particular','2 pasajeros',5,0,NULL,NULL,NULL,NULL,NULL,NULL),(7,'Renauld',4500,'gas',32000,'negro','automatico','puertas 6','manual','sedan','4 pasajeros',6,0,NULL,NULL,NULL,NULL,NULL,NULL),(8,'Prius',2000,'electrica',16000,'plateado','automatico','puertas 4','automatico','particular','2 pasajeros',7,0,NULL,NULL,NULL,NULL,NULL,NULL),(9,'LanRober',3000,'gas',19000,'rojovino','manual','puertas 2','automatico','sedan','4 pasajeros',8,0,NULL,NULL,NULL,NULL,NULL,NULL),(10,'Volvo',2300,'bio',28000,'crema','manual','puertas 4','manual','coupe','3 pasajeros',9,0,NULL,NULL,NULL,NULL,NULL,NULL),(11,'Subaru',3000,'gasolina',45000,'celeste','manual','puertas 4','manual','coupe','5 pasajeros',10,0,NULL,NULL,NULL,NULL,NULL,NULL),(12,'Citroën',1700,'solar',15000,'negromate','manual','puertas 2','automatico','convertible','8 pasajeros',11,0,NULL,NULL,NULL,NULL,NULL,NULL),(13,'Volkswagen',2600,'electrica',30000,'rosado','manual','puertas 2','manual','particular','6 pasajeros',3,0,NULL,NULL,NULL,NULL,NULL,NULL),(14,'Byd',2000,'gas',23000,'amarillo','manual','puertas 4','automatico','sedan','4 pasajeros',4,0,NULL,NULL,NULL,NULL,NULL,NULL),(15,'hyundai',1200,'gasolina',20000,'gris','manual','puertas 4','manual','convertible','3 pasajeros',5,0,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `carros` VALUES (1,'Bmw',1800,'gas',67000,'morado','automatico','puertas 2','manual','particular','2 pasajeros',9,9,NULL,NULL,NULL,NULL,NULL,NULL,'images/bmw.jpg',NULL),(2,'Toyota',2500,'gasolina',56000,'azul','manual','puertas 2','manual','todoterreno','4 pasajeros',10,10,NULL,NULL,NULL,NULL,NULL,NULL,'images/toyota.jpg',NULL),(3,'Honda',1200,'gas',45000,'rojo','manual','puertas 3','manual','particular','4 pasajeros',11,11,NULL,NULL,NULL,NULL,NULL,NULL,'images/honda.jpg',NULL),(4,'Nissan',3500,'electrica',30000,'naranja','manual','puertas 4','automatico','coupe','4 pasajeros',3,3,NULL,NULL,NULL,NULL,NULL,NULL,'images/nissan.jpg',NULL),(5,'Suzuki',1500,'bio',25000,'blanco','manual','puertas 4','manual','sedan','4 pasajeros',4,4,NULL,NULL,NULL,NULL,NULL,NULL,'images/suzuki.jpg',NULL),(6,'Ford',6000,'gasolina',80000,'verde','manual','puertas 2','automatico','particular','2 pasajeros',5,5,NULL,NULL,NULL,NULL,NULL,NULL,'images/ford.jpg',NULL),(7,'Renauld',4500,'gas',32000,'negro','automatico','puertas 6','manual','sedan','4 pasajeros',6,6,NULL,NULL,NULL,NULL,NULL,NULL,'images/renault.jpg',NULL),(8,'mini',2000,'electrica',16000,'plateado','automatico','puertas 4','automatico','particular','2 pasajeros',7,7,NULL,NULL,NULL,NULL,NULL,NULL,'images/mini.jpg',NULL),(9,'Land Rover',3000,'gas',19000,'rojovino','manual','puertas 2','automatico','sedan','4 pasajeros',8,8,NULL,NULL,NULL,NULL,NULL,NULL,'images/landrover.jpg',NULL),(10,'Volvo',2300,'bio',28000,'crema','manual','puertas 4','manual','coupe','3 pasajeros',9,9,NULL,NULL,NULL,NULL,NULL,NULL,'images/volvo.jpg',NULL),(11,'Subaru',3000,'gasolina',45000,'celeste','manual','puertas 4','manual','coupe','5 pasajeros',10,10,NULL,NULL,NULL,NULL,NULL,NULL,'images/subaru.jpg',NULL),(12,'Citroën',1700,'solar',15000,'negromate','manual','puertas 2','automatico','convertible','8 pasajeros',11,11,NULL,NULL,NULL,NULL,NULL,NULL,'images/citroen.jpg',NULL),(13,'Volkswagen',2600,'electrica',30000,'rosado','manual','puertas 2','manual','particular','6 pasajeros',3,3,NULL,NULL,NULL,NULL,NULL,NULL,'images/volkswagen.jpg',NULL),(14,'Byd',2000,'gas',23000,'amarillo','manual','puertas 4','automatico','sedan','4 pasajeros',4,4,NULL,NULL,NULL,NULL,NULL,NULL,'images/byd.jpg',NULL),(15,'hyundai',1200,'gasolina',20000,'gris','manual','puertas 4','manual','convertible','3 pasajeros',5,5,NULL,NULL,NULL,NULL,NULL,NULL,'images/hyundai.jpg',NULL),(16,'Prueba',1,'prueba',1,'prueba','prueba','prueba','prueba,prueba','prueba','1',3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `carros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,10 +132,12 @@ CREATE TABLE `motos` (
   `transmision` varchar(40) NOT NULL,
   `costo` int NOT NULL,
   `usuario_moto_id` int NOT NULL,
+  `imgpath` varchar(255) DEFAULT NULL,
+  `usuario_id` int DEFAULT NULL,
   PRIMARY KEY (`moto_id`,`usuario_moto_id`),
   KEY `fk_motos_usuarios_idx` (`usuario_moto_id`),
   CONSTRAINT `fk_motos_usuarios_idx` FOREIGN KEY (`usuario_moto_id`) REFERENCES `usuario` (`usuario_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,7 +146,7 @@ CREATE TABLE `motos` (
 
 LOCK TABLES `motos` WRITE;
 /*!40000 ALTER TABLE `motos` DISABLE KEYS */;
-INSERT INTO `motos` VALUES (1,'BMW',500,'verde','gas','manual',18000,3),(2,'Yamaha',250,'rojo','gasolina','manual',150001,4),(3,'Honda',400,'naraja','gas','automatico',20000,5),(4,'Freedom',150,'azul','electrica','manual',10000,6),(5,'Kawazaki',1200,'morado','bio','automatico',25000,7),(6,'KTM',1050,'rosado','gasolina','manual',12000,8);
+INSERT INTO `motos` VALUES (1,'BMW',500,'verde','gas','manual',18000,3,'images/bmwmoto.jpg',3),(2,'Yamaha',250,'rojo','gasolina','manual',150001,4,'images/yamahamoto.jpg',4),(3,'Honda',400,'naraja','gas','automatico',20000,5,'images/hondamoto.jpg',5),(4,'Freedom',150,'azul','electrica','manual',10000,6,'images/freedommoto.jpg',6),(5,'Kawazaki',1200,'morado','bio','automatico',25000,7,'images/kawasakimoto.jpeg',7),(6,'KTM',1050,'rosado','gasolina','manual',12000,8,'images/ktmmoto.jpg',8),(11,'Prueba',1,'prueba','prueba','prueba',1,3,NULL,NULL);
 /*!40000 ALTER TABLE `motos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,6 +177,65 @@ LOCK TABLES `noticias` WRITE;
 /*!40000 ALTER TABLE `noticias` DISABLE KEYS */;
 INSERT INTO `noticias` VALUES (1,'2023-05-12','resistencia','los nuevos vehiculos incluyen mejores materiales',1),(2,'2023-06-13','motor','las motos mas nuevas tienen menor cilindraje pero dan mejor rendimiento',1),(3,'2023-07-14','carroceria','se esta implementando una nueva aleacion para las carrocerias',2),(4,'2023-08-15','productos','proximamente se estara vendiendo mercaderia de crautos',2),(5,'2023-09-16','general','la aplicacion estara en mantenimiento durante esta fecha',1),(6,'2023-10-17','vehiculos','nuevos vehiculos todos los dias',2);
 /*!40000 ALTER TABLE `noticias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pago`
+--
+
+DROP TABLE IF EXISTS `pago`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pago` (
+  `pago_id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(80) NOT NULL,
+  `apellido` varchar(80) NOT NULL,
+  `numero_de_tarjeta` int NOT NULL,
+  `fecha_de_vencimiento` date NOT NULL,
+  `codigo` int NOT NULL,
+  `usuario_id` int NOT NULL,
+  `publicidad_id` int NOT NULL,
+  PRIMARY KEY (`pago_id`),
+  KEY `usuario_id` (`usuario_id`),
+  KEY `publicidad_id` (`publicidad_id`),
+  CONSTRAINT `pago_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`usuario_id`),
+  CONSTRAINT `pago_ibfk_2` FOREIGN KEY (`publicidad_id`) REFERENCES `publicidad` (`publicidad_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pago`
+--
+
+LOCK TABLES `pago` WRITE;
+/*!40000 ALTER TABLE `pago` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pago` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `publicidad`
+--
+
+DROP TABLE IF EXISTS `publicidad`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `publicidad` (
+  `publicidad_id` int NOT NULL AUTO_INCREMENT,
+  `nombre_paquete` varchar(80) NOT NULL,
+  `descricion_paquete` varchar(150) NOT NULL,
+  `precio_paquete` int NOT NULL,
+  PRIMARY KEY (`publicidad_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `publicidad`
+--
+
+LOCK TABLES `publicidad` WRITE;
+/*!40000 ALTER TABLE `publicidad` DISABLE KEYS */;
+INSERT INTO `publicidad` VALUES (1,'Paquete Diamante','por la suscripcion de este paquete tu vehiculo se muestra siempre destacado y aparecera mas veces en pantalla',50000),(2,'Paquete Oro','por la suscripcion de este paquete tu vehiculo se muestra tres veces a la semana como destacado',40000),(3,'Paquete Plata','por la suscripcion de este paquete tu vehiculo se muestra dos veces a la semana como destacado',30000),(4,'Paquete Bronce','por la suscripcion de este paquete tu vehiculo se muestra una vez a la semana como destacado',20000);
+/*!40000 ALTER TABLE `publicidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -268,10 +331,6 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (1,'Carlos','Leon','21',86556430,'CarlosGonzales@hotmail.com',1,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','Admin','Admin',1),(2,'Daniel','Chaves','22',88245693,'Daniel@hotmail.com',1,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','Admin','Admin',1),(3,'Ronald','Gomez','20',22365648,'Ronald@hotmail.com',2,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','User','User',1),(4,'Mathias','Guzman','34',87256933,'Matiasguzman@hotmail.com',2,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','User','User',1),(5,'Roy','Chavarria','45',78569836,'Roy@hotmail.com',2,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','User','User',1),(6,'Alex','Marin','20',89632654,'Alex@hotmail.com',2,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','User','User',1),(7,'Mauricio','Elizondo','23',60364525,'Mauricio@hotmail.com',2,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','User','User',1),(8,'Josue','Espinoza','26',60364525,'Josue@hotmail.com',2,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','User','User',1),(9,'Martin','Castaño','28',70265896,'Martin@hotmail.com',2,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','User','User',1),(10,'Kevin','Umaña','27',65236458,'Kevin@hotmail.com',2,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','User','User',1),(11,'Salin','Gutierrez','22',88576430,'Salin@hotmail.com',2,'prueba@crautos.com','$2a$10$o4pARtqK/KyymM1lfJ.awuriak24N.XoeddPh9vkna8OIB3dEL7Xe','User','User',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'crautos'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -282,4 +341,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-13 22:32:56
+-- Dump completed on 2023-04-22 19:03:09
